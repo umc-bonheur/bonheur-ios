@@ -11,6 +11,7 @@
 		553ECDD42966B5E5003D8EEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553ECDD32966B5E5003D8EEA /* SceneDelegate.swift */; };
 		553ECDDB2966B5E7003D8EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553ECDDA2966B5E7003D8EEA /* Assets.xcassets */; };
 		553ECDDE2966B5E7003D8EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553ECDDC2966B5E7003D8EEA /* LaunchScreen.storyboard */; };
+		55BBCF772968EC09009D56E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BBCF762968EC09009D56E6 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		553ECDDA2966B5E7003D8EEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553ECDDD2966B5E7003D8EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		553ECDDF2966B5E7003D8EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55BBCF762968EC09009D56E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,20 +67,12 @@
 		5598746C2966B7E100A679C4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				55BBCF732968EBDA009D56E6 /* SarangKim */,
 				559874732966B95E00A679C4 /* SohyeonKim */,
 				559874722966B94C00A679C4 /* JeongyeonLee */,
 				559874712966B92100A679C4 /* RockyLim */,
-				559874702966B82A00A679C4 /* SarangKim */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		559874702966B82A00A679C4 /* SarangKim */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SarangKim;
-			path = "김사랑";
 			sourceTree = "<group>";
 		};
 		559874712966B92100A679C4 /* RockyLim */ = {
@@ -100,6 +94,14 @@
 			children = (
 			);
 			path = SohyeonKim;
+			sourceTree = "<group>";
+		};
+		55BBCF732968EBDA009D56E6 /* SarangKim */ = {
+			isa = PBXGroup;
+			children = (
+				55BBCF762968EC09009D56E6 /* ViewController.swift */,
+			);
+			path = SarangKim;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BBCF772968EC09009D56E6 /* ViewController.swift in Sources */,
 				553ECDD22966B5E5003D8EEA /* AppDelegate.swift in Sources */,
 				553ECDD42966B5E5003D8EEA /* SceneDelegate.swift in Sources */,
 			);
