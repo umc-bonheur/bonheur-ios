@@ -52,7 +52,6 @@ final class ViewController: UIViewController {
         return button
     }()
     
-    
     // 각 버튼 스택 뷰로 묶음
     lazy var stackView: UIStackView = {
         let st = UIStackView(arrangedSubviews: [rockyButton, jeongyeonButton, sarangButton, sohyeonButton])
@@ -62,8 +61,6 @@ final class ViewController: UIViewController {
         st.alignment = .fill
         return st
     }()
-    
-    
     
     // MARK: - 뷰디드로드
     override func viewDidLoad() {
@@ -95,9 +92,8 @@ final class ViewController: UIViewController {
         
     }
 
-
     @objc func rockyButtonTapped() {
-        let rockyVC = RockyViewController()
+        let rockyVC = CalendarViewController()
         
         rockyVC.someString = "Rocky's page"
         
@@ -105,29 +101,26 @@ final class ViewController: UIViewController {
         present(rockyVC, animated: true, completion: nil)
     }
     
-    
     @objc func jeongyeonButtonTapped() {
-        let jeongyeonVC = JeongyeonViewController()
+        let jeongyeonVC = OnboardingViewController()
         
         jeongyeonVC.someString = "Jeongyeon's page"
         
         jeongyeonVC.modalPresentationStyle = .fullScreen // 전체화면으로 띄우기
         present(jeongyeonVC, animated: true, completion: nil)
     }
-    
-    
+        
     @objc func sarangButtonTapped() {
-        let sarangVC = JeongyeonViewController()
+        let sarangVC = MyPageViewController()
         
         sarangVC.someString = "Sarang's page"
         
         sarangVC.modalPresentationStyle = .fullScreen // 전체화면으로 띄우기
         present(sarangVC, animated: true, completion: nil)
     }
-    
-    
+        
     @objc func sohyeonButtonTapped() {
-        let sohyeonVC = JeongyeonViewController()
+        let sohyeonVC = HomeViewController()
         
         sohyeonVC.someString = "Sohyeon's page"
         
