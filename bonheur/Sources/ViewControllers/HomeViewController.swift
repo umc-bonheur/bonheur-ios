@@ -1,13 +1,13 @@
 //
-//  JeongyeonViewController.swift
+//  HomeViewController.swift
 //  bonheur
 //
-//  Created by Rocky on 2023/01/09.
+//  Created by 이정연 on 2023/01/09.
 //
 
 import UIKit
 
-class JeongyeonViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     let mainLabel = UILabel()
     
@@ -23,10 +23,9 @@ class JeongyeonViewController: UIViewController {
     
     var someString: String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
         makeAutoLayout()
     }
@@ -39,7 +38,6 @@ class JeongyeonViewController: UIViewController {
         view.addSubview(backButton)
         
         view.backgroundColor = .white
-
     }
     
     
@@ -60,7 +58,6 @@ class JeongyeonViewController: UIViewController {
     
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil) // 전 화면으로 돌아가기
-        
-        
     }
+
 }

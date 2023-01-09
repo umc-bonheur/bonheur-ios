@@ -1,13 +1,13 @@
 //
-//  SarangViewController.swift
+//  MyPageViewController.swift
 //  bonheur
 //
-//  Created by Rocky on 2023/01/09.
+//  Created by 이정연 on 2023/01/09.
 //
 
 import UIKit
 
-class SarangViewController: UIViewController {
+class MyPageViewController: UIViewController {
 
     let mainLabel = UILabel()
     
@@ -23,10 +23,9 @@ class SarangViewController: UIViewController {
     
     var someString: String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
         makeAutoLayout()
     }
@@ -39,7 +38,6 @@ class SarangViewController: UIViewController {
         view.addSubview(backButton)
         
         view.backgroundColor = .white
-
     }
     
     
@@ -60,7 +58,6 @@ class SarangViewController: UIViewController {
     
     @objc func backButtonTapped() {
         dismiss(animated: true, completion: nil) // 전 화면으로 돌아가기
-        
-        
     }
+
 }
