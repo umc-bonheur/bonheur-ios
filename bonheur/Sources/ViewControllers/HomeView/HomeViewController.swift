@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        [topLabel, cloverChalenderButton, homeSortStackView].forEach {
+        [topLabel, cloverChalenderButton, homeSortStackView, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
         
@@ -40,13 +40,13 @@ class HomeViewController: UIViewController {
         }
         
         setConstraints()
-        
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         cloverChalenderButton.translatesAutoresizingMaskIntoConstraints = false
         homeSortStackView.translatesAutoresizingMaskIntoConstraints = false
+        homePostingCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -56,9 +56,10 @@ class HomeViewController: UIViewController {
             cloverChalenderButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
             
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
-            homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19)
+            homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             
+            homePostingCollectionView.topAnchor.constraint(equalTo: homeSortStackView.bottomAnchor, constant: 86),
+            homePostingCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
 }
-

@@ -15,7 +15,6 @@ public let homePostingCollectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.register(HomePostingCollectionViewCell.self, forCellWithReuseIdentifier: HomePostingCollectionViewCell.identifier)
     
-    collectionView.contentInset = UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 0)
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.backgroundColor = .clear
     
