@@ -11,7 +11,8 @@ let latestOrderSortLabel: UILabel = {
     let label = UILabel()
     label.text = "최신순"
     label.font = UIFont.boldSystemFont(ofSize: 12)
-    label.backgroundColor = .green
+
+    label.layer.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1).cgColor
     label.layer.cornerRadius = 15
     label.textAlignment = .center
     
@@ -24,7 +25,8 @@ let oldOrderSortLabel: UILabel = {
     let label = UILabel()
     label.text = "오래된순"
     label.font = UIFont.boldSystemFont(ofSize: 12)
-    label.backgroundColor = .lightGray
+    
+    label.layer.backgroundColor = UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1).cgColor
     label.layer.cornerRadius = 15
     label.textAlignment = .center
     
@@ -35,9 +37,8 @@ let oldOrderSortLabel: UILabel = {
 
 let tagSettingButton: UIButton = {
     let button = UIButton()
-    button.setBackgroundImage(UIImage(systemName: "gearshape"), for: .normal)
+    button.setBackgroundImage(UIImage(named: "Tune"), for: .normal)
     button.sizeThatFits(CGSize(width: 18, height: 18))
-    button.backgroundColor = .systemGreen
     button.tintColor = .black
     return button
 }()
@@ -45,7 +46,6 @@ let tagSettingButton: UIButton = {
 public var homeSortStackView: UIStackView = {
     var stackView: UIStackView = UIStackView()
     stackView.axis = .horizontal
-    stackView.spacing = 7
-    stackView.backgroundColor = .lightGray
+    stackView.spacing = 8
     return stackView
 }()
