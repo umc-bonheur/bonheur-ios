@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		55372E21296D6A61004F911A /* HomeSortStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E20296D6A61004F911A /* HomeSortStackView.swift */; };
-		55372E23296D6AB4004F911A /* HomePostingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */; };
 		55372E25296D6AF6004F911A /* HomePostingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */; };
 		55372E27296D7897004F911A /* HomeViewController+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E26296D7897004F911A /* HomeViewController+FlowLayoutDelegate.swift */; };
 		55372E29296D78D7004F911A /* HomeViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E28296D78D7004F911A /* HomeViewController+DataSource.swift */; };
@@ -28,7 +27,6 @@
 
 /* Begin PBXFileReference section */
 		55372E20296D6A61004F911A /* HomeSortStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSortStackView.swift; sourceTree = "<group>"; };
-		55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostingCollectionView.swift; sourceTree = "<group>"; };
 		55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		55372E26296D7897004F911A /* HomeViewController+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		55372E28296D78D7004F911A /* HomeViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				553DF620296C5F930021C35F /* HomeViewController.swift */,
 				55372E20296D6A61004F911A /* HomeSortStackView.swift */,
 				55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */,
-				55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */,
 				55372E26296D7897004F911A /* HomeViewController+FlowLayoutDelegate.swift */,
 				55372E28296D78D7004F911A /* HomeViewController+DataSource.swift */,
 			);
@@ -302,7 +299,6 @@
 				553DF62C296C5F940021C35F /* ViewController.swift in Sources */,
 				55372E21296D6A61004F911A /* HomeSortStackView.swift in Sources */,
 				553DF630296C5F940021C35F /* MyPageViewController.swift in Sources */,
-				55372E23296D6AB4004F911A /* HomePostingCollectionView.swift in Sources */,
 				553DF62B296C5F940021C35F /* GenericResponse.swift in Sources */,
 				553DF62E296C5F940021C35F /* OnboardingViewController.swift in Sources */,
 				553DF62A296C5F940021C35F /* NetworkResult.swift in Sources */,

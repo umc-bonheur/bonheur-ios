@@ -27,9 +27,29 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    public let homePostingCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(HomePostingCollectionViewCell.self,
+                                forCellWithReuseIdentifier: HomePostingCollectionViewCell.identifier)
+        
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        collectionView.backgroundColor = .gray
+        // TODO: collectionView Error
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        homePostingCollectionView.delegate = self
+        homePostingCollectionView.dataSource = self
         
         [topLabel, cloverChalenderButton, homeSortStackView, homePostingCollectionView].forEach {
             view.addSubview($0)
@@ -58,8 +78,8 @@ class HomeViewController: UIViewController {
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             
-            homePostingCollectionView.topAnchor.constraint(equalTo: homeSortStackView.bottomAnchor, constant: 86),
-            homePostingCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            homePostingCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 231),
+            homePostingCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
     }
 }
