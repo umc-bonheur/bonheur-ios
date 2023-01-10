@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55372E21296D6A61004F911A /* HomeSortStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E20296D6A61004F911A /* HomeSortStackView.swift */; };
+		55372E23296D6AB4004F911A /* HomePostingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */; };
+		55372E25296D6AF6004F911A /* HomePostingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */; };
 		553DF619296C5F8C0021C35F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553DF615296C5F8C0021C35F /* Assets.xcassets */; };
 		553DF62A296C5F940021C35F /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DF61C296C5F930021C35F /* NetworkResult.swift */; };
 		553DF62B296C5F940021C35F /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DF61D296C5F930021C35F /* GenericResponse.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55372E20296D6A61004F911A /* HomeSortStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSortStackView.swift; sourceTree = "<group>"; };
+		55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostingCollectionView.swift; sourceTree = "<group>"; };
+		55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		553DF60F296C5F8C0021C35F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		553DF611296C5F8C0021C35F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		553DF613296C5F8C0021C35F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -54,6 +60,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55372E1F296D6A2E004F911A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				553DF620296C5F930021C35F /* HomeViewController.swift */,
+				55372E20296D6A61004F911A /* HomeSortStackView.swift */,
+				55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */,
+				55372E22296D6AB4004F911A /* HomePostingCollectionView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		553DF60D296C5F8C0021C35F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,10 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				553DF61F296C5F930021C35F /* ViewController.swift */,
-				553DF620296C5F930021C35F /* HomeViewController.swift */,
 				553DF621296C5F930021C35F /* OnboardingViewController.swift */,
 				553DF622296C5F930021C35F /* CalendarViewController.swift */,
 				553DF623296C5F930021C35F /* MyPageViewController.swift */,
+				55372E1F296D6A2E004F911A /* HomeView */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,9 +289,12 @@
 			files = (
 				553DF631296C5F940021C35F /* AppDelegate.swift in Sources */,
 				553DF62F296C5F940021C35F /* CalendarViewController.swift in Sources */,
+				55372E25296D6AF6004F911A /* HomePostingCollectionViewCell.swift in Sources */,
 				553DF634296C5F940021C35F /* SceneDelegate.swift in Sources */,
 				553DF62C296C5F940021C35F /* ViewController.swift in Sources */,
+				55372E21296D6A61004F911A /* HomeSortStackView.swift in Sources */,
 				553DF630296C5F940021C35F /* MyPageViewController.swift in Sources */,
+				55372E23296D6AB4004F911A /* HomePostingCollectionView.swift in Sources */,
 				553DF62B296C5F940021C35F /* GenericResponse.swift in Sources */,
 				553DF62E296C5F940021C35F /* OnboardingViewController.swift in Sources */,
 				553DF62A296C5F940021C35F /* NetworkResult.swift in Sources */,
