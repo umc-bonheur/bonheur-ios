@@ -21,10 +21,8 @@ class HomeViewController: UIViewController {
     
     lazy var cloverChalenderButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "CloverCalender"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "CloverCalender"), for: .normal)
         button.sizeThatFits(CGSize(width: 24, height: 25.2))
-        // TODO: button image error
-        button.backgroundColor = .systemGreen
         button.tintColor = .black
         return button
     }()
