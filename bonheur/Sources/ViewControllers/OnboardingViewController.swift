@@ -100,7 +100,7 @@ class OnboardingViewController: UIViewController {
         label.text = "이메일로 로그인"
         label.font = UIFont(name: "SFPro-Regular", size: 12)
         label.textAlignment = .center
-        label.backgroundColor = .lightGreen
+        label.backgroundColor = UIColor(red: 0.872, green: 0.971, blue: 0.704, alpha: 1)
         
         return label
     }()
@@ -110,7 +110,7 @@ class OnboardingViewController: UIViewController {
         label.text = "이메일로 회원가입"
         label.font = UIFont(name: "SFPro-Regular", size: 12)
         label.textAlignment = .center
-        label.backgroundColor = .lightGreen
+        label.backgroundColor = UIColor(red: 0.872, green: 0.971, blue: 0.704, alpha: 1)
         
         return label
     }()
@@ -141,7 +141,7 @@ class OnboardingViewController: UIViewController {
         view.addSubview(buttonStackView)
         view.addSubview(emailStackView)
         
-        view.backgroundColor = .lightGreen
+        view.backgroundColor = UIColor(red: 0.872, green: 0.971, blue: 0.704, alpha: 1)
     }
 
     func makeAutoLayout() {
