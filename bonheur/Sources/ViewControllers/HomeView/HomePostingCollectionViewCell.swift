@@ -37,7 +37,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     let cellTagLabel: UILabel = {
         let label = UILabel()
         label.text = "Tag 1"
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         
         label.layer.backgroundColor = UIColor.clear.cgColor
         label.layer.cornerRadius = 15
@@ -58,10 +58,28 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    let postingImage: UIImageView = {
+        let postingImage = UIImageView()
+        postingImage.image = UIImage(named: "PostingImageExample")
+        postingImage.widthAnchor.constraint(equalToConstant: 82).isActive = true
+        postingImage.heightAnchor.constraint(equalToConstant: 82).isActive = true
+        return postingImage
+    }()
+    
+    let postingText: UITextView = {
+        let postingText = UITextView()
+        postingText.text = "오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다."
+        
+        postingText.backgroundColor = .clear
+        postingText.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        postingText.heightAnchor.constraint(equalToConstant: 82).isActive = true
+        return postingText
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        [cellTimeLabel, cellStackView, postingMoreButton].forEach {
+        [cellTimeLabel, cellStackView, postingMoreButton, postingImage, postingText].forEach {
             addSubview($0)
         }
         
@@ -76,6 +94,8 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         cellTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         cellStackView.translatesAutoresizingMaskIntoConstraints = false
         postingMoreButton.translatesAutoresizingMaskIntoConstraints = false
+        postingImage.translatesAutoresizingMaskIntoConstraints = false
+        postingText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             cellTimeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
@@ -85,8 +105,14 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
             cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 72),
             cellStackView.widthAnchor.constraint(equalToConstant: 215),
             
-            postingMoreButton.topAnchor.constraint(equalTo: cellStackView.topAnchor),
-            postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13)
+            postingMoreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
+            postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13),
+            
+            postingImage.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            postingImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            
+            postingText.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            postingText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 102)
         ])
     }
     
