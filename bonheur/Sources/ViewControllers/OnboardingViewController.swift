@@ -136,12 +136,10 @@ class OnboardingViewController: UIViewController {
         makeAutoLayout()
     }
     
-    func setup() {
-        view.addSubview(backButton)
-        view.addSubview(titleStackView)
-        view.addSubview(logoImageView)
-        view.addSubview(buttonStackView)
-        view.addSubview(emailStackView)
+    func setup() {        
+        [backButton, titleStackView, logoImageView, oauthStackView, emailStackView].forEach {
+            view.addSubview($0)
+        }
         
         view.backgroundColor = UIColor(red: 0.872, green: 0.971, blue: 0.704, alpha: 1)
     }
