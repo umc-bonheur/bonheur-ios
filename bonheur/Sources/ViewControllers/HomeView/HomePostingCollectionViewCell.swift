@@ -9,6 +9,7 @@ import UIKit
 
 class HomePostingCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "HomePostingCollectionViewCell"
+    
     var postingTime: String = "AM 13:59"
     
     public let cellBackgroundView: UIView = {
@@ -30,7 +31,6 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.text = self.postingTime
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 10)
-        label.textColor = .white
         return label
     }()
     
@@ -45,19 +45,27 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.layer.borderWidth = 1
 
         label.textAlignment = .center
-        label.widthAnchor.constraint(equalToConstant: 61).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 41).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 18).isActive = true
         return label
+    }()
+    
+    let postingMoreButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "ThreeDots"), for: .normal)
+        button.sizeThatFits(CGSize(width: 24, height: 24))
+        button.tintColor = .black
+        return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        [cellStackView].forEach {
+        [cellTimeLabel, cellStackView, postingMoreButton].forEach {
             addSubview($0)
         }
         
-        [cellTimeLabel, cellTagLabel].forEach {
+        [cellTagLabel].forEach {
             cellStackView.addArrangedSubview($0)
         }
      
@@ -65,12 +73,20 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
+        cellTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         cellStackView.translatesAutoresizingMaskIntoConstraints = false
+        postingMoreButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+            cellTimeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            cellTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            
+            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 72),
+            cellStackView.widthAnchor.constraint(equalToConstant: 215),
+            
+            postingMoreButton.topAnchor.constraint(equalTo: cellStackView.topAnchor),
+            postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13)
         ])
     }
     
