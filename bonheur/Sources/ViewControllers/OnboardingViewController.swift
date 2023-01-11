@@ -55,7 +55,8 @@ class OnboardingViewController: UIViewController {
         var title = "카카오톡으로 시작하기"
         config.title = title
         config.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont(name: "SFPro-Bold", size: 16)!]))
-        config.image = UIImage(named: "KakaoTalkLogo")
+        var imageConfig = UIImage.SymbolConfiguration(pointSize: 13)
+        config.image = UIImage(systemName: "message.fill", withConfiguration: imageConfig)
         config.imagePlacement = .leading
         config.imagePadding = 12
         config.baseBackgroundColor = UIColor(red: 0.996, green: 0.898, blue: 0, alpha: 1)
@@ -72,7 +73,8 @@ class OnboardingViewController: UIViewController {
         var title = "Apple로 시작하기"
         config.title = title
         config.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont(name: "SFPro-Bold", size: 16)!]))
-        config.image = UIImage(named: "AppleLogo")
+        var imageConfig = UIImage.SymbolConfiguration(pointSize: 13)
+        config.image = UIImage(systemName: "apple.logo", withConfiguration: imageConfig)
         config.imagePlacement = .leading
         config.imagePadding = 8
         config.baseBackgroundColor = .white
