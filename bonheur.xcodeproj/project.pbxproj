@@ -21,6 +21,8 @@
 		553DF634296C5F940021C35F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553DF629296C5F930021C35F /* SceneDelegate.swift */; };
 		553ECDDE2966B5E7003D8EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553ECDDC2966B5E7003D8EEA /* LaunchScreen.storyboard */; };
 		55BBCF7A2968EDCB009D56E6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 55BBCF792968EDCB009D56E6 /* .swiftlint.yml */; };
+		55C39B9B296ECE82008DF938 /* HomeViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C39B9A296ECE82008DF938 /* HomeViewController+DataSource.swift */; };
+		55C39B9D296ECF18008DF938 /* HomeViewController+DelegateFlowLayout .swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C39B9C296ECF18008DF938 /* HomeViewController+DelegateFlowLayout .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		553ECDDD2966B5E7003D8EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		553ECDDF2966B5E7003D8EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55BBCF792968EDCB009D56E6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		55C39B9A296ECE82008DF938 /* HomeViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+DataSource.swift"; sourceTree = "<group>"; };
+		55C39B9C296ECF18008DF938 /* HomeViewController+DelegateFlowLayout .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+DelegateFlowLayout .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 			children = (
 				553DF620296C5F930021C35F /* HomeViewController.swift */,
 				55372E20296D6A61004F911A /* HomeSortStackView.swift */,
+				55C39B9A296ECE82008DF938 /* HomeViewController+DataSource.swift */,
+				55C39B9C296ECF18008DF938 /* HomeViewController+DelegateFlowLayout .swift */,
 				55372E24296D6AF6004F911A /* HomePostingCollectionViewCell.swift */,
 			);
 			path = HomeView;
@@ -288,10 +294,12 @@
 				553DF62F296C5F940021C35F /* CalendarViewController.swift in Sources */,
 				55372E25296D6AF6004F911A /* HomePostingCollectionViewCell.swift in Sources */,
 				553DF634296C5F940021C35F /* SceneDelegate.swift in Sources */,
+				55C39B9D296ECF18008DF938 /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				553DF62C296C5F940021C35F /* ViewController.swift in Sources */,
 				55372E21296D6A61004F911A /* HomeSortStackView.swift in Sources */,
 				553DF630296C5F940021C35F /* MyPageViewController.swift in Sources */,
 				553DF62B296C5F940021C35F /* GenericResponse.swift in Sources */,
+				55C39B9B296ECE82008DF938 /* HomeViewController+DataSource.swift in Sources */,
 				553DF62E296C5F940021C35F /* OnboardingViewController.swift in Sources */,
 				553DF62A296C5F940021C35F /* NetworkResult.swift in Sources */,
 				553DF62D296C5F940021C35F /* HomeViewController.swift in Sources */,

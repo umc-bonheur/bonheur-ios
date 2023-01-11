@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController {
     
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
@@ -40,18 +40,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         return collectionView
     }()
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostingCollectionViewCell.identifier, for: indexPath) as? HomePostingCollectionViewCell
-        else { return UICollectionViewCell() }
-        
-        cell.backgroundView = cell.cellBackgroundView
-        return cell
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,15 +83,5 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82),
             homePostingCollectionView.heightAnchor.constraint(equalToConstant: 300)
         ])
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = 335
-        let cellHeight = 149
-        
-        return CGSize(width: cellWidth, height: cellHeight)
     }
 }
