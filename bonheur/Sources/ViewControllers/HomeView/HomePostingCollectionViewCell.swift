@@ -8,10 +8,10 @@
 import UIKit
 
 class HomePostingCollectionViewCell: UICollectionViewCell {
-    static let identifier: String = "MainPostingCollectionViewCell"
+    static let identifier: String = "HomePostingCollectionViewCell"
     var postingTime: String = "AM 13:59"
     
-    private let cellBackgroundView: UIView = {
+    public let cellBackgroundView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 149))
         view.layer.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 0.972, alpha: 1).cgColor
         view.layer.cornerRadius = 15
@@ -65,11 +65,16 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
+        cellStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+        ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

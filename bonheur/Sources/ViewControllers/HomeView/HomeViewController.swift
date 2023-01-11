@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
@@ -27,9 +27,8 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    public let homePostingCollectionView: UICollectionView = {
+    public var homePostingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
         
@@ -39,10 +38,20 @@ class HomeViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        collectionView.backgroundColor = .gray
-        // TODO: collectionView Error
         return collectionView
     }()
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostingCollectionViewCell.identifier, for: indexPath) as? HomePostingCollectionViewCell
+        else { return UICollectionViewCell() }
+        
+        cell.backgroundView = cell.cellBackgroundView
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +67,9 @@ class HomeViewController: UIViewController {
         [latestOrderSortLabel, oldOrderSortLabel, tagSettingButton].forEach {
             homeSortStackView.addArrangedSubview($0)
         }
+        
+        homePostingCollectionView.delegate = self
+        homePostingCollectionView.dataSource = self
         
         setConstraints()
     }
@@ -78,8 +90,20 @@ class HomeViewController: UIViewController {
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             
-            homePostingCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 231),
-            homePostingCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            homePostingCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 231),
+            homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82),
+            homePostingCollectionView.heightAnchor.constraint(equalToConstant: 300)
         ])
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cellWidth = 335
+        let cellHeight = 149
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 }
