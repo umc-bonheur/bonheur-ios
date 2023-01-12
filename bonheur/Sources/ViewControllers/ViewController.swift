@@ -104,8 +104,6 @@ final class ViewController: UIViewController {
     @objc func jeongyeonButtonTapped() {
         let jeongyeonVC = OnboardingViewController()
         
-        jeongyeonVC.someString = "Jeongyeon's page"
-        
         jeongyeonVC.modalPresentationStyle = .fullScreen // 전체화면으로 띄우기
         present(jeongyeonVC, animated: true, completion: nil)
     }
