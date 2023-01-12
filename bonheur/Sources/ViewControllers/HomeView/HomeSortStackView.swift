@@ -13,7 +13,7 @@ let latestOrderSortLabel: UILabel = {
     label.font = UIFont.boldSystemFont(ofSize: 12)
 
     label.layer.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1).cgColor
-    label.layer.cornerRadius = 15
+    label.layer.cornerRadius = 13
     label.textAlignment = .center
     
     label.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -27,7 +27,7 @@ let oldOrderSortLabel: UILabel = {
     label.font = UIFont.boldSystemFont(ofSize: 12)
     
     label.layer.backgroundColor = UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1).cgColor
-    label.layer.cornerRadius = 15
+    label.layer.cornerRadius = 13
     label.textAlignment = .center
     
     label.widthAnchor.constraint(equalToConstant: 61).isActive = true

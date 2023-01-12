@@ -13,7 +13,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     var postingTime: String = "AM 13:59"
     
     public let cellBackgroundView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 335, height: 149))
+        let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 0.972, alpha: 1).cgColor
         view.layer.cornerRadius = 15
         return view
@@ -40,7 +40,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 10)
         
         label.layer.backgroundColor = UIColor.clear.cgColor
-        label.layer.cornerRadius = 15
+        label.layer.cornerRadius = 10
         label.layer.borderColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1).cgColor
         label.layer.borderWidth = 1
 

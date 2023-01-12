@@ -9,10 +9,8 @@ import UIKit
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = 335
+        let cellWidth = 350
         let cellHeight = 149
-        
         return CGSize(width: cellWidth, height: cellHeight)
     }
 }
