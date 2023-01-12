@@ -120,7 +120,7 @@ final class ViewController: UIViewController {
     @objc func sohyeonButtonTapped() {
         let sohyeonVC = HomeViewController()
         
-        sohyeonVC.someString = "Sohyeon's page"
+        // sohyeonVC.someString = "Sohyeon's page"
         
         sohyeonVC.modalPresentationStyle = .fullScreen // 전체화면으로 띄우기
         present(sohyeonVC, animated: true, completion: nil)
