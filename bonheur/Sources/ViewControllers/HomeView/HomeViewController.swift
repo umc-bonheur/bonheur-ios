@@ -19,9 +19,9 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    lazy var cloverChalenderButton: UIButton = {
+    lazy var cloverCalendarButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "CloverCalender"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "CloverCalendar"), for: .normal)
         button.sizeThatFits(CGSize(width: 24, height: 25.2))
         button.tintColor = .black
         return button
@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
-        [topLabel, cloverChalenderButton, homeSortStackView, homePostingCollectionView].forEach {
+        [topLabel, cloverCalendarButton, homeSortStackView, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
         
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
     
     private func setConstraints() {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
-        cloverChalenderButton.translatesAutoresizingMaskIntoConstraints = false
+        cloverCalendarButton.translatesAutoresizingMaskIntoConstraints = false
         homeSortStackView.translatesAutoresizingMaskIntoConstraints = false
         homePostingCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,8 +72,8 @@ class HomeViewController: UIViewController {
             topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             
-            cloverChalenderButton.topAnchor.constraint(equalTo: topLabel.topAnchor),
-            cloverChalenderButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
+            cloverCalendarButton.topAnchor.constraint(equalTo: topLabel.topAnchor),
+            cloverCalendarButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
             
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
