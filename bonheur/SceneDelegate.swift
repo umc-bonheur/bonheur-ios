@@ -19,33 +19,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         window?.windowScene = windowScene
-        
+    
         // 탭바컨트롤러의 생성
         let tabBarVC = UITabBarController()
         
         // 첫번째 화면은 네비게이션컨트롤러로 만들기 (기본루트뷰 설정)
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
-        let vc2 = CalendarViewController()
-        let vc3 = MyPageViewController()
+        let HomeVC = UINavigationController(rootViewController: HomeViewController())
+        let vc2 = CalendarViewController()  // 행복기록작성View 구현완료시 변경(현재 임시로 캘린더뷰로 작성)
+        let MyPageVC = MyPageViewController()
         
         // 탭바 이름들 설정
-        vc1.title = "홈"
-        //vc2.title = "Search"
-        vc3.title = "마이"
+        HomeVC.title = "홈"
+        MyPageVC.title = "마이"
         
         // 탭바로 사용하기 위한 뷰 컨트롤러들 설정
-        tabBarVC.setViewControllers([vc1, vc2, vc3], animated: false)
+        tabBarVC.setViewControllers([HomeVC, vc2, MyPageVC], animated: false)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.tabBar.backgroundColor = .white
         
-        // 탭바 이미지 설정 (이미지는 애플이 제공하는 것으로 사용)
+        // 탭바 이미지 설정
         guard let items = tabBarVC.tabBar.items else { return }
         items[0].image = UIImage(systemName: "house.fill")
         items[1].image = UIImage(named: "Clover")
         items[2].image = UIImage(systemName: "person.fill")
 
-            
-        // 기본루트뷰를 탭바컨트롤러로 설정⭐️⭐️⭐️
+        // 기본루트뷰를 탭바컨트롤러로 설정
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
         

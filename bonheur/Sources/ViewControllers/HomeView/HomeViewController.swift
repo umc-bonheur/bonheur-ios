@@ -28,8 +28,6 @@ class HomeViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "CloverCalendar"), for: .normal)
         button.sizeThatFits(CGSize(width: 24, height: 25.2))
         button.tintColor = .black
-
-        // 버튼 눌렀을시 cloverCalendarButtonTapped 함수 실행
         button.addTarget(self, action: #selector(cloverCalendarButtonTapped), for: .touchUpInside)
 
         return button
@@ -73,11 +71,9 @@ class HomeViewController: UIViewController {
     }
     
     
-    // 다음화면을 띄우는 더 정확한 시점 ⭐️⭐️⭐️
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // ⭐️ 로그인이 되어있지 않다면 로그인화면 띄우기
         if !isLoggedIn {
             let vc = OnboardingViewController()
             vc.modalPresentationStyle = .fullScreen
@@ -109,7 +105,6 @@ class HomeViewController: UIViewController {
             homePostingCollectionView.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
-    
     
     
     @objc func cloverCalendarButtonTapped() {
