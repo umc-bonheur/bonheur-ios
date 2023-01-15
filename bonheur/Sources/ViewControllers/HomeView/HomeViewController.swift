@@ -9,23 +9,30 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    // 로그인 여부에 관련된 참/거짓을 저장하는 속성
+    var isLoggedIn = true
+    
+    
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
-    
+
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = self.topLabelText
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
-    
-    lazy var cloverChalenderButton: UIButton = {
+
+    lazy var cloverCalendarButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "CloverCalender"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "CloverCalendar"), for: .normal)
         button.sizeThatFits(CGSize(width: 24, height: 25.2))
         button.tintColor = .black
+        button.addTarget(self, action: #selector(cloverCalendarButtonTapped), for: .touchUpInside)
+
         return button
     }()
+    
     
     public var homePostingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -48,7 +55,7 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
-        [topLabel, cloverChalenderButton, homeSortStackView, homePostingCollectionView].forEach {
+        [topLabel, cloverCalendarButton, homeSortStackView, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
         
@@ -60,20 +67,34 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.dataSource = self
         
         setConstraints()
+        
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isLoggedIn {
+            let vc = OnboardingViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: false, completion: nil)
+        }
+        
+    }
+    
     
     private func setConstraints() {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
-        cloverChalenderButton.translatesAutoresizingMaskIntoConstraints = false
+        cloverCalendarButton.translatesAutoresizingMaskIntoConstraints = false
         homeSortStackView.translatesAutoresizingMaskIntoConstraints = false
         homePostingCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            topLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            
-            cloverChalenderButton.topAnchor.constraint(equalTo: topLabel.topAnchor),
-            cloverChalenderButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
+
+            cloverCalendarButton.topAnchor.constraint(equalTo: topLabel.topAnchor),
+            cloverCalendarButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
             
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
@@ -84,4 +105,14 @@ class HomeViewController: UIViewController {
             homePostingCollectionView.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
+    
+    
+    @objc func cloverCalendarButtonTapped() {
+        let calendarVC = CalendarViewController()
+        
+        navigationController?.pushViewController(calendarVC, animated: true)
+    }
+    
+    
 }
+
