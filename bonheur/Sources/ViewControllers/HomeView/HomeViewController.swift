@@ -9,10 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    // 로그인 여부에 관련된 참/거짓을 저장하는 속성
-    var isLoggedIn = true
-    
-    
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
 
@@ -32,7 +28,6 @@ class HomeViewController: UIViewController {
 
         return button
     }()
-    
     
     public var homePostingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -70,19 +65,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if !isLoggedIn {
-            let vc = OnboardingViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: false, completion: nil)
-        }
-        
-    }
-    
-    
     private func setConstraints() {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         cloverCalendarButton.translatesAutoresizingMaskIntoConstraints = false
@@ -106,13 +88,9 @@ class HomeViewController: UIViewController {
         ])
     }
     
-    
     @objc func cloverCalendarButtonTapped() {
         let calendarVC = CalendarViewController()
         
         navigationController?.pushViewController(calendarVC, animated: true)
     }
-    
-    
 }
-

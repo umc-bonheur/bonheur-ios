@@ -26,6 +26,18 @@ class OnboardingViewController: UIViewController {
     private var oauthStackView = OAuthStackView()
     private var titleStackView = TitleStackView()
     
+    override func loadView() {
+        super.loadView()
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        // TODO: Login 단계에서 UserDefaults 저장하기
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn") as Bool
+        
+        if isLoggedIn == true {
+            navigationController?.pushViewController(HomeViewController(), animated: true)
+            // TODO: viewDidLoad() 넘기지 않기
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
