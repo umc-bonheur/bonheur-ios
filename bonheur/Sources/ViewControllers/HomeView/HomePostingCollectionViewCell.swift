@@ -45,7 +45,6 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.layer.borderWidth = 1
 
         label.textAlignment = .center
-        label.widthAnchor.constraint(equalToConstant: 41).isActive = true
         label.heightAnchor.constraint(equalToConstant: 18).isActive = true
         return label
     }()

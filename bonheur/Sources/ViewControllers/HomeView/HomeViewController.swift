@@ -83,8 +83,7 @@ class HomeViewController: UIViewController {
             
             homePostingCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 231),
             homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82),
-            homePostingCollectionView.heightAnchor.constraint(equalToConstant: 300)
+            homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82)
         ])
     }
     
