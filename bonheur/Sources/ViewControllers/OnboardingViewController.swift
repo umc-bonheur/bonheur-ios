@@ -33,8 +33,7 @@ class OnboardingViewController: UIViewController {
         let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn") as Bool
         
         if isLoggedIn == true {
-            navigationController?.pushViewController(HomeViewController(), animated: true)
-            // TODO: viewDidLoad() 넘기지 않기
+            navigationController?.pushViewController(HomeViewController(), animated: false)
         }
     }
     
