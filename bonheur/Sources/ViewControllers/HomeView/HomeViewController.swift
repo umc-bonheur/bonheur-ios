@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = self.topLabelText
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont(name: "NanumSquareRoundOTFEB", size: 24)
         return label
     }()
 
