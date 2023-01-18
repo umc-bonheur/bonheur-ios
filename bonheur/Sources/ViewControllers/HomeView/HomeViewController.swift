@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
     
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
+    var postingList: [String] = ["Default"]
 
     lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -27,6 +28,23 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(cloverCalendarButtonTapped), for: .touchUpInside)
 
         return button
+    }()
+    
+    let defaultCloverImage: UIImageView = {
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 154, height: 160))
+        imageView.image = UIImage(named: "DefaultCloverImage")
+        return imageView
+    }()
+    
+    let defaultTextLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 0, width: 202, height: 78)
+        label.text = "행복 기록이 없어요.\n아래 세잎클로버 버튼을 눌러\n오늘의 행복을 기록해주세요 :)"
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.font = UIFont(name: "SFPro-Regular", size: 16)
+        label.textColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)
+        return label
     }()
     
     public var homePostingCollectionView: UICollectionView = {
@@ -46,7 +64,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
@@ -58,13 +75,15 @@ class HomeViewController: UIViewController {
             homeSortStackView.addArrangedSubview($0)
         }
         
-        homePostingCollectionView.delegate = self
-        homePostingCollectionView.dataSource = self
+        if postingList.count == 0 {
+            [defaultCloverImage, defaultTextLabel].forEach {
+                view.addSubview($0)
+            }
+        }
         
         setConstraints()
-        
     }
-    
+
     private func setConstraints() {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         cloverCalendarButton.translatesAutoresizingMaskIntoConstraints = false
@@ -85,6 +104,19 @@ class HomeViewController: UIViewController {
             homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
             homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82)
         ])
+        
+        if postingList.count == 0 {
+            defaultCloverImage.translatesAutoresizingMaskIntoConstraints = false
+            defaultTextLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                defaultCloverImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 298),
+                defaultCloverImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                defaultTextLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 474),
+                defaultTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }
     }
     
     @objc func cloverCalendarButtonTapped() {
