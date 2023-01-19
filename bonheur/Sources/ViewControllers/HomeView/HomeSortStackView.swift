@@ -10,7 +10,7 @@ import UIKit
 let latestOrderSortLabel: UILabel = {
     let label = UILabel()
     label.text = "최신순"
-    label.font = UIFont.boldSystemFont(ofSize: 12)
+    label.font = UIFont(name: "SFPro-Regular", size: 12)
 
     label.layer.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1).cgColor
     label.layer.cornerRadius = 13
@@ -24,7 +24,7 @@ let latestOrderSortLabel: UILabel = {
 let oldOrderSortLabel: UILabel = {
     let label = UILabel()
     label.text = "오래된순"
-    label.font = UIFont.boldSystemFont(ofSize: 12)
+    label.font = UIFont(name: "SFPro-Regular", size: 12)
     
     label.layer.backgroundColor = UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1).cgColor
     label.layer.cornerRadius = 13

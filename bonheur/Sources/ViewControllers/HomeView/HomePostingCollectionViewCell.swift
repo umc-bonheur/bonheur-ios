@@ -30,14 +30,14 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         let label: UILabel = UILabel()
         label.text = self.postingTime
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont(name: "SFPro-Regular", size: 10)
         return label
     }()
     
     let cellTagLabel: UILabel = {
         let label = UILabel()
         label.text = "Tag 1"
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont(name: "SFPro-Regular", size: 10)
         
         label.layer.backgroundColor = UIColor.clear.cgColor
         label.layer.cornerRadius = 10
@@ -45,7 +45,6 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.layer.borderWidth = 1
 
         label.textAlignment = .center
-        label.widthAnchor.constraint(equalToConstant: 41).isActive = true
         label.heightAnchor.constraint(equalToConstant: 18).isActive = true
         return label
     }()
