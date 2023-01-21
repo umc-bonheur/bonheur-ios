@@ -108,20 +108,20 @@ class CalendarViewController: UIViewController {
         view.backgroundColor = .white
         
         // 슬픈 클로버 이미지
-        view.addSubview(sadImageView)
-        sadImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            sadImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sadImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -172.8)
-        ])
-        
-        // 알림 레이블
-        view.addSubview(notiTextLabel)
-        notiTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            notiTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            notiTextLabel.topAnchor.constraint(equalTo: sadImageView.bottomAnchor, constant: 16)
-        ])
+//        view.addSubview(sadImageView)
+//        sadImageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            sadImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            sadImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -172.8)
+//        ])
+//
+//        // 알림 레이블
+//        view.addSubview(notiTextLabel)
+//        notiTextLabel.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            notiTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            notiTextLabel.topAnchor.constraint(equalTo: sadImageView.bottomAnchor, constant: 16)
+//        ])
         
         
         let calendarButtonStackView = UIStackView(arrangedSubviews: [leftButton, rightButton, todayButton])
@@ -145,7 +145,7 @@ class CalendarViewController: UIViewController {
     
         // 오토레이아웃
         calendar.translatesAutoresizingMaskIntoConstraints = false
-        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 375)
+        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 475)
         
         NSLayoutConstraint.activate([
             calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
@@ -192,12 +192,16 @@ class CalendarViewController: UIViewController {
         
         self.calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         self.calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
+
         
-        //self.calendar.placeholderType = .none
+        self.calendar.placeholderType = .none
         
         calendar.appearance.weekdayTextColor = UIColor.black
         calendar.appearance.todayColor = UIColor.orange
 
+        
+        calendar.today = nil
+        
         
     }
     
@@ -252,8 +256,6 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
 
         calendarHeightAnchor.constant = bounds.height
-    
-        print(bounds.height)
         
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -265,6 +267,15 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         let currentPage = calendar.currentPage
       
         headerLabel.text = headerDateFormatter.string(from: currentPage)
+    }
+    
+    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        let imageDateFormatter = DateFormatter()
+        let datesWithCat = ["20230103","20230105","20230107","20230109","20230111","20230114"]
+        imageDateFormatter.dateFormat = "yyyyMMdd"
+        let dateStr = imageDateFormatter.string(from: date)
+        print("date : \(dateStr)")
+        return datesWithCat.contains(dateStr) ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
     }
     
     
