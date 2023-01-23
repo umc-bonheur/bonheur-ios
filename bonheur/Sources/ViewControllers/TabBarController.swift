@@ -36,10 +36,16 @@ class TabBarController: UITabBarController {
         mypageTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFPro-Bold", size: 12) ?? .systemFont(ofSize: 12)], for: .normal)
         
         viewControllers = [homeTab, mypageTab]
+        
+        let tabBarBackgroundImageView = UIImageView(image: UIImage(named: "TabBarCustomBackgroundImage"))
+        tabBarBackgroundImageView.frame = self.tabBar.bounds.offsetBy(dx: -5, dy: -10)
+        self.tabBar.addSubview(tabBarBackgroundImageView)
+        self.tabBar.sendSubviewToBack(tabBarBackgroundImageView)
+        
         tabBar.tintColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         tabBar.unselectedItemTintColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         UITabBar.clearShadow()
-        tabBar.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: -4, blur: 30)
+        tabBarBackgroundImageView.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: -4, blur: 30)
         view.addSubview(cloverButton)
     }
     
