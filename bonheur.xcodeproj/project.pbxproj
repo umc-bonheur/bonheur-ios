@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
 		5C395323297076BA006EB3C5 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		5C3952FF297076BA006EB3C5 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				5C39530F297076BA006EB3C5 /* HomeView */,
 				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
 				5C395316297076BA006EB3C5 /* MyPageViewController.swift */,
+				55C0DB04297A6FCB00C76F0B /* TabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C395336297076BA006EB3C5 /* EmailStackView.swift in Sources */,
+				55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */,
 				5C395334297076BA006EB3C5 /* AppDelegate.swift in Sources */,
 				5C395332297076BA006EB3C5 /* CalendarViewController.swift in Sources */,
 				5C39532D297076BA006EB3C5 /* HomePostingCollectionViewCell.swift in Sources */,

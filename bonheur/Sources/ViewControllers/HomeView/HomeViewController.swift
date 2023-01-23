@@ -95,8 +95,8 @@ class HomeViewController: UIViewController {
             topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
 
             cloverCalendarButton.topAnchor.constraint(equalTo: topLabel.topAnchor),
-            cloverCalendarButton.leadingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: 4),
-            
+            cloverCalendarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
             
