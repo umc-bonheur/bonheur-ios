@@ -23,6 +23,8 @@ class TabBarController: UITabBarController {
         
         homeTab = HomeViewController()
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "TabBarHomeButton") ?? UIImage(), selectedImage: UIImage(named: "TabBarHomeButton") ?? UIImage())
+        homeTab.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: -40.0, vertical: 0.0)
+        homeTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFPro-Bold", size: 12) ?? .systemFont(ofSize: 12)], for: .normal)
         
         cloverButton.frame = CGRect(x: view.bounds.width/2 - 39, y: view.bounds.height - 100, width: 68, height: 68)
         cloverButton.addTarget(self, action: #selector(cloverButtonTapped(_ :)), for: .touchUpInside)
@@ -30,6 +32,8 @@ class TabBarController: UITabBarController {
 
         mypageTab = MyPageViewController()
         mypageTab.tabBarItem = UITabBarItem(title: "마이", image: UIImage(named: "TabBarMyPageButton") ?? UIImage(), selectedImage: UIImage(named: "TabBarMyPageButton") ?? UIImage())
+        mypageTab.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 40.0, vertical: 0.0)
+        mypageTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "SFPro-Bold", size: 12) ?? .systemFont(ofSize: 12)], for: .normal)
         
         viewControllers = [homeTab, mypageTab]
         tabBar.tintColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
