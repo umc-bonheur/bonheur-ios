@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         homeTab = HomeViewController()
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "TabBarHomeButton") ?? UIImage(), selectedImage: UIImage(named: "TabBarHomeButton") ?? UIImage())
         
-        cloverButton.frame = CGRect(x: view.bounds.width/2 - 28.5, y: view.bounds.height - 100, width: view.bounds.width * 0.152, height: view.bounds.width * 0.152)
+        cloverButton.frame = CGRect(x: view.bounds.width/2 - 39, y: view.bounds.height - 100, width: 68, height: 68)
         cloverButton.addTarget(self, action: #selector(cloverButtonTapped(_ :)), for: .touchUpInside)
         cloverButton.layer.applyShadow(color: .black, alpha: 0.05, x: 0, y: 4, blur: 15)
 
