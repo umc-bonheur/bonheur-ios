@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55760DC7297EACF600764168 /* DividerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55760DC6297EACF600764168 /* DividerUIView.swift */; };
+		55760DCC297EB9EC00764168 /* TagSelectModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55760DCB297EB9EC00764168 /* TagSelectModalViewController.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55760DC6297EACF600764168 /* DividerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerUIView.swift; sourceTree = "<group>"; };
+		55760DCB297EB9EC00764168 /* TagSelectModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectModalViewController.swift; sourceTree = "<group>"; };
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5C39530E297076BA006EB3C5 /* OnboardingViewController.swift */,
+				55760DCB297EB9EC00764168 /* TagSelectModalViewController.swift */,
 				5C39530F297076BA006EB3C5 /* HomeView */,
 				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
 				5C395316297076BA006EB3C5 /* MyPageViewController.swift */,
@@ -319,6 +322,7 @@
 				55760DC7297EACF600764168 /* DividerUIView.swift in Sources */,
 				5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */,
 				5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */,
+				55760DCC297EB9EC00764168 /* TagSelectModalViewController.swift in Sources */,
 				5C395333297076BA006EB3C5 /* MyPageViewController.swift in Sources */,
 				5C395330297076BA006EB3C5 /* HomeSortStackView.swift in Sources */,
 				5C39532F297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift in Sources */,

@@ -126,7 +126,13 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tagSettingButtonTapped() {
-        // TODO: Half-modal View pushed
+        let tagNavigationController = UINavigationController(rootViewController: TagSelectModalViewController())
+        tagNavigationController.modalPresentationStyle = .pageSheet
+
+        if let sheet = tagNavigationController.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
         
+        present(tagNavigationController, animated: true, completion: nil)
     }
 }
