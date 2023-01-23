@@ -124,4 +124,9 @@ class HomeViewController: UIViewController {
         
         navigationController?.pushViewController(calendarVC, animated: true)
     }
+    
+    @objc func tagSettingButtonTapped() {
+        // TODO: Half-modal View pushed
+        
+    }
 }

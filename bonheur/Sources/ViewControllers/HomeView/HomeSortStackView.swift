@@ -40,6 +40,7 @@ let tagSettingButton: UIButton = {
     button.setBackgroundImage(UIImage(named: "Tune"), for: .normal)
     button.sizeThatFits(CGSize(width: 18, height: 18))
     button.tintColor = .black
+    button.addTarget(HomeViewController(), action: #selector(HomeViewController.tagSettingButtonTapped), for: .touchUpInside)
     return button
 }()
 
