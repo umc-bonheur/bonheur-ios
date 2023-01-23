@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55760DC7297EACF600764168 /* DividerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55760DC6297EACF600764168 /* DividerUIView.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55760DC6297EACF600764168 /* DividerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerUIView.swift; sourceTree = "<group>"; };
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 				553ECDCE2966B5E5003D8EEA /* bonheur.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		55760DC5297EACD000764168 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				55760DC6297EACF600764168 /* DividerUIView.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		5C3952FA297076BA006EB3C5 /* bonheur */ = {
@@ -181,6 +191,7 @@
 		5C395318297076BA006EB3C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				55760DC5297EACD000764168 /* Global */,
 				5C395319297076BA006EB3C5 /* .gitkeep */,
 				5C39531A297076BA006EB3C5 /* Onboarding */,
 			);
@@ -305,6 +316,7 @@
 				5C395331297076BA006EB3C5 /* HomeViewController+DataSource.swift in Sources */,
 				5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */,
 				5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */,
+				55760DC7297EACF600764168 /* DividerUIView.swift in Sources */,
 				5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */,
 				5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */,
 				5C395333297076BA006EB3C5 /* MyPageViewController.swift in Sources */,
