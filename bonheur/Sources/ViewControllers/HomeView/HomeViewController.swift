@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    let dividerLine = dividerUIView(height: 0.5, color: UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1))
+
     let defaultCloverImage: UIImageView = {
         let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 154, height: 160))
         imageView.image = UIImage(named: "DefaultCloverImage")
@@ -67,7 +69,7 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
-        [topLabel, cloverCalendarButton, homeSortStackView, homePostingCollectionView].forEach {
+        [topLabel, cloverCalendarButton, homeSortStackView, dividerLine, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
         
@@ -88,6 +90,7 @@ class HomeViewController: UIViewController {
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         cloverCalendarButton.translatesAutoresizingMaskIntoConstraints = false
         homeSortStackView.translatesAutoresizingMaskIntoConstraints = false
+        dividerLine.translatesAutoresizingMaskIntoConstraints = false
         homePostingCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -99,6 +102,10 @@ class HomeViewController: UIViewController {
 
             homeSortStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 36),
             homeSortStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            
+            dividerLine.topAnchor.constraint(equalTo: homeSortStackView.bottomAnchor, constant: 6),
+            dividerLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dividerLine.widthAnchor.constraint(equalTo: view.widthAnchor),
             
             homePostingCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 231),
             homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),

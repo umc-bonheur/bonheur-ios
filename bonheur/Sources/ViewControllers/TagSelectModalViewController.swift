@@ -13,7 +13,7 @@ class TagSelectModalViewController: UIViewController {
         let label = UILabel()
         label.text = "해시태그 선택"
         label.textAlignment = .center
-        label.font = UIFont(name: "SFPro-Medium", size: 16)
+        label.font = UIFont(name: "SFPro-Bold", size: 16)
         label.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         return label
     }()
@@ -32,7 +32,6 @@ class TagSelectModalViewController: UIViewController {
         let textField = UITextField()
         textField.textColor = .black
         textField.placeholder = "해시태그 추가"
-        // textField.textColor =
         textField.backgroundColor = .clear
         return textField
     }()
