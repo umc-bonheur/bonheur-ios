@@ -23,7 +23,6 @@ class TagSelectModalViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "ModalDismissButton"), for: .normal)
         button.sizeThatFits(CGSize(width: 10, height: 10))
         button.tintColor = .black
-        button.backgroundColor = .green
         button.addTarget(self, action: #selector(HomeViewController.modalDismissButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -36,11 +35,28 @@ class TagSelectModalViewController: UIViewController {
         return textField
     }()
     
+    let warningTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "10자 이내로 입력 가능합니다."
+        label.font = UIFont(name: "SFPro-Regular", size: 12)
+        label.textColor = UIColor(red: 1, green: 0.341, blue: 0.196, alpha: 1)
+        return label
+    }()
+    
+    let selectCompleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("선택 완료", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
+        button.layer.cornerRadius = 13
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        [guidingTextLabel, modalDismissButton, tagAddingTextField].forEach {
+        [guidingTextLabel, modalDismissButton, tagAddingTextField, warningTextLabel, selectCompleteButton].forEach {
             view.addSubview($0)
         }
         
@@ -57,6 +73,8 @@ class TagSelectModalViewController: UIViewController {
         guidingTextLabel.translatesAutoresizingMaskIntoConstraints = false
         modalDismissButton.translatesAutoresizingMaskIntoConstraints = false
         tagAddingTextField.translatesAutoresizingMaskIntoConstraints = false
+        warningTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        selectCompleteButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             guidingTextLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 23),
@@ -67,8 +85,15 @@ class TagSelectModalViewController: UIViewController {
             
             tagAddingTextField.topAnchor.constraint(equalTo: guidingTextLabel.bottomAnchor, constant: 31),
             tagAddingTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tagAddingTextField.widthAnchor.constraint(equalToConstant: 323)
+            tagAddingTextField.widthAnchor.constraint(equalToConstant: 323),
             
+            warningTextLabel.topAnchor.constraint(equalTo: tagAddingTextField.bottomAnchor, constant: 8),
+            warningTextLabel.leadingAnchor.constraint(equalTo: tagAddingTextField.leadingAnchor),
+            
+            selectCompleteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -37),
+            selectCompleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            selectCompleteButton.widthAnchor.constraint(equalToConstant: 251),
+            selectCompleteButton.heightAnchor.constraint(equalToConstant: 51)
         ])
     }
 }
