@@ -135,4 +135,9 @@ class HomeViewController: UIViewController {
         
         present(tagNavigationController, animated: true, completion: nil)
     }
+    
+    @objc func modalDismissButtonTapped() {
+        // TODO: 호출이 안된다 (addTarget?)
+        self.navigationController?.popViewController(animated: true)
+    }
 }

@@ -18,11 +18,21 @@ class TagSelectModalViewController: UIViewController {
         return label
     }()
     
+    lazy var modalDismissButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "ModalDismissButton"), for: .normal)
+        button.sizeThatFits(CGSize(width: 10, height: 10))
+        button.tintColor = .black
+        button.backgroundColor = .green
+        button.addTarget(self, action: #selector(HomeViewController.modalDismissButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        [guidingTextLabel].forEach {
+        [guidingTextLabel, modalDismissButton].forEach {
             view.addSubview($0)
         }
         
@@ -31,10 +41,15 @@ class TagSelectModalViewController: UIViewController {
     
     private func setConstraints() {
         guidingTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        modalDismissButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            guidingTextLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            guidingTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            guidingTextLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 23),
+            guidingTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            modalDismissButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 27.28),
+            modalDismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18.28)
+            
         ])
     }
 }
