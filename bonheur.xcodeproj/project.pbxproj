@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55760DC7297EACF600764168 /* DividerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55760DC6297EACF600764168 /* DividerUIView.swift */; };
 		55760DCC297EB9EC00764168 /* TagSelectModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55760DCB297EB9EC00764168 /* TagSelectModalViewController.swift */; };
+		557ECE852981161300FBC6E2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE842981161300FBC6E2 /* UITextField+Extension.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
@@ -39,6 +40,7 @@
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55760DC6297EACF600764168 /* DividerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerUIView.swift; sourceTree = "<group>"; };
 		55760DCB297EB9EC00764168 /* TagSelectModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectModalViewController.swift; sourceTree = "<group>"; };
+		557ECE842981161300FBC6E2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		557ECE83298115FA00FBC6E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				557ECE842981161300FBC6E2 /* UITextField+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5C3952FA297076BA006EB3C5 /* bonheur */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		5C395308297076BA006EB3C5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				557ECE83298115FA00FBC6E2 /* Extensions */,
 				5C395309297076BA006EB3C5 /* Models */,
 				5C39530C297076BA006EB3C5 /* ViewControllers */,
 				5C395318297076BA006EB3C5 /* Views */,
@@ -311,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557ECE852981161300FBC6E2 /* UITextField+Extension.swift in Sources */,
 				5C395336297076BA006EB3C5 /* EmailStackView.swift in Sources */,
 				55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */,
 				5C395334297076BA006EB3C5 /* AppDelegate.swift in Sources */,
