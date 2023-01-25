@@ -31,7 +31,7 @@ class CalendarViewController: UIViewController {
     // MARK: - Property
     
     private var calendarHeightAnchor: NSLayoutConstraint!
-
+    private var changeWeekMonthButtonAnchor: NSLayoutConstraint!
     
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -68,7 +68,7 @@ class CalendarViewController: UIViewController {
     private lazy var todayButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.todayIcon, for: .normal)
-        //button.addTarget(self, action: #selector(tapBeforeWeek), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapTodayButton), for: .touchUpInside)
         return button
     }()
     
@@ -97,7 +97,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureCalendar()
         configureUI()
         configureNavBar()
@@ -145,7 +145,7 @@ class CalendarViewController: UIViewController {
     
         // 오토레이아웃
         calendar.translatesAutoresizingMaskIntoConstraints = false
-        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 475)
+        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 435)
         
         NSLayoutConstraint.activate([
             calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
@@ -156,8 +156,12 @@ class CalendarViewController: UIViewController {
         
         
         changeWeekMonthButton.translatesAutoresizingMaskIntoConstraints = false
-        changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 5).isActive = true
-        changeWeekMonthButton.centerXAnchor.constraint(equalTo: calendar.centerXAnchor).isActive = true
+        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: -20)
+        
+        NSLayoutConstraint.activate([
+            changeWeekMonthButtonAnchor,
+            changeWeekMonthButton.centerXAnchor.constraint(equalTo: calendar.centerXAnchor)
+        ])
         
     }
     
@@ -184,23 +188,17 @@ class CalendarViewController: UIViewController {
         view.addSubview(calendar)
         self.calendar = calendar
         
-        
-        // headerTitle 투명하게
         calendar.appearance.headerTitleColor = .clear
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
-
-        
-        self.calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
-        self.calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
-
-        
-        self.calendar.placeholderType = .none
-        
+        calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
+        calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.weekdayTextColor = UIColor.black
-        calendar.appearance.todayColor = UIColor.orange
-
-        
-        calendar.today = nil
+        calendar.placeholderType = .fillHeadTail
+        calendar.appearance.selectionColor = .black
+        calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
+        calendar.appearance.todayColor = .clear
+        calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+        calendar.weekdayHeight = 30
         
         
     }
@@ -218,7 +216,7 @@ class CalendarViewController: UIViewController {
     // MARK: - Selector
     
     @objc func tapTodayButton() {
-        
+        calendar.select(.now)
     }
     
     @objc func tapNextMonth() {
@@ -236,12 +234,20 @@ class CalendarViewController: UIViewController {
             print("week로 변경")
             self.calendar.setScope(.week, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.downIcon, for: .normal)
+            calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
+            calendar.weekdayHeight = 15
+            changeWeekMonthButtonAnchor.constant = -5
+            
         }
         
         else {
             print("month로 변경")
             self.calendar.setScope(.month, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.upIcon, for: .normal)
+            calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
+            calendar.weekdayHeight = 30
+            changeWeekMonthButtonAnchor.constant = -20
+
         }
         
     }
@@ -274,7 +280,8 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         let datesWithCat = ["20230103","20230105","20230107","20230109","20230111","20230114"]
         imageDateFormatter.dateFormat = "yyyyMMdd"
         let dateStr = imageDateFormatter.string(from: date)
-        print("date : \(dateStr)")
+        //print("date : \(dateStr)")
+
         return datesWithCat.contains(dateStr) ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
     }
     
