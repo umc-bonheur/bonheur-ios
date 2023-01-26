@@ -203,8 +203,12 @@ class CalendarViewController: UIViewController {
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.weekdayTextColor = UIColor.black
-        calendar.placeholderType = .fillHeadTail
-        //calendar.appearance.selectionColor =
+        //calendar.placeholderType = .fillHeadTail
+        calendar.placeholderType = .none
+        calendar.appearance.selectionColor = .clear
+        calendar.appearance.titleSelectionColor = .black
+        
+        
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
@@ -246,7 +250,7 @@ class CalendarViewController: UIViewController {
             self.changeWeekMonthButton.setImage(CalendarIcon.downIcon, for: .normal)
             calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
             calendar.weekdayHeight = 15
-            changeWeekMonthButtonAnchor.constant = -5
+            changeWeekMonthButtonAnchor.constant = -3
             
         }
         
