@@ -107,7 +107,13 @@ class CalendarViewController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         
-        // 슬픈 클로버 이미지
+        let stack = UIStackView(arrangedSubviews: [sadImageView, notiTextLabel])
+        stack.axis = .vertical
+        stack.spacing = 20
+        sadImageView.contentMode = .scaleAspectFit
+
+        
+//         //슬픈 클로버 이미지
 //        view.addSubview(sadImageView)
 //        sadImageView.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
@@ -129,11 +135,15 @@ class CalendarViewController: UIViewController {
         calendarButtonStackView.distribution = .equalSpacing
         calendarButtonStackView.spacing = 31.0
         
-        [calendar ,calendarButtonStackView, headerLabel, changeWeekMonthButton].forEach {
+        [stack, calendar ,calendarButtonStackView, headerLabel, changeWeekMonthButton].forEach {
             view.addSubview($0)
         }
         
         
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stack.topAnchor.constraint(equalTo: changeWeekMonthButton.bottomAnchor, constant: 40).isActive = true
+
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: calendar.calendarHeaderView.centerYAnchor).isActive = true
@@ -194,7 +204,7 @@ class CalendarViewController: UIViewController {
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.weekdayTextColor = UIColor.black
         calendar.placeholderType = .fillHeadTail
-        calendar.appearance.selectionColor = .black
+        //calendar.appearance.selectionColor =
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
@@ -288,15 +298,18 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     
     // TODO: 날짜 선택시 해당 날짜의 행복 기록 띄우기
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        
+        
         // https://icksw.tistory.com/122
-        
+
         let tempVC = MyPageViewController()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
+
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+
         //tempVC.date = dateFormatter.string(from: date)
-        
+
         navigationController?.pushViewController(tempVC, animated: true)
 
         //self.present(tempVC, animated: true, completion: nil)
