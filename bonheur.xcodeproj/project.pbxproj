@@ -37,6 +37,7 @@
 		5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531D297076BA006EB3C5 /* TitleStackView.swift */; };
 		5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531E297076BA006EB3C5 /* SceneDelegate.swift */; };
 		5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C39EB5A2979A29D001C2581 /* FSCalendar */; };
+		5CB7CFA02984348600870B9E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7CF9F2984348600870B9E /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		5C39531D297076BA006EB3C5 /* TitleStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStackView.swift; sourceTree = "<group>"; };
 		5C39531E297076BA006EB3C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5C39531F297076BA006EB3C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CB7CF9F2984348600870B9E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
+				5CB7CF9F2984348600870B9E /* Extension.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */,
 				55760DCC297EB9EC00764168 /* TagSelectModalViewController.swift in Sources */,
 				5C395333297076BA006EB3C5 /* MyPageViewController.swift in Sources */,
+				5CB7CFA02984348600870B9E /* Extension.swift in Sources */,
 				5C395330297076BA006EB3C5 /* HomeSortStackView.swift in Sources */,
 				557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */,
 				5C39532F297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift in Sources */,
