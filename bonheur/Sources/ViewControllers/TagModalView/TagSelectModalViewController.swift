@@ -46,6 +46,7 @@ class TagSelectModalViewController: UIViewController {
     let selectCompleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("선택 완료", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFPro-Bold", size: 16)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         button.layer.cornerRadius = 13
