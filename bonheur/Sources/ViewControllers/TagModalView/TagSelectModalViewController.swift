@@ -88,7 +88,7 @@ class TagSelectModalViewController: UIViewController {
             tagAddingTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tagAddingTextField.widthAnchor.constraint(equalToConstant: 323),
             
-            warningTextLabel.topAnchor.constraint(equalTo: tagAddingTextField.bottomAnchor, constant: 8),
+            warningTextLabel.topAnchor.constraint(equalTo: tagAddingTextField.bottomAnchor, constant: 10),
             warningTextLabel.leadingAnchor.constraint(equalTo: tagAddingTextField.leadingAnchor),
             
             selectCompleteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -37),
