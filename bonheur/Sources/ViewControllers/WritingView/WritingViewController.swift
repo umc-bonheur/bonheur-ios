@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class WritingViewController: UIViewController {
 
@@ -43,6 +44,21 @@ class WritingViewController: UIViewController {
             return button
         }()
     
+        lazy var imageArray: [UIImage] = [UIImage(named: "AddImage")!]
+            
+        let imageCollectionView: UICollectionView = {
+            let flowlayout = UICollectionViewFlowLayout()
+            flowlayout.scrollDirection = .horizontal
+            flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
+            flowlayout.itemSize = CGSize(width: 108, height: 108)
+            
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+            collectionView.backgroundColor = .none
+            collectionView.register(WritingImageCollectionViewCell.self, forCellWithReuseIdentifier: "WritingImageCollectionViewCell")
+            
+            return collectionView
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +75,10 @@ class WritingViewController: UIViewController {
             view.addSubview(backgroundView)
             view.addSubview(textView)
             view.addSubview(submitButton)
+        
+            view.addSubview(imageCollectionView)
+            imageCollectionView.dataSource = self
+            imageCollectionView.frame = view.bounds
             
             view.backgroundColor = .white
             
@@ -90,6 +110,14 @@ class WritingViewController: UIViewController {
             submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 62),
             submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -62)
         ])
+        
+        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageCollectionView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            imageCollectionView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            imageCollectionView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 29),
+            imageCollectionView.heightAnchor.constraint(equalToConstant: 108)
+        ])
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,5 +127,38 @@ class WritingViewController: UIViewController {
     @objc func submitButtonDidTapped() {
             navigationController?.popViewController(animated: true)
     }
+    
+    @objc func addButtonDidTapped() {
+            var configuration = PHPickerConfiguration()
+            configuration.selectionLimit = 5
+            configuration.filter = .any(of: [.images, .livePhotos])
+            
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+}
 
+extension WritingViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        let group = DispatchGroup()
+        for result in results {
+            group.enter()
+            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
+                defer {
+                    group.leave()
+                }
+                guard let image = object as? UIImage, error == nil else {
+                    return
+                }
+                let count = self!.imageArray.count - 1
+                self?.imageArray.insert(image, at: count)
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.imageCollectionView.reloadData()
+        }
+    }
 }

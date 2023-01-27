@@ -15,6 +15,8 @@
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		58F52FC829843F0D00353460 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC729843F0D00353460 /* WritingViewController.swift */; };
 		58F52FCA298440B500353460 /* WritingViewController+TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */; };
+		58F52FCC2984436A00353460 /* WritingViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FCB2984436A00353460 /* WritingViewController+DataSource.swift */; };
+		58F52FCE2984437F00353460 /* WritingImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FCD2984437F00353460 /* WritingImageCollectionViewCell.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
 		5C395323297076BA006EB3C5 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */; };
@@ -52,6 +54,8 @@
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		58F52FC729843F0D00353460 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingViewController+TextViewDelegate.swift"; sourceTree = "<group>"; };
+		58F52FCB2984436A00353460 /* WritingViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingViewController+DataSource.swift"; sourceTree = "<group>"; };
+		58F52FCD2984437F00353460 /* WritingImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			children = (
 				58F52FC729843F0D00353460 /* WritingViewController.swift */,
 				58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */,
+				58F52FCB2984436A00353460 /* WritingViewController+DataSource.swift */,
+				58F52FCD2984437F00353460 /* WritingImageCollectionViewCell.swift */,
 			);
 			path = WritingView;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */,
 				5C395334297076BA006EB3C5 /* AppDelegate.swift in Sources */,
 				5C395332297076BA006EB3C5 /* CalendarViewController.swift in Sources */,
+				58F52FCE2984437F00353460 /* WritingImageCollectionViewCell.swift in Sources */,
 				5C39532D297076BA006EB3C5 /* HomePostingCollectionViewCell.swift in Sources */,
 				5C395331297076BA006EB3C5 /* HomeViewController+DataSource.swift in Sources */,
 				5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */,
@@ -383,6 +390,7 @@
 				5CB7CFA02984348600870B9E /* Extension.swift in Sources */,
 				5C395330297076BA006EB3C5 /* HomeSortStackView.swift in Sources */,
 				557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */,
+				58F52FCC2984436A00353460 /* WritingViewController+DataSource.swift in Sources */,
 				5C39532F297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				5C395337297076BA006EB3C5 /* OAuthStackView.swift in Sources */,
 				5C39532C297076BA006EB3C5 /* LoginViewController.swift in Sources */,
