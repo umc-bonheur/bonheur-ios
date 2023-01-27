@@ -49,6 +49,8 @@ class WritingViewController: UIViewController {
         self.title = "오늘의 행복"
         setup()
         makeAutoLayout()
+        
+        textView.delegate = self
     }
     
     func setup() {
@@ -90,8 +92,12 @@ class WritingViewController: UIViewController {
         ])
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @objc func submitButtonDidTapped() {
             navigationController?.popViewController(animated: true)
-        }
+    }
 
 }

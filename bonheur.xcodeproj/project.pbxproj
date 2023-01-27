@@ -13,6 +13,8 @@
 		557ECE882981200400FBC6E2 /* SelectedTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE872981200300FBC6E2 /* SelectedTagStackView.swift */; };
 		557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE8A2981203100FBC6E2 /* RecentTagStackView.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
+		58F52FC829843F0D00353460 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC729843F0D00353460 /* WritingViewController.swift */; };
+		58F52FCA298440B500353460 /* WritingViewController+TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
 		5C395323297076BA006EB3C5 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */; };
@@ -23,7 +25,7 @@
 		5C395328297076BA006EB3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C395306297076BA006EB3C5 /* LaunchScreen.storyboard */; };
 		5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39530A297076BA006EB3C5 /* NetworkResult.swift */; };
 		5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39530B297076BA006EB3C5 /* GenericResponse.swift */; };
-		5C39532C297076BA006EB3C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39530E297076BA006EB3C5 /* OnboardingViewController.swift */; };
+		5C39532C297076BA006EB3C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39530E297076BA006EB3C5 /* LoginViewController.swift */; };
 		5C39532D297076BA006EB3C5 /* HomePostingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */; };
 		5C39532E297076BA006EB3C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C395311297076BA006EB3C5 /* HomeViewController.swift */; };
 		5C39532F297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */; };
@@ -48,9 +50,10 @@
 		557ECE872981200300FBC6E2 /* SelectedTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTagStackView.swift; sourceTree = "<group>"; };
 		557ECE8A2981203100FBC6E2 /* RecentTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTagStackView.swift; sourceTree = "<group>"; };
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		58F52FC729843F0D00353460 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingViewController+TextViewDelegate.swift"; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		5C3952FF297076BA006EB3C5 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		5C395301297076BA006EB3C5 /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
 		5C395302297076BA006EB3C5 /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
@@ -59,7 +62,7 @@
 		5C395307297076BA006EB3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C39530A297076BA006EB3C5 /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		5C39530B297076BA006EB3C5 /* GenericResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
-		5C39530E297076BA006EB3C5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		5C39530E297076BA006EB3C5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C395311297076BA006EB3C5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+DelegateFlowLayout .swift"; sourceTree = "<group>"; };
@@ -68,7 +71,6 @@
 		5C395315297076BA006EB3C5 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		5C395316297076BA006EB3C5 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		5C395317297076BA006EB3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C395319297076BA006EB3C5 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5C39531B297076BA006EB3C5 /* EmailStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailStackView.swift; sourceTree = "<group>"; };
 		5C39531C297076BA006EB3C5 /* OAuthStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthStackView.swift; sourceTree = "<group>"; };
 		5C39531D297076BA006EB3C5 /* TitleStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStackView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,26 @@
 			path = TagModalView;
 			sourceTree = "<group>";
 		};
+		58F52FC529843DFB00353460 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				5C39530E297076BA006EB3C5 /* LoginViewController.swift */,
+				5C39531B297076BA006EB3C5 /* EmailStackView.swift */,
+				5C39531C297076BA006EB3C5 /* OAuthStackView.swift */,
+				5C39531D297076BA006EB3C5 /* TitleStackView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		58F52FC629843EF600353460 /* WritingView */ = {
+			isa = PBXGroup;
+			children = (
+				58F52FC729843F0D00353460 /* WritingViewController.swift */,
+				58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */,
+			);
+			path = WritingView;
+			sourceTree = "<group>";
+		};
 		5C3952FA297076BA006EB3C5 /* bonheur */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */,
-				5C3952FF297076BA006EB3C5 /* .gitkeep */,
 				5C395300297076BA006EB3C5 /* NanumSquareRoundOTFB.otf */,
 				5C395301297076BA006EB3C5 /* NanumSquareRoundOTFR.otf */,
 				5C395302297076BA006EB3C5 /* NanumSquareRoundOTFL.otf */,
@@ -198,8 +219,9 @@
 		5C39530C297076BA006EB3C5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				58F52FC629843EF600353460 /* WritingView */,
+				58F52FC529843DFB00353460 /* LoginView */,
 				5C75FC5529841E3E00D08A67 /* CalendarView */,
-				5C39530E297076BA006EB3C5 /* OnboardingViewController.swift */,
 				557ECE8629811FB500FBC6E2 /* TagModalView */,
 				5C39530F297076BA006EB3C5 /* HomeView */,
 				5C395316297076BA006EB3C5 /* MyPageViewController.swift */,
@@ -224,20 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				55760DC5297EACD000764168 /* Global */,
-				5C395319297076BA006EB3C5 /* .gitkeep */,
-				5C39531A297076BA006EB3C5 /* Onboarding */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5C39531A297076BA006EB3C5 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				5C39531B297076BA006EB3C5 /* EmailStackView.swift */,
-				5C39531C297076BA006EB3C5 /* OAuthStackView.swift */,
-				5C39531D297076BA006EB3C5 /* TitleStackView.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		5C75FC5529841E3E00D08A67 /* CalendarView */ = {
@@ -361,11 +371,13 @@
 				5C39532D297076BA006EB3C5 /* HomePostingCollectionViewCell.swift in Sources */,
 				5C395331297076BA006EB3C5 /* HomeViewController+DataSource.swift in Sources */,
 				5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */,
+				58F52FCA298440B500353460 /* WritingViewController+TextViewDelegate.swift in Sources */,
 				5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */,
 				55760DC7297EACF600764168 /* DividerUIView.swift in Sources */,
 				5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */,
 				557ECE882981200400FBC6E2 /* SelectedTagStackView.swift in Sources */,
 				5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */,
+				58F52FC829843F0D00353460 /* WritingViewController.swift in Sources */,
 				55760DCC297EB9EC00764168 /* TagSelectModalViewController.swift in Sources */,
 				5C395333297076BA006EB3C5 /* MyPageViewController.swift in Sources */,
 				5CB7CFA02984348600870B9E /* Extension.swift in Sources */,
@@ -373,7 +385,7 @@
 				557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */,
 				5C39532F297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				5C395337297076BA006EB3C5 /* OAuthStackView.swift in Sources */,
-				5C39532C297076BA006EB3C5 /* OnboardingViewController.swift in Sources */,
+				5C39532C297076BA006EB3C5 /* LoginViewController.swift in Sources */,
 				5C39532E297076BA006EB3C5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
