@@ -31,7 +31,6 @@
 		5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531D297076BA006EB3C5 /* TitleStackView.swift */; };
 		5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531E297076BA006EB3C5 /* SceneDelegate.swift */; };
 		5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C39EB5A2979A29D001C2581 /* FSCalendar */; };
-		5C75FC5729841F2400D08A67 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FC5629841F2400D08A67 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +61,6 @@
 		5C39531D297076BA006EB3C5 /* TitleStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleStackView.swift; sourceTree = "<group>"; };
 		5C39531E297076BA006EB3C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5C39531F297076BA006EB3C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C75FC5629841F2400D08A67 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
-				5C75FC5629841F2400D08A67 /* Extension.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -318,7 +315,6 @@
 				5C395331297076BA006EB3C5 /* HomeViewController+DataSource.swift in Sources */,
 				5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */,
 				5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */,
-				5C75FC5729841F2400D08A67 /* Extension.swift in Sources */,
 				5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */,
 				5C395329297076BA006EB3C5 /* NetworkResult.swift in Sources */,
 				5C395333297076BA006EB3C5 /* MyPageViewController.swift in Sources */,
