@@ -10,6 +10,7 @@ import UIKit
 let latestOrderSortLabel: UILabel = {
     let label = UILabel()
     label.text = "최신순"
+    label.textColor = .white
     label.font = UIFont(name: "SFPro-Regular", size: 12)
 
     label.layer.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1).cgColor
@@ -40,6 +41,7 @@ let tagSettingButton: UIButton = {
     button.setBackgroundImage(UIImage(named: "Tune"), for: .normal)
     button.sizeThatFits(CGSize(width: 18, height: 18))
     button.tintColor = .black
+    button.addTarget(HomeViewController(), action: #selector(HomeViewController.tagSettingButtonTapped), for: .touchUpInside)
     return button
 }()
 

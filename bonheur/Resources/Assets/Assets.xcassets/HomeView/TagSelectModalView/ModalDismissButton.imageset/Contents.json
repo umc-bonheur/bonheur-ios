@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ModalDismissButton.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
