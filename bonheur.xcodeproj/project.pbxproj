@@ -36,6 +36,7 @@
 		5C395337297076BA006EB3C5 /* OAuthStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531C297076BA006EB3C5 /* OAuthStackView.swift */; };
 		5C395338297076BA006EB3C5 /* TitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531D297076BA006EB3C5 /* TitleStackView.swift */; };
 		5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531E297076BA006EB3C5 /* SceneDelegate.swift */; };
+		5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C39EB5A2979A29D001C2581 /* FSCalendar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,10 +196,10 @@
 		5C39530C297076BA006EB3C5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C75FC5529841E3E00D08A67 /* CalendarView */,
 				5C39530E297076BA006EB3C5 /* OnboardingViewController.swift */,
 				557ECE8629811FB500FBC6E2 /* TagModalView */,
 				5C39530F297076BA006EB3C5 /* HomeView */,
-				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
 				5C395316297076BA006EB3C5 /* MyPageViewController.swift */,
 				55C0DB04297A6FCB00C76F0B /* TabBarController.swift */,
 			);
@@ -236,6 +238,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		5C75FC5529841E3E00D08A67 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				5C395315297076BA006EB3C5 /* CalendarViewController.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +263,9 @@
 			dependencies = (
 			);
 			name = bonheur;
+			packageProductDependencies = (
+				5C39EB5A2979A29D001C2581 /* FSCalendar */,
+			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
 			productType = "com.apple.product-type.application";
@@ -283,6 +296,7 @@
 			mainGroup = 553ECDC52966B5E5003D8EEA;
 			packageReferences = (
 				559874742966BAE400A679C4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -580,7 +594,23 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C39EB5A2979A29D001C2581 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 553ECDC62966B5E5003D8EEA /* Project object */;
 }
