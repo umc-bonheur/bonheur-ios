@@ -25,13 +25,12 @@ class CalendarViewController: UIViewController {
             .withTintColor(.label, renderingMode: .alwaysOriginal)
     }
     
-    
     private var sadImageView = UIImageView(image: UIImage(named: "SadClover"))
     
     // MARK: - Property
     
-    private var calendarHeightAnchor: NSLayoutConstraint!
-    private var changeWeekMonthButtonAnchor: NSLayoutConstraint!
+    var calendarHeightAnchor: NSLayoutConstraint!
+    var changeWeekMonthButtonAnchor: NSLayoutConstraint!
     
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -56,7 +55,7 @@ class CalendarViewController: UIViewController {
         return label
     }()
     
-    private lazy var headerLabel: UILabel = {
+    lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0, weight: .bold)
         label.textColor = .label
@@ -78,7 +77,6 @@ class CalendarViewController: UIViewController {
         return button
     }()
 
-
     private lazy var rightButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.rightIcon, for: .normal)
@@ -92,7 +90,6 @@ class CalendarViewController: UIViewController {
         button.addTarget(self, action: #selector(tapChangeMonth), for: .touchUpInside)
         return button
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +120,6 @@ class CalendarViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stack.topAnchor.constraint(equalTo: changeWeekMonthButton.bottomAnchor, constant: 40).isActive = true
-
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: calendar.calendarHeaderView.centerYAnchor).isActive = true
@@ -132,7 +128,6 @@ class CalendarViewController: UIViewController {
         calendarButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         calendarButtonStackView.centerYAnchor.constraint(equalTo: calendar.calendarHeaderView.centerYAnchor).isActive = true
         calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -18).isActive = true
-    
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
         calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 435)
@@ -144,7 +139,6 @@ class CalendarViewController: UIViewController {
             calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40)
         ])
         
-        
         changeWeekMonthButton.translatesAutoresizingMaskIntoConstraints = false
         changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: -20)
         
@@ -154,7 +148,6 @@ class CalendarViewController: UIViewController {
         ])
         
     }
-    
     
     func configureNavBar() {
         self.navigationItem.title = "오늘의 행복"
@@ -167,7 +160,6 @@ class CalendarViewController: UIViewController {
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(descriptor: UIFontDescriptor(name: "SFPro-Bold", size: 16), size: 16)]
     }
-    
     
     func configureCalendar() {
         let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
@@ -192,7 +184,6 @@ class CalendarViewController: UIViewController {
         calendar.weekdayHeight = 30
     }
     
-    
     func getNextMonth(date: Date) -> Date {
         return Calendar.current.date(byAdding: .month, value: 1, to: date)!
     }
@@ -200,7 +191,6 @@ class CalendarViewController: UIViewController {
     func getPreviousMonth(date: Date) -> Date {
       return Calendar.current.date(byAdding: .month, value: -1, to: date)!
     }
-    
     
     // MARK: - Selector
     
@@ -223,7 +213,6 @@ class CalendarViewController: UIViewController {
             calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
             calendar.weekdayHeight = 15
             changeWeekMonthButtonAnchor.constant = -3
-            
         }
         
         else {
@@ -232,54 +221,7 @@ class CalendarViewController: UIViewController {
             calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
             calendar.weekdayHeight = 30
             changeWeekMonthButtonAnchor.constant = -20
-
-        }
-        
-    }
-    
-}
-
-
-// MARK: - Extension FSCalendar
-
-extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
-    
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-
-        calendarHeightAnchor.constant = bounds.height
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
         }
     }
-    
-    
-    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        let currentPage = calendar.currentPage
-      
-        headerLabel.text = headerDateFormatter.string(from: currentPage)
-    }
-    
-    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        let imageDateFormatter = DateFormatter()
-        let datesWithCat = ["20230103","20230105","20230107","20230109","20230111","20230114","20230117","20230122","20230123","20230124","20230125","20230126"]
-        imageDateFormatter.dateFormat = "yyyyMMdd"
-        let dateStr = imageDateFormatter.string(from: date)
-
-        return datesWithCat.contains(dateStr) ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
-    }
-    
-    
-    // TODO: 날짜 선택시 해당 날짜의 행복 기록 띄우기
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        // https://icksw.tistory.com/122
-
-        let tempVC = MyPageViewController()
-
-        navigationController?.pushViewController(tempVC, animated: true)
-
-    }
-    
 }
-
 
