@@ -21,8 +21,6 @@ class CalendarViewController: UIViewController {
             .withTintColor(.label, renderingMode: .alwaysOriginal)
         static let rightIcon = UIImage(named: "right")?
             .withTintColor(.label, renderingMode: .alwaysOriginal)
-        static let todayIcon = UIImage(named: "today")?
-            .withTintColor(.label, renderingMode: .alwaysOriginal)
     }
     
     private var sadImageView = UIImageView(image: UIImage(named: "SadClover"))
@@ -65,8 +63,11 @@ class CalendarViewController: UIViewController {
 
     private lazy var todayButton: UIButton = {
         let button = UIButton()
-        button.setImage(CalendarIcon.todayIcon, for: .normal)
+        button.setTitle("오늘", for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFPro-Bold", size: 16)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(tapTodayButton), for: .touchUpInside)
+
         return button
     }()
     
@@ -127,7 +128,7 @@ class CalendarViewController: UIViewController {
         
         calendarButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         calendarButtonStackView.centerYAnchor.constraint(equalTo: calendar.calendarHeaderView.centerYAnchor).isActive = true
-        calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -18).isActive = true
+        calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -13).isActive = true
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
         calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 435)
