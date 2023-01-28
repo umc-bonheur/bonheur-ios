@@ -133,18 +133,18 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tagSettingButtonTapped() {
-        let tagNavigationController = UINavigationController(rootViewController: TagSelectModalViewController())
-        tagNavigationController.modalPresentationStyle = .pageSheet
+        let tagSelectModalViewController = UINavigationController(rootViewController: TagSelectModalViewController())
+        tagSelectModalViewController.modalPresentationStyle = .pageSheet
 
-        if let sheet = tagNavigationController.sheetPresentationController {
+        if let sheet = tagSelectModalViewController.sheetPresentationController {
             sheet.detents = [.medium()]
         }
         
-        present(tagNavigationController, animated: true, completion: nil)
+        present(tagSelectModalViewController, animated: true, completion: nil)
     }
     
-    @objc func modalDismissButtonTapped() {
-        // TODO: 호출이 안된다 (addTarget?)
-        self.navigationController?.popViewController(animated: true)
+    @objc func moreButtonTapped() {
+        // TODO: HomeView 위에 삭제 뷰를 띄우는 기능
+        
     }
 }
