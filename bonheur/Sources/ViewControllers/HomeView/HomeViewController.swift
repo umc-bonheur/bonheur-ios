@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
         collectionView.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionViewHeader.identifier)
 
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: -5, left: 20, bottom: 10, right: 20)
         return collectionView
     }()
     
