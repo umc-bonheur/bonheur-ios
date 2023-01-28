@@ -12,6 +12,7 @@
 		557ECE852981161300FBC6E2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE842981161300FBC6E2 /* UITextField+Extension.swift */; };
 		557ECE882981200400FBC6E2 /* SelectedTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE872981200300FBC6E2 /* SelectedTagStackView.swift */; };
 		557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE8A2981203100FBC6E2 /* RecentTagStackView.swift */; };
+		5587D46229850DFF00844649 /* HomeCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
 		5C395320297076BA006EB3C5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FB297076BA006EB3C5 /* .swiftlint.yml */; };
 		5C395321297076BA006EB3C5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */; };
@@ -47,6 +48,7 @@
 		557ECE842981161300FBC6E2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		557ECE872981200300FBC6E2 /* SelectedTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTagStackView.swift; sourceTree = "<group>"; };
 		557ECE8A2981203100FBC6E2 /* RecentTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTagStackView.swift; sourceTree = "<group>"; };
+		5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewHeader.swift; sourceTree = "<group>"; };
 		55C0DB04297A6FCB00C76F0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C3952FB297076BA006EB3C5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C3952FE297076BA006EB3C5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -131,6 +133,25 @@
 			path = TagModalView;
 			sourceTree = "<group>";
 		};
+		5587D45F29850DA500844649 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */,
+				5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */,
+				5C395314297076BA006EB3C5 /* HomeViewController+DataSource.swift */,
+				5587D46029850DD200844649 /* Header */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		5587D46029850DD200844649 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		5C3952FA297076BA006EB3C5 /* bonheur */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,11 +232,9 @@
 		5C39530F297076BA006EB3C5 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */,
 				5C395311297076BA006EB3C5 /* HomeViewController.swift */,
-				5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */,
 				5C395313297076BA006EB3C5 /* HomeSortStackView.swift */,
-				5C395314297076BA006EB3C5 /* HomeViewController+DataSource.swift */,
+				5587D45F29850DA500844649 /* CollectionView */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -358,6 +377,7 @@
 				55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */,
 				5C395334297076BA006EB3C5 /* AppDelegate.swift in Sources */,
 				5C395332297076BA006EB3C5 /* CalendarViewController.swift in Sources */,
+				5587D46229850DFF00844649 /* HomeCollectionViewHeader.swift in Sources */,
 				5C39532D297076BA006EB3C5 /* HomePostingCollectionViewCell.swift in Sources */,
 				5C395331297076BA006EB3C5 /* HomeViewController+DataSource.swift in Sources */,
 				5C39532A297076BA006EB3C5 /* GenericResponse.swift in Sources */,

@@ -69,6 +69,9 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
+        var layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        layoutConfig.headerMode = .supplementary
+        
         [topLabel, cloverCalendarButton, homeSortStackView, dividerLine, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
