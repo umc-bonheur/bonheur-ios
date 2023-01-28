@@ -13,4 +13,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
         let cellHeight = 149
         return CGSize(width: cellWidth, height: cellHeight)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionViewHeader.identifier, for: indexPath) as? HomeCollectionViewHeader else {
+            return HomeCollectionViewHeader()
+        }
+        
+        header.configure()
+        return header
+    }
 }

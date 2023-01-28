@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
     var postingList: [String] = ["Default"]
-
+    
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = self.topLabelText
@@ -57,7 +57,8 @@ class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HomePostingCollectionViewCell.self,
                                 forCellWithReuseIdentifier: HomePostingCollectionViewCell.identifier)
-        
+        collectionView.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionViewHeader.identifier)
+
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         return collectionView
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController {
         
         var layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         layoutConfig.headerMode = .supplementary
-        
+
         [topLabel, cloverCalendarButton, homeSortStackView, dividerLine, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
@@ -109,8 +110,8 @@ class HomeViewController: UIViewController {
             dividerLine.topAnchor.constraint(equalTo: homeSortStackView.bottomAnchor, constant: 6),
             dividerLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dividerLine.widthAnchor.constraint(equalTo: view.widthAnchor),
-            
-            homePostingCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 231),
+                    
+            homePostingCollectionView.topAnchor.constraint(equalTo: dividerLine.bottomAnchor),
             homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
             homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82)
         ])

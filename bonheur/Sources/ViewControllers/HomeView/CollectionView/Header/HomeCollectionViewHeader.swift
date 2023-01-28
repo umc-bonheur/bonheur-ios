@@ -9,34 +9,24 @@ import UIKit
 
 class HomeCollectionViewHeader: UICollectionReusableView {
     
-    lazy var dateLabel: UILabel = {
+    static let identifier = "HomeCollectionViewHeader"
+    
+    var dateLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = "동적으로 변경하기"
-        label.textAlignment = .center
+        label.text = "12월 23일 화요일"
         label.font = UIFont(name: "SFPro-Bold", size: 14)
+        label.textColor = .black
         return label
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("Not implemented")
-    }
-}
-
-extension HomeCollectionViewHeader {
     func configure() {
-        
         addSubview(dateLabel)
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
-            dateLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            dateLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 15)
+            dateLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            dateLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor)
         ])
     }
 }
