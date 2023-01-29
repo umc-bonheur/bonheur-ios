@@ -102,7 +102,7 @@ class CalendarViewController: UIViewController {
     }
     
     func configureUI() {
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .white
         
         let stack = UIStackView(arrangedSubviews: [sadImageView, notiTextLabel])
         stack.axis = .vertical
@@ -133,9 +133,7 @@ class CalendarViewController: UIViewController {
         calendar.translatesAutoresizingMaskIntoConstraints = false
         calendar.collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        //calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 480)
-        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 475)
-        
+        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 465)
         
         NSLayoutConstraint.activate([
             calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
@@ -150,7 +148,7 @@ class CalendarViewController: UIViewController {
         ])
         
         changeWeekMonthButton.translatesAutoresizingMaskIntoConstraints = false
-        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 10)
+        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 1)
         
         NSLayoutConstraint.activate([
             changeWeekMonthButtonAnchor,
@@ -188,18 +186,21 @@ class CalendarViewController: UIViewController {
         calendar.placeholderType = .none
         calendar.appearance.selectionColor = .red
         calendar.appearance.titleSelectionColor = .black
-        calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
         calendar.weekdayHeight = 30
+        calendar.headerHeight = 35
         calendar.adjustsBoundingRectWhenChangingMonths = true
         
-        // temp color for autoLayout
-        calendar.calendarWeekdayView.backgroundColor = .blue
-        calendar.collectionView.backgroundColor = .white
-        calendar.contentView.backgroundColor = .cyan
-        calendar.daysContainer.backgroundColor = .brown
+        calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
+        calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
         
+        // temp color for autoLayout
+//        calendar.calendarWeekdayView.backgroundColor = .blue
+//        calendar.collectionView.backgroundColor = .purple
+//        calendar.contentView.backgroundColor = .cyan
+//        calendar.daysContainer.backgroundColor = .brown
+//
 
 
     }
@@ -230,15 +231,15 @@ class CalendarViewController: UIViewController {
         if self.calendar.scope == .month {
             self.calendar.setScope(.week, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.downIcon, for: .normal)
-            calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
-            calendar.weekdayHeight = 15
-            changeWeekMonthButtonAnchor.constant = -3
+//            calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
+//            calendar.weekdayHeight = 15
+//            changeWeekMonthButtonAnchor.constant = -3
         } else {
             self.calendar.setScope(.month, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.upIcon, for: .normal)
-            calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
-            calendar.weekdayHeight = 30
-            changeWeekMonthButtonAnchor.constant = -20
+//            calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
+//            calendar.weekdayHeight = 30
+//            changeWeekMonthButtonAnchor.constant = -20
         }
     }
 }
