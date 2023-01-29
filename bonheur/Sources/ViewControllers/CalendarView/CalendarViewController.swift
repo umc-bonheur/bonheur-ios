@@ -67,7 +67,6 @@ class CalendarViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "SFPro-Bold", size: 16)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(tapTodayButton), for: .touchUpInside)
-
         return button
     }()
     
@@ -98,7 +97,6 @@ class CalendarViewController: UIViewController {
         configureCalendar()
         configureUI()
         configureNavBar()
-        
     }
     
     func configureUI() {
@@ -178,7 +176,6 @@ class CalendarViewController: UIViewController {
         calendar.delegate = self
         
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "CELL")
-        view.addSubview(calendar)
         self.calendar = calendar
         
         calendar.appearance.headerTitleColor = .clear
@@ -186,26 +183,17 @@ class CalendarViewController: UIViewController {
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.weekdayTextColor = UIColor.black
-        calendar.placeholderType = .none
-        calendar.appearance.selectionColor = .red
+        calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
-        calendar.weekdayHeight = 30
-        calendar.headerHeight = 35
-        calendar.adjustsBoundingRectWhenChangingMonths = true
-        
         calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
         
-        // temp color for autoLayout
-        
-//        calendar.calendarWeekdayView.backgroundColor = .blue
-//        calendar.collectionView.backgroundColor = .purple
-//        calendar.contentView.backgroundColor = .cyan
-//        calendar.daysContainer.backgroundColor = .brown
-//        calendar.calendarHeaderView.backgroundColor = .red
-
+        calendar.weekdayHeight = 30
+        calendar.headerHeight = 35
+        calendar.placeholderType = .none
+        calendar.adjustsBoundingRectWhenChangingMonths = true
     }
     
     func getNextMonth(date: Date) -> Date {
@@ -234,15 +222,9 @@ class CalendarViewController: UIViewController {
         if self.calendar.scope == .month {
             self.calendar.setScope(.week, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.downIcon, for: .normal)
-//            calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
-//            calendar.weekdayHeight = 15
-//            changeWeekMonthButtonAnchor.constant = -3
         } else {
             self.calendar.setScope(.month, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.upIcon, for: .normal)
-//            calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
-//            calendar.weekdayHeight = 30
-//            changeWeekMonthButtonAnchor.constant = -20
         }
     }
 }
