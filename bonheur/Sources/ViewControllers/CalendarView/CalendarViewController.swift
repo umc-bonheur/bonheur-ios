@@ -102,7 +102,7 @@ class CalendarViewController: UIViewController {
     }
     
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray5
         
         let stack = UIStackView(arrangedSubviews: [sadImageView, notiTextLabel])
         stack.axis = .vertical
@@ -131,17 +131,26 @@ class CalendarViewController: UIViewController {
         calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -13).isActive = true
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
-        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 435)
+        calendar.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 480)
+        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 475)
+        
         
         NSLayoutConstraint.activate([
             calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
             calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             calendarHeightAnchor,
-            calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40)
+            calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            
+            calendar.collectionView.heightAnchor.constraint(equalToConstant: 412),
+            calendar.collectionView.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            calendar.collectionView.topAnchor.constraint(equalTo: calendar.calendarWeekdayView.bottomAnchor, constant: 8)
+            
         ])
         
         changeWeekMonthButton.translatesAutoresizingMaskIntoConstraints = false
-        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: -20)
+        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 10)
         
         NSLayoutConstraint.activate([
             changeWeekMonthButtonAnchor,
@@ -177,12 +186,22 @@ class CalendarViewController: UIViewController {
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.weekdayTextColor = UIColor.black
         calendar.placeholderType = .none
-        calendar.appearance.selectionColor = .clear
+        calendar.appearance.selectionColor = .red
         calendar.appearance.titleSelectionColor = .black
-        calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
+        calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
         calendar.weekdayHeight = 30
+        calendar.adjustsBoundingRectWhenChangingMonths = true
+        
+        // temp color for autoLayout
+        calendar.calendarWeekdayView.backgroundColor = .blue
+        calendar.collectionView.backgroundColor = .white
+        calendar.contentView.backgroundColor = .cyan
+        calendar.daysContainer.backgroundColor = .brown
+        
+
+
     }
     
     func getNextMonth(date: Date) -> Date {
@@ -214,12 +233,10 @@ class CalendarViewController: UIViewController {
             calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
             calendar.weekdayHeight = 15
             changeWeekMonthButtonAnchor.constant = -3
-        }
-        
-        else {
+        } else {
             self.calendar.setScope(.month, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.upIcon, for: .normal)
-            calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
+            calendar.appearance.imageOffset = CGPoint(x: 0, y: -50)
             calendar.weekdayHeight = 30
             changeWeekMonthButtonAnchor.constant = -20
         }
