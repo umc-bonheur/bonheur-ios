@@ -21,6 +21,7 @@ extension WritingViewController: UITextViewDelegate {
             textView.textColor = .lightGray
 
             self.submitButton.backgroundColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)
+            self.submitButton.isEnabled = false
         } else {
             self.submitButton.backgroundColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
             self.submitButton.isEnabled = true
