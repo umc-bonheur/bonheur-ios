@@ -10,6 +10,8 @@ import UIKit
 class MyPageViewController: UIViewController {
 
     let mainLabel = UILabel()
+    
+    // test
 
     override func viewDidLoad() {
         super.viewDidLoad()
