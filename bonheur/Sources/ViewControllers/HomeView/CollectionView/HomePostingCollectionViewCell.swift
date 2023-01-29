@@ -54,6 +54,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         button.setBackgroundImage(UIImage(named: "ThreeDots"), for: .normal)
         button.sizeThatFits(CGSize(width: 24, height: 24))
         button.tintColor = .black
+        button.addTarget(HomeViewController(), action: #selector(HomeViewController.moreButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -68,7 +69,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     let postingText: UITextView = {
         let postingText = UITextView()
         postingText.text = "오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다."
-        
+        // TODO: 더보기 기능 구현
         postingText.backgroundColor = .clear
         postingText.widthAnchor.constraint(equalToConstant: 224).isActive = true
         postingText.heightAnchor.constraint(equalToConstant: 82).isActive = true

@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     var userName: String = "짱제이"
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
     var postingList: [String] = ["Default"]
-
+    
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = self.topLabelText
@@ -57,9 +57,10 @@ class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HomePostingCollectionViewCell.self,
                                 forCellWithReuseIdentifier: HomePostingCollectionViewCell.identifier)
-        
+        collectionView.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionViewHeader.identifier)
+
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: -5, left: 20, bottom: 10, right: 20)
         return collectionView
     }()
     
@@ -69,6 +70,9 @@ class HomeViewController: UIViewController {
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
         
+        var layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        layoutConfig.headerMode = .supplementary
+
         [topLabel, cloverCalendarButton, homeSortStackView, dividerLine, homePostingCollectionView].forEach {
             view.addSubview($0)
         }
@@ -106,8 +110,8 @@ class HomeViewController: UIViewController {
             dividerLine.topAnchor.constraint(equalTo: homeSortStackView.bottomAnchor, constant: 6),
             dividerLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dividerLine.widthAnchor.constraint(equalTo: view.widthAnchor),
-            
-            homePostingCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 231),
+                    
+            homePostingCollectionView.topAnchor.constraint(equalTo: dividerLine.bottomAnchor),
             homePostingCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
             homePostingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -82)
         ])
@@ -133,18 +137,18 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tagSettingButtonTapped() {
-        let tagNavigationController = UINavigationController(rootViewController: TagSelectModalViewController())
-        tagNavigationController.modalPresentationStyle = .pageSheet
+        let tagSelectModalViewController = UINavigationController(rootViewController: TagSelectModalViewController())
+        tagSelectModalViewController.modalPresentationStyle = .pageSheet
 
-        if let sheet = tagNavigationController.sheetPresentationController {
+        if let sheet = tagSelectModalViewController.sheetPresentationController {
             sheet.detents = [.medium()]
         }
         
-        present(tagNavigationController, animated: true, completion: nil)
+        present(tagSelectModalViewController, animated: true, completion: nil)
     }
     
-    @objc func modalDismissButtonTapped() {
-        // TODO: 호출이 안된다 (addTarget?)
-        self.navigationController?.popViewController(animated: true)
+    @objc func moreButtonTapped() {
+        // TODO: HomeView 위에 삭제 뷰를 띄우는 기능
+        
     }
 }
