@@ -131,6 +131,7 @@ class CalendarViewController: UIViewController {
         calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -13).isActive = true
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
+        calendar.calendarHeaderView.translatesAutoresizingMaskIntoConstraints = false
         calendar.collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 465)
@@ -140,6 +141,8 @@ class CalendarViewController: UIViewController {
             calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             calendarHeightAnchor,
             calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            
+            calendar.calendarHeaderView.bottomAnchor.constraint(equalTo: calendar.calendarWeekdayView.topAnchor, constant: -25),
             
             calendar.collectionView.heightAnchor.constraint(equalToConstant: 412),
             calendar.collectionView.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
@@ -196,12 +199,12 @@ class CalendarViewController: UIViewController {
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
         
         // temp color for autoLayout
+        
 //        calendar.calendarWeekdayView.backgroundColor = .blue
 //        calendar.collectionView.backgroundColor = .purple
 //        calendar.contentView.backgroundColor = .cyan
 //        calendar.daysContainer.backgroundColor = .brown
-//
-
+//        calendar.calendarHeaderView.backgroundColor = .red
 
     }
     
