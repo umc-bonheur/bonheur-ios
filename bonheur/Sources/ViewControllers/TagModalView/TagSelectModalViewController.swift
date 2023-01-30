@@ -23,7 +23,7 @@ class TagSelectModalViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "ModalDismissButton"), for: .normal)
         button.sizeThatFits(CGSize(width: 10, height: 10))
         button.tintColor = .black
-        button.addTarget(self, action: #selector(HomeViewController.modalDismissButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(modalDismissButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -56,7 +56,8 @@ class TagSelectModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        self.navigationController?.isNavigationBarHidden = true
+
         [guidingTextLabel, modalDismissButton, tagAddingTextField, warningTextLabel, selectCompleteButton].forEach {
             view.addSubview($0)
         }
@@ -96,5 +97,9 @@ class TagSelectModalViewController: UIViewController {
             selectCompleteButton.widthAnchor.constraint(equalToConstant: 251),
             selectCompleteButton.heightAnchor.constraint(equalToConstant: 51)
         ])
+    }
+    
+    @objc func modalDismissButtonTapped() {
+        self.dismiss(animated: true)
     }
 }
