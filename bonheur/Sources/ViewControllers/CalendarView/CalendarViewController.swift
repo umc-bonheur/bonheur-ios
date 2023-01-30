@@ -182,7 +182,7 @@ class CalendarViewController: UIViewController {
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
-        calendar.appearance.weekdayTextColor = UIColor.black
+        calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
