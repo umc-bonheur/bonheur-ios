@@ -50,8 +50,13 @@ class TabBarController: UITabBarController {
     }
     
     @objc func cloverButtonTapped(_ sender: UIButton) {
-        // TODO: 카메라 관련 뷰 PUSH
+        let writingVC = WritingViewController()
+                
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         
+        navigationController?.pushViewController(writingVC, animated: true)
     }
 }
 
