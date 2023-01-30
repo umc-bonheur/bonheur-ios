@@ -7,13 +7,13 @@
 
 import UIKit
 
-// TODO: 삭제 버튼 추가
 class WritingImageCollectionViewCell: UICollectionViewCell {
     static let id = "WritingImageCollectionViewCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
+        addSubview(closeButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,8 +29,24 @@ class WritingImageCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    lazy var closeButton: UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(named: "Close")
+        config.baseBackgroundColor = .clear
+        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        return UIButton(configuration: config)
+    }()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds
+
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 7.7),
+            closeButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10.7)
+        ])
     }
+    
 }

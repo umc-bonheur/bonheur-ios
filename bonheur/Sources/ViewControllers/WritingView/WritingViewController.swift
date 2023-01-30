@@ -18,46 +18,49 @@ class WritingViewController: UIViewController {
             return bg
         }()
         
-        let textView: UITextView = {
-            let tv = UITextView()
-            tv.text = "오늘은 어떤 행복한 일이 있었나요?"
-            tv.textColor = .lightGray
-            tv.font = UIFont(name: "SFPro-Regular", size: 14)
-            tv.layer.cornerRadius = 15
-            tv.textContainerInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
-            
-            return tv
-        }()
+    let textView: UITextView = {
+        let tv = UITextView()
+        tv.text = "오늘은 어떤 행복한 일이 있었나요?"
+        tv.textColor = .lightGray
+        tv.font = UIFont(name: "SFPro-Regular", size: 14)
+        tv.layer.cornerRadius = 15
+        tv.textContainerInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         
-        lazy var submitButton: UIButton = {
-            let button = UIButton(type: .custom)
-            button.setTitle("기록하기", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont(name: "SFPro-Medium", size: 16)
-            button.layer.cornerRadius = 13
-            
-            button.backgroundColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)
-            
-            button.isEnabled = false
-            button.addTarget(self, action: #selector(submitButtonDidTapped), for: .touchUpInside)
-            
-            return button
-        }()
+        return tv
+    }()
     
-        lazy var imageArray: [UIImage] = [UIImage(named: "AddImage")!]
-            
-        let imageCollectionView: UICollectionView = {
-            let flowlayout = UICollectionViewFlowLayout()
-            flowlayout.scrollDirection = .horizontal
-            flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
-            flowlayout.itemSize = CGSize(width: 108, height: 108)
-            
-            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
-            collectionView.backgroundColor = .none
-            collectionView.register(WritingImageCollectionViewCell.self, forCellWithReuseIdentifier: "WritingImageCollectionViewCell")
-            
-            return collectionView
-        }()
+    lazy var submitButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("기록하기", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont(name: "SFPro-Medium", size: 16)
+        button.layer.cornerRadius = 13
+        
+        button.backgroundColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)
+        
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(submitButtonDidTapped), for: .touchUpInside)
+        
+        return button
+    }()
+
+    let addImage = UIImage(named: "AddImage")
+    lazy var images: [UIImage] = [addImage!]
+    let maxImageNumber = 5
+        
+    let imageCollectionView: UICollectionView = {
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.scrollDirection = .horizontal
+        flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
+        flowlayout.itemSize = CGSize(width: 108, height: 108)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+        collectionView.backgroundColor = .none
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(WritingImageCollectionViewCell.self, forCellWithReuseIdentifier: "WritingImageCollectionViewCell")
+        
+        return collectionView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,39 +128,63 @@ class WritingViewController: UIViewController {
     }
     
     @objc func submitButtonDidTapped() {
-            navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func addButtonDidTapped() {
-            var configuration = PHPickerConfiguration()
-            configuration.selectionLimit = 5
-            configuration.filter = .any(of: [.images, .livePhotos])
-            
-            let picker = PHPickerViewController(configuration: configuration)
-            picker.delegate = self
-            self.present(picker, animated: true)
-        }
+        var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+        let itemsNumber = self.imageCollectionView.numberOfItems(inSection: 0)
+        
+        configuration.selectionLimit = maxImageNumber - itemsNumber + 1
+        configuration.selection = .ordered
+        configuration.filter = .any(of: [.images, .livePhotos])
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true) // PHPicker을 present 방식으로 띄움
+        
+    }
 }
 
 extension WritingViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
+        
         let group = DispatchGroup()
+        
+        var order = [String]()
+        var asyncDict = [String: UIImage]()
+        
+        // 최초로 이미지 추가
+        if self.images.count == 1 && results.count != 0 {
+            self.imageCollectionView.deleteItems(at: [IndexPath.init(row: 0, section: 0)])
+            self.images.remove(at: 0)
+        }
+        
         for result in results {
+            order.append(result.assetIdentifier ?? "")
             group.enter()
-            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
                 defer {
                     group.leave()
                 }
                 guard let image = object as? UIImage, error == nil else {
                     return
                 }
-                let count = self!.imageArray.count - 1
-                self?.imageArray.insert(image, at: count)
+                
+                asyncDict[result.assetIdentifier ?? ""] = image
             }
         }
-        
+
         group.notify(queue: .main) {
+            for id in order {
+                if self.images.count == 0 {
+                    self.images.append(asyncDict[id]!)
+                    self.images.append(self.addImage!)
+                } else {
+                    self.images.insert(asyncDict[id]!, at: self.images.count - 1)
+                }
+            }
             self.imageCollectionView.reloadData()
         }
     }
