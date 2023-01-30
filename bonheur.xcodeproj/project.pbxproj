@@ -159,6 +159,8 @@
 				58F52FCD2984437F00353460 /* WritingImageCollectionViewCell.swift */,
 			);
 			path = WritingView;
+			sourceTree = "<group>";
+		};
 		5587D45F29850DA500844649 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
