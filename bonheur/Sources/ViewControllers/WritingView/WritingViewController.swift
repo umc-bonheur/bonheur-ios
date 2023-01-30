@@ -48,7 +48,7 @@ class WritingViewController: UIViewController {
     lazy var images: [UIImage] = [addImage!]
     let maxImageNumber = 5
         
-    let imageCollectionView: UICollectionView = {
+    lazy var imageCollectionView: UICollectionView = {
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .horizontal
         flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
@@ -70,25 +70,19 @@ class WritingViewController: UIViewController {
         makeAutoLayout()
         
         textView.delegate = self
+        imageCollectionView.dataSource = self
     }
     
     func setup() {
-            backgroundView.addSubview(textView)
-            
-            view.addSubview(backgroundView)
-            view.addSubview(textView)
-            view.addSubview(submitButton)
+        [backgroundView, imageCollectionView, textView, submitButton].forEach {
+            view.addSubview($0)
+        }
         
-            view.addSubview(imageCollectionView)
-            imageCollectionView.dataSource = self
-            imageCollectionView.frame = view.bounds
-            
-            view.backgroundColor = .white
-            
+        view.backgroundColor = .white
+        imageCollectionView.frame = view.bounds
         }
         
     func makeAutoLayout() {
-        
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 104),
