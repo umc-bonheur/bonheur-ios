@@ -14,6 +14,7 @@
 		557ECE8B2981203100FBC6E2 /* RecentTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ECE8A2981203100FBC6E2 /* RecentTagStackView.swift */; };
 		5587D46229850DFF00844649 /* HomeCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */; };
 		55C0DB05297A6FCB00C76F0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0DB04297A6FCB00C76F0B /* TabBarController.swift */; };
+		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		58F52FC829843F0D00353460 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC729843F0D00353460 /* WritingViewController.swift */; };
 		58F52FCA298440B500353460 /* WritingViewController+TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FC9298440B500353460 /* WritingViewController+TextViewDelegate.swift */; };
 		58F52FCC2984436A00353460 /* WritingViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F52FCB2984436A00353460 /* WritingViewController+DataSource.swift */; };
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				584B4A332988C9160052D5A9 /* Moya in Frameworks */,
 				5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +141,25 @@
 			path = TagModalView;
 			sourceTree = "<group>";
 		};
+		5587D45F29850DA500844649 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */,
+				5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */,
+				5C395314297076BA006EB3C5 /* HomeViewController+DataSource.swift */,
+				5587D46029850DD200844649 /* Header */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		5587D46029850DD200844649 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		58F52FC529843DFB00353460 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,25 +180,6 @@
 				58F52FCD2984437F00353460 /* WritingImageCollectionViewCell.swift */,
 			);
 			path = WritingView;
-			sourceTree = "<group>";
-		};
-		5587D45F29850DA500844649 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				5C395310297076BA006EB3C5 /* HomePostingCollectionViewCell.swift */,
-				5C395312297076BA006EB3C5 /* HomeViewController+DelegateFlowLayout .swift */,
-				5C395314297076BA006EB3C5 /* HomeViewController+DataSource.swift */,
-				5587D46029850DD200844649 /* Header */,
-			);
-			path = CollectionView;
-			sourceTree = "<group>";
-		};
-		5587D46029850DD200844649 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				5587D46129850DFF00844649 /* HomeCollectionViewHeader.swift */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 		5C3952FA297076BA006EB3C5 /* bonheur */ = {
@@ -303,6 +305,7 @@
 			name = bonheur;
 			packageProductDependencies = (
 				5C39EB5A2979A29D001C2581 /* FSCalendar */,
+				584B4A322988C9160052D5A9 /* Moya */,
 			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
@@ -335,6 +338,7 @@
 			packageReferences = (
 				559874742966BAE400A679C4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -638,6 +642,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
@@ -649,6 +661,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		584B4A322988C9160052D5A9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		5C39EB5A2979A29D001C2581 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */;
