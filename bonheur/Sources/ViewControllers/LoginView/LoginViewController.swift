@@ -1,5 +1,5 @@
 //
-//  OnboardingViewController.swift
+//  LoginViewController.swift
 //  bonheur
 //
 //  Created by 이정연 on 2023/01/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     // 뒤로 가기 버튼
     lazy var backButton: UIButton = {

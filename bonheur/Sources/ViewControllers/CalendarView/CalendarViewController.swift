@@ -67,7 +67,6 @@ class CalendarViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "SFPro-Bold", size: 16)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(tapTodayButton), for: .touchUpInside)
-
         return button
     }()
     
@@ -98,7 +97,6 @@ class CalendarViewController: UIViewController {
         configureCalendar()
         configureUI()
         configureNavBar()
-        
     }
     
     func configureUI() {
@@ -131,17 +129,27 @@ class CalendarViewController: UIViewController {
         calendarButtonStackView.trailingAnchor.constraint(equalTo: calendar.collectionView.trailingAnchor, constant: -13).isActive = true
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
-        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 435)
+        calendar.calendarHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        calendar.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        calendarHeightAnchor = calendar.heightAnchor.constraint(equalToConstant: 465)
         
         NSLayoutConstraint.activate([
             calendar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 28),
             calendar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             calendarHeightAnchor,
-            calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40)
+            calendar.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            
+            calendar.calendarHeaderView.bottomAnchor.constraint(equalTo: calendar.calendarWeekdayView.topAnchor, constant: -25),
+            
+            calendar.collectionView.heightAnchor.constraint(equalToConstant: 412),
+            calendar.collectionView.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            calendar.collectionView.topAnchor.constraint(equalTo: calendar.calendarWeekdayView.bottomAnchor, constant: 8)
+            
         ])
         
         changeWeekMonthButton.translatesAutoresizingMaskIntoConstraints = false
-        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: -20)
+        changeWeekMonthButtonAnchor = changeWeekMonthButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 1)
         
         NSLayoutConstraint.activate([
             changeWeekMonthButtonAnchor,
@@ -168,21 +176,24 @@ class CalendarViewController: UIViewController {
         calendar.delegate = self
         
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "CELL")
-        view.addSubview(calendar)
         self.calendar = calendar
         
         calendar.appearance.headerTitleColor = .clear
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
-        calendar.appearance.weekdayTextColor = UIColor.black
-        calendar.placeholderType = .none
+        calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
-        calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+        calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
+        calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
+        
         calendar.weekdayHeight = 30
+        calendar.headerHeight = 35
+        calendar.placeholderType = .none
+        calendar.adjustsBoundingRectWhenChangingMonths = true
     }
     
     func getNextMonth(date: Date) -> Date {
@@ -211,17 +222,9 @@ class CalendarViewController: UIViewController {
         if self.calendar.scope == .month {
             self.calendar.setScope(.week, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.downIcon, for: .normal)
-            calendar.appearance.imageOffset = CGPoint(x: 0, y: 0)
-            calendar.weekdayHeight = 15
-            changeWeekMonthButtonAnchor.constant = -3
-        }
-        
-        else {
+        } else {
             self.calendar.setScope(.month, animated: true)
             self.changeWeekMonthButton.setImage(CalendarIcon.upIcon, for: .normal)
-            calendar.appearance.imageOffset = CGPoint(x: 0, y: -45)
-            calendar.weekdayHeight = 30
-            changeWeekMonthButtonAnchor.constant = -20
         }
     }
 }
