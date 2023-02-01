@@ -30,6 +30,14 @@ class CalendarViewController: UIViewController {
     var calendarHeightAnchor: NSLayoutConstraint!
     var changeWeekMonthButtonAnchor: NSLayoutConstraint!
     let todayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "ko_KR")
+        df.timeZone = TimeZone(abbreviation: "KST")
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
     
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -191,6 +199,7 @@ class CalendarViewController: UIViewController {
         calendar.appearance.titleTodayColor = todayColor
         calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
+        calendar.appearance.titleSelectedFont = UIFont(name: "SFPro-Bold", size: 14)
         
         calendar.weekdayHeight = 30
         calendar.headerHeight = 35
