@@ -188,18 +188,21 @@ class CalendarViewController: UIViewController {
         self.calendar = calendar
 
         calendar.locale = Locale(identifier: "ko_KR")
-        calendar.appearance.headerTitleColor = .clear
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
+        
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
+        calendar.appearance.titleSelectedFont = UIFont(name: "SFPro-Bold", size: 14)
+
+        calendar.appearance.headerTitleColor = .clear
         calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = bonheurTodayColor
+        
         calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
-        calendar.appearance.titleSelectedFont = UIFont(name: "SFPro-Bold", size: 14)
         
         calendar.weekdayHeight = 30
         calendar.headerHeight = 35
