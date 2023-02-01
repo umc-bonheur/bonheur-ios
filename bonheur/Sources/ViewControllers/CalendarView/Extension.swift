@@ -34,8 +34,22 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     // TODO: 날짜 선택시 해당 날짜의 행복 기록 띄우기
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         // https://icksw.tistory.com/122
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let todayDate = dateFormatter.string(from: Date())
+        let selectDate = dateFormatter.string(from: date)
         
-        let tempVC = MyPageViewController()
-        navigationController?.pushViewController(tempVC, animated: true)
+        if selectDate == todayDate {
+            calendar.appearance.titleSelectionColor = todayColor
+        } else {
+            calendar.appearance.titleSelectionColor = .black
+        }
+        
+//        let tempVC = MyPageViewController()
+//        navigationController?.pushViewController(tempVC, animated: true)
+
     }
 }

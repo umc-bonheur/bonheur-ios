@@ -29,6 +29,7 @@ class CalendarViewController: UIViewController {
     
     var calendarHeightAnchor: NSLayoutConstraint!
     var changeWeekMonthButtonAnchor: NSLayoutConstraint!
+    let todayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
     
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -177,7 +178,8 @@ class CalendarViewController: UIViewController {
         
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "CELL")
         self.calendar = calendar
-        
+
+        calendar.locale = Locale(identifier: "ko_KR")
         calendar.appearance.headerTitleColor = .clear
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
@@ -186,7 +188,7 @@ class CalendarViewController: UIViewController {
         calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
-        calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+        calendar.appearance.titleTodayColor = todayColor
         calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
         
