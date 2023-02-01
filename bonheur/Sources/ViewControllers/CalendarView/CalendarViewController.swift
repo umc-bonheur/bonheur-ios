@@ -82,14 +82,14 @@ class CalendarViewController: UIViewController {
     private lazy var leftButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.leftIcon, for: .normal)
-        button.addTarget(self, action: #selector(tapBeforeMonth), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapBefore), for: .touchUpInside)
         return button
     }()
 
     private lazy var rightButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.rightIcon, for: .normal)
-        button.addTarget(self, action: #selector(tapNextMonth), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapNext), for: .touchUpInside)
         return button
     }()
     
@@ -218,6 +218,13 @@ class CalendarViewController: UIViewController {
       return Calendar.current.date(byAdding: .month, value: -1, to: date)!
     }
     
+    func getNextWeek(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: date)!
+    }
+    
+    func getPreviousWeek(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .weekOfMonth, value: -1, to: date)!
+    }
     // MARK: - Selector
     
     @objc func tapTodayButton() {
@@ -225,12 +232,26 @@ class CalendarViewController: UIViewController {
         calendar.appearance.titleSelectionColor = bonheurTodayColor
     }
     
-    @objc func tapNextMonth() {
-        self.calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
+    @objc func tapNext() {
+        switch self.calendar.scope {
+        case .month:
+            self.calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
+        case .week:
+            self.calendar.setCurrentPage(getNextWeek(date: calendar.currentPage), animated: true)
+        default:
+            return
+        }
     }
 
-    @objc func tapBeforeMonth() {
-        self.calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
+    @objc func tapBefore() {
+        switch self.calendar.scope {
+        case .month:
+            self.calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
+        case .week:
+            self.calendar.setCurrentPage(getPreviousWeek(date: calendar.currentPage), animated: true)
+        default:
+            return
+        }
     }
     
     @objc func tapChangeMonth() {
