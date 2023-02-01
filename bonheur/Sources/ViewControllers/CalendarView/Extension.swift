@@ -38,7 +38,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         
         // 오늘 날짜 선택 시 todayColor 유지
         if selectDate == todayDate {
-            calendar.appearance.titleSelectionColor = todayColor
+            calendar.appearance.titleSelectionColor = bonheurTodayColor
         } else {
             calendar.appearance.titleSelectionColor = .black
         }
