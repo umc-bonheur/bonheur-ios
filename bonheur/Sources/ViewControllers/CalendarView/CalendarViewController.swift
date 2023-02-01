@@ -222,6 +222,7 @@ class CalendarViewController: UIViewController {
     
     @objc func tapTodayButton() {
         calendar.select(.now)
+        calendar.appearance.titleSelectionColor = bonheurTodayColor
     }
     
     @objc func tapNextMonth() {
