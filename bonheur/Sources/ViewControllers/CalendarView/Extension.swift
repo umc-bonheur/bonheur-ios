@@ -42,9 +42,5 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         } else {
             calendar.appearance.titleSelectionColor = .black
         }
-        
-//        let tempVC = MyPageViewController()
-//        navigationController?.pushViewController(tempVC, animated: true)
-
     }
 }
