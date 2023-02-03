@@ -64,7 +64,8 @@
 		5C395328297076BA006EB3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C395306297076BA006EB3C5 /* LaunchScreen.storyboard */; };
 		5C395334297076BA006EB3C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C395317297076BA006EB3C5 /* AppDelegate.swift */; };
 		5C395339297076BA006EB3C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39531E297076BA006EB3C5 /* SceneDelegate.swift */; };
-		5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C39EB5A2979A29D001C2581 /* FSCalendar */; };
+		5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C525E2C298AC8050056CFF8 /* FSCalendar */; };
+		5CB7CFA02984348600870B9E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7CF9F2984348600870B9E /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,8 +134,8 @@
 				588F3098298AF537002D69DF /* Charts in Frameworks */,
 				588F308F298AF233002D69DF /* SnapKit in Frameworks */,
 				584B4A332988C9160052D5A9 /* Moya in Frameworks */,
-				5C39EB5B2979A29D001C2581 /* FSCalendar in Frameworks */,
 				588F3092298AF282002D69DF /* Then in Frameworks */,
+				5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,11 +413,11 @@
 			);
 			name = bonheur;
 			packageProductDependencies = (
-				5C39EB5A2979A29D001C2581 /* FSCalendar */,
 				584B4A322988C9160052D5A9 /* Moya */,
 				588F308E298AF233002D69DF /* SnapKit */,
 				588F3091298AF282002D69DF /* Then */,
 				588F3097298AF537002D69DF /* Charts */,
+				5C525E2C298AC8050056CFF8 /* FSCalendar */,
 			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
@@ -448,10 +449,10 @@
 			mainGroup = 553ECDC52966B5E5003D8EEA;
 			packageReferences = (
 				559874742966BAE400A679C4 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */,
 				588F3090298AF282002D69DF /* XCRemoteSwiftPackageReference "Then" */,
 				588F3096298AF537002D69DF /* XCRemoteSwiftPackageReference "Charts" */,
+				5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -797,12 +798,12 @@
 				version = 4.1.0;
 			};
 		};
-		5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+		5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			repositoryURL = "https://github.com/Betmoong/FSCalendar";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -828,9 +829,9 @@
 			package = 588F3096298AF537002D69DF /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
-		5C39EB5A2979A29D001C2581 /* FSCalendar */ = {
+		5C525E2C298AC8050056CFF8 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C39EB592979A29D001C2581 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			package = 5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
