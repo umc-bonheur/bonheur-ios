@@ -29,6 +29,15 @@ class CalendarViewController: UIViewController {
     
     var calendarHeightAnchor: NSLayoutConstraint!
     var changeWeekMonthButtonAnchor: NSLayoutConstraint!
+    let bonheurTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "ko_KR")
+        df.timeZone = TimeZone(abbreviation: "KST")
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
     
     let headerDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -73,14 +82,14 @@ class CalendarViewController: UIViewController {
     private lazy var leftButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.leftIcon, for: .normal)
-        button.addTarget(self, action: #selector(tapBeforeMonth), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapBefore), for: .touchUpInside)
         return button
     }()
 
     private lazy var rightButton: UIButton = {
         let button = UIButton()
         button.setImage(CalendarIcon.rightIcon, for: .normal)
-        button.addTarget(self, action: #selector(tapNextMonth), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapNext), for: .touchUpInside)
         return button
     }()
     
@@ -177,16 +186,21 @@ class CalendarViewController: UIViewController {
         
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "CELL")
         self.calendar = calendar
-        
-        calendar.appearance.headerTitleColor = .clear
+
+        calendar.locale = Locale(identifier: "ko_KR")
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
+        
         calendar.appearance.weekdayFont = UIFont(name: "SFPro-Regular", size: 14)
         calendar.appearance.titleFont = UIFont(name: "SFPro-Regular", size: 14)
+        calendar.appearance.titleSelectedFont = UIFont(name: "SFPro-Bold", size: 14)
+
+        calendar.appearance.headerTitleColor = .clear
         calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
-        calendar.appearance.titleTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
+        calendar.appearance.titleTodayColor = bonheurTodayColor
+        
         calendar.appearance.titleOffset = CGPoint(x: 0, y: 10)
         calendar.appearance.imageOffset = CGPoint(x: 0, y: -47)
         
@@ -204,18 +218,40 @@ class CalendarViewController: UIViewController {
       return Calendar.current.date(byAdding: .month, value: -1, to: date)!
     }
     
+    func getNextWeek(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: date)!
+    }
+    
+    func getPreviousWeek(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .weekOfMonth, value: -1, to: date)!
+    }
     // MARK: - Selector
     
     @objc func tapTodayButton() {
         calendar.select(.now)
+        calendar.appearance.titleSelectionColor = bonheurTodayColor
     }
     
-    @objc func tapNextMonth() {
-        self.calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
+    @objc func tapNext() {
+        switch self.calendar.scope {
+        case .month:
+            self.calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
+        case .week:
+            self.calendar.setCurrentPage(getNextWeek(date: calendar.currentPage), animated: true)
+        default:
+            return
+        }
     }
 
-    @objc func tapBeforeMonth() {
-        self.calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
+    @objc func tapBefore() {
+        switch self.calendar.scope {
+        case .month:
+            self.calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
+        case .week:
+            self.calendar.setCurrentPage(getPreviousWeek(date: calendar.currentPage), animated: true)
+        default:
+            return
+        }
     }
     
     @objc func tapChangeMonth() {

@@ -802,6 +802,10 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Betmoong/FSCalendar";
 			requirement = {
+		5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Betmoong/FSCalendar";
+			requirement = {
 				branch = master;
 				kind = branch;
 			};
