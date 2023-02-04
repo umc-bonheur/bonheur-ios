@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
+		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
+		58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4060298E59DE00B5DC04 /* KakaoSDKUser */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
 		5C20C9B1298D477300B8BB2A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C967298D477300B8BB2A /* NanumSquareRoundOTFB.otf */; };
@@ -133,8 +135,10 @@
 				5C20C9ED298D482000B8BB2A /* Then in Frameworks */,
 				584B4A332988C9160052D5A9 /* Moya in Frameworks */,
 				5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */,
+				58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */,
 				5C20C9E7298D478A00B8BB2A /* Charts in Frameworks */,
 				5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */,
+				58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +421,8 @@
 				5C20C9E6298D478A00B8BB2A /* Charts */,
 				5C20C9E9298D47E600B8BB2A /* SnapKit */,
 				5C20C9EC298D482000B8BB2A /* Then */,
+				58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */,
+				58ED4060298E59DE00B5DC04 /* KakaoSDKUser */,
 			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
@@ -452,6 +458,7 @@
 				5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				5C20C9E5298D478A00B8BB2A /* XCRemoteSwiftPackageReference "Charts" */,
 				5C20C9EB298D482000B8BB2A /* XCRemoteSwiftPackageReference "Then" */,
+				58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -781,6 +788,14 @@
 				kind = branch;
 			};
 		};
+		58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5C20C9E5298D478A00B8BB2A /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
@@ -812,6 +827,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		58ED4060298E59DE00B5DC04 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 		5C20C9E6298D478A00B8BB2A /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
