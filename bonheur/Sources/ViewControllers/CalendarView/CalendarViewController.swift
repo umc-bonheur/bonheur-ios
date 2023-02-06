@@ -197,7 +197,6 @@ class CalendarViewController: UIViewController {
         calendar.appearance.headerTitleColor = .clear
         calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .clear
-        calendar.appearance.titleSelectionColor = .black
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = bonheurTodayColor
         

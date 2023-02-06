@@ -40,7 +40,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         if selectDate == todayDate {
             calendar.appearance.titleSelectionColor = bonheurTodayColor
         } else {
-            calendar.appearance.titleSelectionColor = .black
+            calendar.appearance.titleSelectionColor = bonheurTodayColor
         }
     }
 }
