@@ -21,10 +21,10 @@ struct SingleDetailImage {
 
 class SingleDetailViewController: UIViewController, FloatingPanelControllerDelegate {
     
+    var selectedIndex: Int = 0
+    
     fileprivate let data = [
-        MyCustomData(image: SingleDetailImage.image1),
-        MyCustomData(image: SingleDetailImage.image2),
-        MyCustomData(image: SingleDetailImage.image1),
+        MyCustomData(image: SingleDetailImage.image1), 
         MyCustomData(image: SingleDetailImage.image2)
     ]
     
@@ -39,7 +39,7 @@ class SingleDetailViewController: UIViewController, FloatingPanelControllerDeleg
       }
     }
     
-//    var imageArr: [String] = ["image", "image2", "guemin"]
+//    var imageArr: [String] = ["image", "image2"]
     
     lazy var backBtn = UIButton().then {
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
@@ -148,7 +148,6 @@ class SingleDetailViewController: UIViewController, FloatingPanelControllerDeleg
             $0.center.equalToSuperview()
         }
         moreBtn.snp.makeConstraints {
-            
             $0.centerY.equalTo(backBtn)
             $0.trailing.equalTo(shareBtn.snp.leading).offset(-8)
             $0.height.width.equalTo(backBtn)
