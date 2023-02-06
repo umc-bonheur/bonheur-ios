@@ -25,9 +25,8 @@ class NotificationSettingViewController: UIViewController {
         self.view.backgroundColor = .white
         
         // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        title = "푸쉬 알림"
-        
+        self.navigationItem.title = "푸쉬 알림"
+
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.separatorStyle = .none

@@ -23,22 +23,12 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
         editProfileView.cameraBtn.addTarget(self, action: #selector(cameraBtnTapped), for: .touchUpInside)
         
         // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        title = "프로필 수정"
-        let doneLlb = UILabel()
-        doneLlb.text = "완료"
-        doneLlb.textColor = .black
-        navigationItem.setRightBarButton(UIBarButtonItem(customView: doneLlb), animated: false)
-        
-        // 제스처인식기 생성
-        let doneLblTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneLblTapped(tapGestureRecognizer:)))
-        // 상호작용 설정
-        doneLlb.isUserInteractionEnabled = true
-        // 제스처인식기 연결
-        doneLlb.addGestureRecognizer(doneLblTappedRecognizer)
+        self.navigationItem.title = "프로필 수정"
         
         setUpView()
         setUpConstraints()
+        setUpNavBar()
+        setUpDoneBtn()
     }
     
     func setUpView() {
@@ -50,6 +40,20 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.leading.trailing.equalToSuperview()
         }
+    }
+    
+    func setUpDoneBtn() {
+        let doneLlb = UILabel()
+        doneLlb.text = "완료"
+        doneLlb.textColor = .black
+        navigationItem.setRightBarButton(UIBarButtonItem(customView: doneLlb), animated: false)
+        
+        // 제스처인식기 생성
+        let doneLblTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneLblTapped(tapGestureRecognizer:)))
+        // 상호작용 설정
+        doneLlb.isUserInteractionEnabled = true
+        // 제스처인식기 연결
+        doneLlb.addGestureRecognizer(doneLblTappedRecognizer)
     }
     
     @objc

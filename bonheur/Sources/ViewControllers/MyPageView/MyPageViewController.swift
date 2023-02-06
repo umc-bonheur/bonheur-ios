@@ -21,8 +21,13 @@ class MyPageViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    lazy var settingNavBtn = UIButton().then {
-        $0.setImage(UIImage(named: "setting"), for: .normal)
+    let settingImageView = UIImageView().then {
+        $0.image = UIImage(named: "setting")
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    lazy var settingBtn = UIButton().then {
+        $0.backgroundColor = .clear
     }
     
     let nicknameView = NicknameView()
@@ -39,18 +44,29 @@ class MyPageViewController: UIViewController {
         statsView.backgroundColor = .white
         scrollView.insetsLayoutMarginsFromSafeArea = (0 != 0)
         
-        // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        tabBarController?.navigationItem.setRightBarButton(UIBarButtonItem(customView: settingNavBtn), animated: false)
-        settingNavBtn.addTarget(self, action: #selector(settingBtnTapped), for: .touchUpInside)
+        settingBtn.addTarget(self, action: #selector(settingBtnTapped), for: .touchUpInside)
         nicknameView.editNicknameBtn.addTarget(self, action: #selector(editNicknameBtnTapped), for: .touchUpInside)
         
         setUpView()
         setUpConstraints()
     }
     
+    // 네비게이션 바 숨기기
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+        setUpNavBar()
+        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    // 다른 뷰로 이동 시 네비게이션 바 보이게 설정
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+        tabBarController?.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     func setUpView() {
-        
+        self.view.addSubview(settingBtn)
+        settingBtn.addSubview(settingImageView)
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         [nicknameView, countCloverView, statsView].forEach {
@@ -60,8 +76,17 @@ class MyPageViewController: UIViewController {
     
     func setUpConstraints() {
         
+        settingBtn.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(12)
+            $0.trailing.equalToSuperview().inset(14.28)
+            $0.height.equalTo(Constant.height * 20)
+            $0.width.equalTo(Constant.width * 19.45)
+        }
+        settingImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(settingImageView.snp.bottom).offset(12)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         contentView.snp.makeConstraints {
