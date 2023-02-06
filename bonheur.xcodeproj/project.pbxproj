@@ -65,6 +65,11 @@
 		5C20C9ED298D482000B8BB2A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9EC298D482000B8BB2A /* Then */; };
 		5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C525E2C298AC8050056CFF8 /* FSCalendar */; };
 		8A126C5F29912DDE00F096AB /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 8A126C5E29912DDE00F096AB /* FloatingPanel */; };
+		8A126C61299143E900F096AB /* FloatingPanelController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A126C60299143E900F096AB /* FloatingPanelController+Extension.swift */; };
+		8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A126C642991443B00F096AB /* SingleDetailViewController.swift */; };
+		8A126C67299144C500F096AB /* SingleDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A126C66299144C500F096AB /* SingleDetailBottomSheetViewController.swift */; };
+		8A126C69299144DF00F096AB /* DetailImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A126C68299144DF00F096AB /* DetailImageViewController.swift */; };
+		8A126C6B2991452400F096AB /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A126C6A2991452400F096AB /* BottomSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +127,11 @@
 		5C20C9AC298D477300B8BB2A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C20C9AD298D477300B8BB2A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C20C9AE298D477300B8BB2A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8A126C60299143E900F096AB /* FloatingPanelController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPanelController+Extension.swift"; sourceTree = "<group>"; };
+		8A126C642991443B00F096AB /* SingleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailViewController.swift; sourceTree = "<group>"; };
+		8A126C66299144C500F096AB /* SingleDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		8A126C68299144DF00F096AB /* DetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewController.swift; sourceTree = "<group>"; };
+		8A126C6A2991452400F096AB /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +237,7 @@
 				5C20C974298D477300B8BB2A /* Constant.swift */,
 				5C20C976298D477300B8BB2A /* UIViewController+Extension.swift */,
 				5C20C977298D477300B8BB2A /* UITextField+Extension.swift */,
+				8A126C60299143E900F096AB /* FloatingPanelController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +250,7 @@
 				5C20C981298D477300B8BB2A /* HomeView */,
 				5C20C98A298D477300B8BB2A /* TagModalView */,
 				5C20C98E298D477300B8BB2A /* MyPageView */,
+				8A126C632991441800F096AB /* SingleDetailView */,
 				5C20C9A3298D477300B8BB2A /* LoginView */,
 				5C20C9A8298D477300B8BB2A /* TabBarController.swift */,
 			);
@@ -393,6 +405,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8A126C632991441800F096AB /* SingleDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8A126C642991443B00F096AB /* SingleDetailViewController.swift */,
+				8A126C66299144C500F096AB /* SingleDetailBottomSheetViewController.swift */,
+				8A126C68299144DF00F096AB /* DetailImageViewController.swift */,
+				8A126C6A2991452400F096AB /* BottomSheetView.swift */,
+			);
+			path = SingleDetailView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,14 +534,18 @@
 				5C20C9DB298D477300B8BB2A /* CountCloverView.swift in Sources */,
 				5C20C9DF298D477300B8BB2A /* LoginViewController.swift in Sources */,
 				5C20C9DE298D477300B8BB2A /* TitleStackView.swift in Sources */,
+				8A126C61299143E900F096AB /* FloatingPanelController+Extension.swift in Sources */,
 				5C20C9DC298D477300B8BB2A /* EmailStackView.swift in Sources */,
 				5C20C9D8298D477300B8BB2A /* StatsByDayOfTheWeekView.swift in Sources */,
 				5C20C9CC298D477300B8BB2A /* SettingViewController.swift in Sources */,
 				5C20C9C0298D477300B8BB2A /* WritingViewController+DataSource.swift in Sources */,
 				5C20C9CE298D477300B8BB2A /* IntroduceDeveloperViewController.swift in Sources */,
+				8A126C6B2991452400F096AB /* BottomSheetView.swift in Sources */,
 				5C20C9D7298D477300B8BB2A /* StatsByTagView.swift in Sources */,
+				8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */,
 				5C20C9C6298D477300B8BB2A /* HomeCollectionViewHeader.swift in Sources */,
 				5C20C9C7298D477300B8BB2A /* HomeViewController.swift in Sources */,
+				8A126C69299144DF00F096AB /* DetailImageViewController.swift in Sources */,
 				5C20C9D2298D477300B8BB2A /* NicknameView.swift in Sources */,
 				5C20C9B8298D477300B8BB2A /* GenericResponse.swift in Sources */,
 				5C20C9D5298D477300B8BB2A /* StatsByMonthView.swift in Sources */,
@@ -541,6 +568,7 @@
 				5C20C9C3298D477300B8BB2A /* HomePostingCollectionViewCell.swift in Sources */,
 				5C20C9C5298D477300B8BB2A /* HomeViewController+DataSource.swift in Sources */,
 				5C20C9B9298D477300B8BB2A /* Constant.swift in Sources */,
+				8A126C67299144C500F096AB /* SingleDetailBottomSheetViewController.swift in Sources */,
 				5C20C9D9298D477300B8BB2A /* StatsView.swift in Sources */,
 				5C20C9BC298D477300B8BB2A /* UITextField+Extension.swift in Sources */,
 				5C20C9CB298D477300B8BB2A /* RecentTagStackView.swift in Sources */,
