@@ -130,7 +130,7 @@ class SettingView: UIView {
         $0.backgroundColor = UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1)
     }
     
-    let termsOfServiceBtn = UIButton().then  {
+    let termsOfServiceBtn = UIButton().then {
         $0.setTitle("이용약관", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)
@@ -140,7 +140,7 @@ class SettingView: UIView {
         $0.backgroundColor = UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1)
     }
     
-    let withdrawalBtn = UIButton().then  {
+    let withdrawalBtn = UIButton().then {
         $0.setTitle("회원탈퇴", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)

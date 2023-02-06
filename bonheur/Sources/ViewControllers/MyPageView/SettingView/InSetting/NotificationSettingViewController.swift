@@ -106,8 +106,6 @@ class NotificationSettingView: UIView {
         // MARK: 테이블뷰 헤더 간격 없앰
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
-        } else {
-            // Fallback on earlier versions
         }
     }
     
