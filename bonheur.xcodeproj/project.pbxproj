@@ -64,6 +64,7 @@
 		5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9E9298D47E600B8BB2A /* SnapKit */; };
 		5C20C9ED298D482000B8BB2A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9EC298D482000B8BB2A /* Then */; };
 		5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C525E2C298AC8050056CFF8 /* FSCalendar */; };
+		8A126C5F29912DDE00F096AB /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 8A126C5E29912DDE00F096AB /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 				5C20C9ED298D482000B8BB2A /* Then in Frameworks */,
 				584B4A332988C9160052D5A9 /* Moya in Frameworks */,
 				5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */,
+				8A126C5F29912DDE00F096AB /* FloatingPanel in Frameworks */,
 				5C20C9E7298D478A00B8BB2A /* Charts in Frameworks */,
 				5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */,
 			);
@@ -414,6 +416,7 @@
 				5C20C9E6298D478A00B8BB2A /* Charts */,
 				5C20C9E9298D47E600B8BB2A /* SnapKit */,
 				5C20C9EC298D482000B8BB2A /* Then */,
+				8A126C5E29912DDE00F096AB /* FloatingPanel */,
 			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
@@ -449,6 +452,7 @@
 				5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				5C20C9E5298D478A00B8BB2A /* XCRemoteSwiftPackageReference "Charts" */,
 				5C20C9EB298D482000B8BB2A /* XCRemoteSwiftPackageReference "Then" */,
+				8A126C5D29912DDE00F096AB /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -801,6 +805,14 @@
 				kind = branch;
 			};
 		};
+		8A126C5D29912DDE00F096AB /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SCENEE/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -828,6 +840,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C525E2B298AC8050056CFF8 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		8A126C5E29912DDE00F096AB /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A126C5D29912DDE00F096AB /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

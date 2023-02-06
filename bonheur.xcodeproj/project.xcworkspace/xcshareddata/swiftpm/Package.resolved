@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "floatingpanel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SCENEE/FloatingPanel",
+      "state" : {
+        "revision" : "4ab7d260301ddf1cab5376ea14e285a128f5ba39",
+        "version" : "2.5.5"
+      }
+    },
+    {
       "identity" : "fscalendar",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Betmoong/FSCalendar",
