@@ -19,7 +19,6 @@
 		5C20C9B7298D477300B8BB2A /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C971298D477300B8BB2A /* NetworkResult.swift */; };
 		5C20C9B8298D477300B8BB2A /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C972298D477300B8BB2A /* GenericResponse.swift */; };
 		5C20C9B9298D477300B8BB2A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C974298D477300B8BB2A /* Constant.swift */; };
-		5C20C9BA298D477300B8BB2A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C975298D477300B8BB2A /* UIImage+Extension.swift */; };
 		5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C976298D477300B8BB2A /* UIViewController+Extension.swift */; };
 		5C20C9BC298D477300B8BB2A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C977298D477300B8BB2A /* UITextField+Extension.swift */; };
 		5C20C9BD298D477300B8BB2A /* WritingImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20C97A298D477300B8BB2A /* WritingImageCollectionViewCell.swift */; };
@@ -80,7 +79,6 @@
 		5C20C971298D477300B8BB2A /* NetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		5C20C972298D477300B8BB2A /* GenericResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		5C20C974298D477300B8BB2A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		5C20C975298D477300B8BB2A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5C20C976298D477300B8BB2A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5C20C977298D477300B8BB2A /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		5C20C97A298D477300B8BB2A /* WritingImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				5C20C974298D477300B8BB2A /* Constant.swift */,
-				5C20C975298D477300B8BB2A /* UIImage+Extension.swift */,
 				5C20C976298D477300B8BB2A /* UIViewController+Extension.swift */,
 				5C20C977298D477300B8BB2A /* UITextField+Extension.swift */,
 			);
@@ -546,7 +543,6 @@
 				5C20C9D1298D477300B8BB2A /* SettingView.swift in Sources */,
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
-				5C20C9BA298D477300B8BB2A /* UIImage+Extension.swift in Sources */,
 				5C20C9E0298D477300B8BB2A /* TabBarController.swift in Sources */,
 				5C20C9CF298D477300B8BB2A /* NotificationSettingViewController.swift in Sources */,
 				5C20C9BF298D477300B8BB2A /* WritingViewController+TextViewDelegate.swift in Sources */,
