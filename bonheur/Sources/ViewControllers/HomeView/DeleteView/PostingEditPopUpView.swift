@@ -31,6 +31,7 @@ class PostingEditPopUpView: UIView {
     
     init() {
         super.init(frame: .zero)
+        postingDeleteButton.addTarget(self.postingDeleteButton, action: #selector(PostingEditPopUpViewController.postingDeleteButtonTapped), for: .touchUpInside)
         
         [postingDeleteButton, postingEditButton].forEach {
             addSubview($0)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-// 게시물 삭제 Alert CustomView
+// TODO: 게시물 삭제 Alert CustomView
 class PostingDeletePopUpView: UIView {
     
     let backgroundLabel: UILabel = {
@@ -31,9 +31,7 @@ class PostingDeletePopUpView: UIView {
     private func setConstraints() {
         backgroundLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
     }
     
     required init?(coder: NSCoder) { fatalError() }
 }
-
