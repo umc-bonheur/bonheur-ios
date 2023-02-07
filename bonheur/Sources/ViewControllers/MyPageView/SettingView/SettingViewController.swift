@@ -28,12 +28,14 @@ class SettingViewController: UIViewController {
         // 회원탈퇴
         settingView.withdrawalBtn.addTarget(self, action: #selector(withdrawalBtnTapped), for: .touchUpInside)
         
-        // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        title = "설정"
+        self.navigationItem.title = "설정"
         
         setUpView()
         setUpConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUpNavBar()
     }
     
     func setUpView() {
@@ -52,7 +54,7 @@ class SettingViewController: UIViewController {
     @objc
     func notifBtnTapped() {
         let notificationSettingViewController = NotificationSettingViewController()
-        navigationController?.pushViewController(notificationSettingViewController, animated: false)
+            navigationController?.pushViewController(notificationSettingViewController, animated: false)
     }
     
     @objc

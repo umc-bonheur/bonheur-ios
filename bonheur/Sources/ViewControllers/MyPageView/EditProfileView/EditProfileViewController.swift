@@ -23,22 +23,12 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
         editProfileView.cameraBtn.addTarget(self, action: #selector(cameraBtnTapped), for: .touchUpInside)
         
         // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        title = "프로필 수정"
-        let doneLlb = UILabel()
-        doneLlb.text = "완료"
-        doneLlb.textColor = .black
-        navigationItem.setRightBarButton(UIBarButtonItem(customView: doneLlb), animated: false)
-        
-        // 제스처인식기 생성
-        let doneLblTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneLblTapped(tapGestureRecognizer:)))
-        // 상호작용 설정
-        doneLlb.isUserInteractionEnabled = true
-        // 제스처인식기 연결
-        doneLlb.addGestureRecognizer(doneLblTappedRecognizer)
+        self.navigationItem.title = "프로필 수정"
         
         setUpView()
         setUpConstraints()
+        setUpNavBar()
+        setUpDoneBtn()
     }
     
     func setUpView() {
@@ -50,6 +40,20 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.leading.trailing.equalToSuperview()
         }
+    }
+    
+    func setUpDoneBtn() {
+        let doneLlb = UILabel()
+        doneLlb.text = "완료"
+        doneLlb.textColor = .black
+        navigationItem.setRightBarButton(UIBarButtonItem(customView: doneLlb), animated: false)
+        
+        // 제스처인식기 생성
+        let doneLblTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneLblTapped(tapGestureRecognizer:)))
+        // 상호작용 설정
+        doneLlb.isUserInteractionEnabled = true
+        // 제스처인식기 연결
+        doneLlb.addGestureRecognizer(doneLblTappedRecognizer)
     }
     
     @objc
@@ -96,7 +100,7 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
         actionSheet()
     }
     
-    //MARK: doneLbl Clicked
+    // MARK: doneLbl Clicked
     @objc func doneLblTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         uploadBtnTapped()
     }
@@ -106,12 +110,12 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
     }
 }
 
-extension EditProfileViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         print(info)
         let data = convertFromUIImageToDict(info)
-        if let editingImage = data[convertInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage{
+        if let editingImage = data[convertInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
             print(editingImage)
             editProfileView.profileImageView.image = editingImage
             print("이미지 가져오기 성공")
@@ -123,11 +127,11 @@ extension EditProfileViewController : UIImagePickerControllerDelegate, UINavigat
         self.dismiss(animated: true, completion: nil)
     }
 
-    func convertFromUIImageToDict(_ input: [UIImagePickerController.InfoKey : Any]) -> [String : Any] {
+    func convertFromUIImageToDict(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
         return Dictionary(uniqueKeysWithValues: input.map({key, value in (key.rawValue, value)}))
     }
 
-    func convertInfoKey(_ input : UIImagePickerController.InfoKey) -> String{
+    func convertInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
         return input.rawValue
     }
 }

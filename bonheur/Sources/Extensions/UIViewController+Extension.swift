@@ -5,32 +5,37 @@
 //  Created by 김사랑 on 2023/02/01.
 //
 
+import Foundation
 import UIKit
 
 extension UIViewController {
     
-    func setupNavigationBackButton(_ sender: UIImage? = nil) {
-        if sender == nil {
-            let backButtonSpacer = UIBarButtonItem()
-            backButtonSpacer.width = -28
-            let backButton = UIBarButtonItem(image: UIImage(named: "chevron.left")?.withRenderingMode(.alwaysOriginal),
-                                             style: .plain,
-                                             target: self,
-                                             action: #selector(didTapBackButton))
-            navigationItem.setLeftBarButtonItems([backButtonSpacer, backButton], animated: false)
-        } else {
-            let senderImageItem = UIBarButtonItem(image: sender?.resize(newWidth: 10.84).withTintColor(.black, renderingMode: .alwaysOriginal),
-                                                  style: .plain,
-                                                  target: self,
-                                                  action: #selector(didTapBackButton))
-
-            navigationItem.setLeftBarButtonItems([senderImageItem], animated: false)
-        }
+    // 네비게이션 바 커스텀
+    func setUpNavBar() {
+        let backButton = UIBarButtonItem()
+        backButton.tintColor = .black
+        backButton.width = 30
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "SFPro-Medium", size: 16)!]
     }
     
-    @objc
-    func didTapBackButton() {
-            navigationController?.popViewController(animated: false)
-            tabBarController?.selectedIndex = 0
+    // collectionView의 Cell에서 다른 viewController로 이동
+    func pushView(viewController: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.15
+        transition.type = .fade
+        self.view.window?.layer.add(transition, forKey: kCATransition)
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func dismissView() {
+        let transition = CATransition()
+        transition.duration = 0.15
+        transition.type = .fade
+        transition.subtype = .none
+        self.view.window?.layer.add(transition, forKey: kCATransition)
+        self.dismiss(animated: true)
     }
 }

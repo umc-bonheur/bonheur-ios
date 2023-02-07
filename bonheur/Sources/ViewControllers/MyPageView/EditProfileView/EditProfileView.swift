@@ -34,7 +34,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    lazy var cameraBtn = UIButton().then  {
+    lazy var cameraBtn = UIButton().then {
         $0.backgroundColor = .clear
     }
     

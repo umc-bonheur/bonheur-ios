@@ -18,10 +18,6 @@ class IntroduceDeveloperViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        // 네비게이션 바 커스텀
-        setupNavigationBackButton(UIImage(named: "arrow-left"))
-        title = ""
-        
         setUpView()
         setUpConstraints()
     }
