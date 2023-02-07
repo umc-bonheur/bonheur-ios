@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */; };
+		55035E88299241C9008E221C /* PostingEditPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E87299241C9008E221C /* PostingEditPopUpView.swift */; };
+		55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E89299241E1008E221C /* PostingDeletePopUpView.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
@@ -73,6 +76,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpViewController.swift; sourceTree = "<group>"; };
+		55035E87299241C9008E221C /* PostingEditPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpView.swift; sourceTree = "<group>"; };
+		55035E89299241E1008E221C /* PostingDeletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDeletePopUpView.swift; sourceTree = "<group>"; };
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -151,6 +157,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55035E842992418E008E221C /* DeleteView */ = {
+			isa = PBXGroup;
+			children = (
+				55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */,
+				55035E87299241C9008E221C /* PostingEditPopUpView.swift */,
+				55035E89299241E1008E221C /* PostingDeletePopUpView.swift */,
+			);
+			path = DeleteView;
+			sourceTree = "<group>";
+		};
 		553ECDC52966B5E5003D8EEA = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +296,7 @@
 		5C20C981298D477300B8BB2A /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				55035E842992418E008E221C /* DeleteView */,
 				5C20C982298D477300B8BB2A /* CollectionView */,
 				5C20C988298D477300B8BB2A /* HomeViewController.swift */,
 				5C20C989298D477300B8BB2A /* HomeSortStackView.swift */,
@@ -533,6 +550,7 @@
 				5C20C9C2298D477300B8BB2A /* CalendarViewController.swift in Sources */,
 				5C20C9DB298D477300B8BB2A /* CountCloverView.swift in Sources */,
 				5C20C9DF298D477300B8BB2A /* LoginViewController.swift in Sources */,
+				55035E88299241C9008E221C /* PostingEditPopUpView.swift in Sources */,
 				5C20C9DE298D477300B8BB2A /* TitleStackView.swift in Sources */,
 				8A126C61299143E900F096AB /* FloatingPanelController+Extension.swift in Sources */,
 				5C20C9DC298D477300B8BB2A /* EmailStackView.swift in Sources */,
@@ -541,6 +559,7 @@
 				5C20C9C0298D477300B8BB2A /* WritingViewController+DataSource.swift in Sources */,
 				5C20C9CE298D477300B8BB2A /* IntroduceDeveloperViewController.swift in Sources */,
 				8A126C6B2991452400F096AB /* BottomSheetView.swift in Sources */,
+				55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */,
 				5C20C9D7298D477300B8BB2A /* StatsByTagView.swift in Sources */,
 				8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */,
 				5C20C9C6298D477300B8BB2A /* HomeCollectionViewHeader.swift in Sources */,
@@ -560,6 +579,7 @@
 				5C20C9D0298D477300B8BB2A /* IntroduceDeveloperView.swift in Sources */,
 				5C20C9C1298D477300B8BB2A /* Extension.swift in Sources */,
 				5C20C9D3298D477300B8BB2A /* EditProfileView.swift in Sources */,
+				55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */,
 				5C20C9DA298D477300B8BB2A /* MyPageViewController.swift in Sources */,
 				5C20C9C9298D477300B8BB2A /* TagSelectModalViewController.swift in Sources */,
 				5C20C9BD298D477300B8BB2A /* WritingImageCollectionViewCell.swift in Sources */,

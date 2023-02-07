@@ -148,7 +148,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func moreButtonTapped() {
-        // TODO: HomeView 위에 삭제 뷰를 띄우는 기능
-        
+        let postingEditPopUpViewController = PostingEditPopUpViewController()
+        postingEditPopUpViewController.modalPresentationStyle = .overFullScreen
+        present(postingEditPopUpViewController, animated: false)
     }
 }
