@@ -236,12 +236,28 @@
 		58ED407F298EB49900B5DC04 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				58ED40892992C42300B5DC04 /* SocialSignUp */,
+				58ED40882992C41B00B5DC04 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		58ED40882992C41B00B5DC04 /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				58ED4080298EB4A900B5DC04 /* LoginRequest.swift */,
 				58ED4082298EB4B200B5DC04 /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		58ED40892992C42300B5DC04 /* SocialSignUp */ = {
+			isa = PBXGroup;
+			children = (
 				58ED4084298EB4EC00B5DC04 /* SocialSignUpRequest.swift */,
 				58ED4086298EB4FC00B5DC04 /* SocialSignUpResponse.swift */,
 			);
-			path = Auth;
+			path = SocialSignUp;
 			sourceTree = "<group>";
 		};
 		5C20C962298D477300B8BB2A /* bonheur */ = {

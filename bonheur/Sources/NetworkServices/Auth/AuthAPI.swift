@@ -14,6 +14,7 @@ public class AuthAPI {
     
     public init() { }
     
+    // MARK: - 소셜 회원가입
     func socialSignUp(socialSignUpRequest: SocialSignUpRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
         authProvider.request(.socialSignUp(socialSignUpRequest: socialSignUpRequest)) { (result) in
             switch result {
@@ -25,7 +26,24 @@ public class AuthAPI {
                 completion(networkResult)
                 
             case .failure(let error):
-                print(error)
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    // MARK: - 로그인
+    func login(loginRequest: LoginRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
+        authProvider.request(.login(loginRequest: loginRequest)) { (result) in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeLoginStatus(by: statusCode, data)
+                completion(networkResult)
+                
+            case .failure(let error):
+                print("error: \(error)")
             }
         }
     }
@@ -49,6 +67,22 @@ public class AuthAPI {
     private func judgeSocialSignUpStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<SocialSignUpResponse>.self, from: data) else { return .pathError }
+        
+        switch statusCode {
+        case 200:
+            return .success(decodedData.data ?? "None-data")
+        case 400..<500:
+            return .requestError(decodedData.resultCode, decodedData.message)
+        case 500:
+            return .serverError
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeLoginStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(GenericResponse<LoginResponse>.self, from: data) else { return .pathError }
         
         switch statusCode {
         case 200:
