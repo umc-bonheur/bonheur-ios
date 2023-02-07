@@ -10,13 +10,20 @@ import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-            
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        
+        if self.appDelegate!.isLogin { // 로그인된 상태
+            self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
+        } else { // 로그인되지 않은 상태
+            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
+        
         window?.makeKeyAndVisible()
     }
 
