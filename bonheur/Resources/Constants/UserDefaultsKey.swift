@@ -9,6 +9,10 @@ import Foundation
 
 extension Const {
     struct UserDefaultsKey {
-        static let accessToken = "accessToken"
+        static let socialType = "socialType"
+        static let sessionId = "sessionId"
+        static let memberId = "memberId"
+        static let isLogin = "isLogin"
+        static let nickname = "nickname"
     }
 }
