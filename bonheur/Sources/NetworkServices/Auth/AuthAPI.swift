@@ -38,7 +38,7 @@ public class AuthAPI {
         case 200:
             return .success(decodedData.message)
         case 400..<500:
-            return .requestError(decodedData.message)
+            return .requestError(decodedData.resultCode, decodedData.message)
         case 500:
             return .serverError
         default:
@@ -54,7 +54,7 @@ public class AuthAPI {
         case 200:
             return .success(decodedData.data ?? "None-data")
         case 400..<500:
-            return .requestError(decodedData.message)
+            return .requestError(decodedData.resultCode, decodedData.message)
         case 500:
             return .serverError
         default:
