@@ -19,7 +19,7 @@ final class MoyaLoggerPlugin: PluginType {
         let url = httpRequest.description
         let method = httpRequest.httpMethod ?? "unknown method"
         
-        var log = "----------------------\n[\(method)] \(url)\n----------------------"
+        var log = "----------------------\n[\(method)] \(url)\n----------------------\n"
         log.append("API: \(target)\n")
         if let headers = httpRequest.allHTTPHeaderFields, !headers.isEmpty {
             log.append("header: \(headers)")
