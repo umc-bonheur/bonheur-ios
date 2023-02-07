@@ -10,6 +10,8 @@
 		55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */; };
 		55035E88299241C9008E221C /* PostingEditPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E87299241C9008E221C /* PostingEditPopUpView.swift */; };
 		55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E89299241E1008E221C /* PostingDeletePopUpView.swift */; };
+		55035E8D29925A62008E221C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E8C29925A62008E221C /* Tag.swift */; };
+		55035E9129925C55008E221C /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E9029925C55008E221C /* TagLabel.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
@@ -79,6 +81,8 @@
 		55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpViewController.swift; sourceTree = "<group>"; };
 		55035E87299241C9008E221C /* PostingEditPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpView.swift; sourceTree = "<group>"; };
 		55035E89299241E1008E221C /* PostingDeletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDeletePopUpView.swift; sourceTree = "<group>"; };
+		55035E8C29925A62008E221C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		55035E9029925C55008E221C /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			children = (
 				5C20C971298D477300B8BB2A /* NetworkResult.swift */,
 				5C20C972298D477300B8BB2A /* GenericResponse.swift */,
+				55035E8C29925A62008E221C /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				5C20C9AB298D477300B8BB2A /* DividerUIView.swift */,
+				55035E9029925C55008E221C /* TagLabel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 				5C20C9CE298D477300B8BB2A /* IntroduceDeveloperViewController.swift in Sources */,
 				8A126C6B2991452400F096AB /* BottomSheetView.swift in Sources */,
 				55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */,
+				55035E8D29925A62008E221C /* Tag.swift in Sources */,
 				5C20C9D7298D477300B8BB2A /* StatsByTagView.swift in Sources */,
 				8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */,
 				5C20C9C6298D477300B8BB2A /* HomeCollectionViewHeader.swift in Sources */,
@@ -596,6 +603,7 @@
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				5C20C9E0298D477300B8BB2A /* TabBarController.swift in Sources */,
+				55035E9129925C55008E221C /* TagLabel.swift in Sources */,
 				5C20C9CF298D477300B8BB2A /* NotificationSettingViewController.swift in Sources */,
 				5C20C9BF298D477300B8BB2A /* WritingViewController+TextViewDelegate.swift in Sources */,
 			);
