@@ -8,11 +8,11 @@
 import Foundation
 
 struct Tag {
+    var tagName: String
     var tagID: Int
-    var content: String
     
-    init(tagID: Int, content: String) {
+    init(tagName: String, tagID: Int) {
+        self.tagName = tagName
         self.tagID = tagID
-        self.content = content
     }
 }

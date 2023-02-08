@@ -12,6 +12,8 @@
 		55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E89299241E1008E221C /* PostingDeletePopUpView.swift */; };
 		55035E8D29925A62008E221C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E8C29925A62008E221C /* Tag.swift */; };
 		55035E9129925C55008E221C /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E9029925C55008E221C /* TagLabel.swift */; };
+		55035E972993A9A0008E221C /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E962993A9A0008E221C /* CreateTagRequest.swift */; };
+		55035E992993A9B4008E221C /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E982993A9B4008E221C /* CreateTagResponse.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
@@ -83,6 +85,8 @@
 		55035E89299241E1008E221C /* PostingDeletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDeletePopUpView.swift; sourceTree = "<group>"; };
 		55035E8C29925A62008E221C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		55035E9029925C55008E221C /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
+		55035E962993A9A0008E221C /* CreateTagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
+		55035E982993A9B4008E221C /* CreateTagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -171,6 +175,23 @@
 			path = DeleteView;
 			sourceTree = "<group>";
 		};
+		55035E942993A90D008E221C /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				55035E952993A98B008E221C /* CreateTag */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		55035E952993A98B008E221C /* CreateTag */ = {
+			isa = PBXGroup;
+			children = (
+				55035E962993A9A0008E221C /* CreateTagRequest.swift */,
+				55035E982993A9B4008E221C /* CreateTagResponse.swift */,
+			);
+			path = CreateTag;
+			sourceTree = "<group>";
+		};
 		553ECDC52966B5E5003D8EEA = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +268,7 @@
 			children = (
 				5C20C971298D477300B8BB2A /* NetworkResult.swift */,
 				5C20C972298D477300B8BB2A /* GenericResponse.swift */,
+				55035E942993A90D008E221C /* Tag */,
 				55035E8C29925A62008E221C /* Tag.swift */,
 			);
 			path = Models;
@@ -589,6 +611,7 @@
 				55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */,
 				5C20C9DA298D477300B8BB2A /* MyPageViewController.swift in Sources */,
 				5C20C9C9298D477300B8BB2A /* TagSelectModalViewController.swift in Sources */,
+				55035E972993A9A0008E221C /* CreateTagRequest.swift in Sources */,
 				5C20C9BD298D477300B8BB2A /* WritingImageCollectionViewCell.swift in Sources */,
 				5C20C9D6298D477300B8BB2A /* StatsByHourView.swift in Sources */,
 				5C20C9CA298D477300B8BB2A /* SelectedTagStackView.swift in Sources */,
@@ -600,6 +623,7 @@
 				5C20C9BC298D477300B8BB2A /* UITextField+Extension.swift in Sources */,
 				5C20C9CB298D477300B8BB2A /* RecentTagStackView.swift in Sources */,
 				5C20C9D1298D477300B8BB2A /* SettingView.swift in Sources */,
+				55035E992993A9B4008E221C /* CreateTagResponse.swift in Sources */,
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				5C20C9E0298D477300B8BB2A /* TabBarController.swift in Sources */,
