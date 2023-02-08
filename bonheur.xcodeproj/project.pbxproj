@@ -178,6 +178,7 @@
 		55035E942993A90D008E221C /* Tag */ = {
 			isa = PBXGroup;
 			children = (
+				55035E8C29925A62008E221C /* Tag.swift */,
 				55035E952993A98B008E221C /* CreateTag */,
 			);
 			path = Tag;
@@ -269,7 +270,6 @@
 				5C20C971298D477300B8BB2A /* NetworkResult.swift */,
 				5C20C972298D477300B8BB2A /* GenericResponse.swift */,
 				55035E942993A90D008E221C /* Tag */,
-				55035E8C29925A62008E221C /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

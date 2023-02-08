@@ -29,10 +29,17 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var cellStackView: UIStackView = {
+    var cellScrollView: UIScrollView = {
+        let view: UIScrollView = UIScrollView()
+        // cellStackView를 스크롤 가능하도록 하는 역할
+        view.backgroundColor = .green
+        view.showsHorizontalScrollIndicator = false
+        return view
+    }()
+    
+    var cellStackView: UIStackView = {
         var stackView: UIStackView = UIStackView()
         stackView.axis = .horizontal
-        // stackView.alignment = .leading
         stackView.spacing = 4
         stackView.distribution = .equalSpacing
         return stackView
@@ -75,8 +82,9 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         
-        [cellTimeLabel, cellStackView, postingMoreButton, postingImage, postingText].forEach {
+        [cellTimeLabel, cellScrollView, postingMoreButton, postingImage, postingText].forEach {
             self.addSubview($0)
         }
 
@@ -89,12 +97,15 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         tagLabelList.forEach {
             cellStackView.addArrangedSubview($0)
         }
-     
+        
+        cellScrollView.addSubview(cellStackView)
+        
         setConstraints()
     }
     
     private func setConstraints() {
         cellTimeLabel.translatesAutoresizingMaskIntoConstraints = false
+        cellScrollView.translatesAutoresizingMaskIntoConstraints = false
         cellStackView.translatesAutoresizingMaskIntoConstraints = false
         postingMoreButton.translatesAutoresizingMaskIntoConstraints = false
         postingImage.translatesAutoresizingMaskIntoConstraints = false
@@ -104,9 +115,14 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
             cellTimeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cellTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             
+            cellScrollView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            cellScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
+            cellScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
+            
             cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
             cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
             cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
+            cellScrollView.heightAnchor.constraint(equalTo: cellScrollView.heightAnchor),
             
             postingMoreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
             postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13),
