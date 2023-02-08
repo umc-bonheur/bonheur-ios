@@ -12,6 +12,16 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     
     var postingTime: String = "AM 13:59"
     
+    // dummy data
+    private var postingTagLabelList: [Tag] = [Tag(tagName: "행복", tagID: 123),
+                                              Tag(tagName: "사랑", tagID: 456),
+                                              Tag(tagName: "기쁨", tagID: 789),
+                                              Tag(tagName: "행복", tagID: 123),
+                                              Tag(tagName: "사랑", tagID: 456),
+                                              Tag(tagName: "기쁨", tagID: 789)]
+    
+    private var tagLabelList: [TagLabel] = []
+    
     public let cellBackgroundView: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 0.972, alpha: 1).cgColor
@@ -19,10 +29,12 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let cellStackView: UIStackView = {
+    lazy var cellStackView: UIStackView = {
         var stackView: UIStackView = UIStackView()
         stackView.axis = .horizontal
+        // stackView.alignment = .leading
         stackView.spacing = 4
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
@@ -31,21 +43,6 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         label.text = self.postingTime
         label.textAlignment = .center
         label.font = UIFont(name: "SFPro-Regular", size: 10)
-        return label
-    }()
-    
-    let cellTagLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Tag 1"
-        label.font = UIFont(name: "SFPro-Regular", size: 10)
-        
-        label.layer.backgroundColor = UIColor.clear.cgColor
-        label.layer.cornerRadius = 10
-        label.layer.borderColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1).cgColor
-        label.layer.borderWidth = 1
-
-        label.textAlignment = .center
-        label.heightAnchor.constraint(equalToConstant: 18).isActive = true
         return label
     }()
     
@@ -80,10 +77,16 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         [cellTimeLabel, cellStackView, postingMoreButton, postingImage, postingText].forEach {
-            addSubview($0)
+            self.addSubview($0)
         }
-        
-        [cellTagLabel].forEach {
+
+        for tag in postingTagLabelList {
+            let tagLabel = TagLabel()
+            tagLabel.setTagText(tag: tag)
+            tagLabelList.append(tagLabel)
+        }
+
+        tagLabelList.forEach {
             cellStackView.addArrangedSubview($0)
         }
      
@@ -101,9 +104,9 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
             cellTimeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cellTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             
-            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 72),
-            cellStackView.widthAnchor.constraint(equalToConstant: 215),
+            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
+            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
             
             postingMoreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
             postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13),
