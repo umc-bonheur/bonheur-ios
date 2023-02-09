@@ -88,11 +88,36 @@ class SettingViewController: UIViewController {
         alert.setValue(titleString, forKey: "attributedTitle")
         alert.setValue(messageString, forKey: "attributedMessage")
         
-        let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: nil)
+        let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { (action) in
+            self.withdrawalWithAPI()
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
         let cancelAction = UIAlertAction(title: "취소하기", style: .cancel, handler: nil)
         alert.addAction(labelAction)
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension SettingViewController {
+    func withdrawalWithAPI() {
+        AuthAPI.shared.withdrawal() { (response) in
+            switch response {
+            case .success(let withdrawalData):
+                // TODO: 최초 실행 시에는 잘 되지만 회원가입 > 탈퇴 > 회원가입 > 탈퇴 시 탈퇴 실패
+                UserDefaults.standard.removeObject(forKey: "sessionId")
+                UserDefaults.standard.removeObject(forKey: "memberId")
+                UserDefaults.standard.removeObject(forKey: "socialType")
+            case .requestError(let resultCode, let message):
+                print("withdrawalWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("withdrawalWithAPI - pathError")
+            case .serverError:
+                print("withdrawalWithAPI - serverError")
+            case .networkFail:
+                print("withdrawalWithAPI - networkFail")
+            }
+        }
     }
 }

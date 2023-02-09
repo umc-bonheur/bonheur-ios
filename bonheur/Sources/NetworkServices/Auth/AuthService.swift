@@ -56,8 +56,10 @@ extension AuthService: TargetType {
             return .requestJSONEncodable(socialSignUpRequest)
         case .login(let loginRequest):
             return .requestJSONEncodable(loginRequest)
+        case .withdrawal:
+            return .requestPlain
         // TODO: 수정해야 됨
-        case .logout, .withdrawal:
+        case .logout:
             return .requestPlain
         }
     }
@@ -68,8 +70,10 @@ extension AuthService: TargetType {
     var headers: [String: String]? {
         switch self {
         // TODO: 수정해야 됨
-        case .socialSignUp, .login, .logout, .withdrawal:
+        case .socialSignUp, .login, .logout:
             return .none
+        case .withdrawal:
+            return Const.Header.authorizationHeader
         }
     }
 }
