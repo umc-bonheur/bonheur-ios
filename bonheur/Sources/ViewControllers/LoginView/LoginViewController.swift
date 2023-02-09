@@ -145,13 +145,13 @@ extension LoginViewController {
                     UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
                 }
             case .requestError(let resultCode, let message):
-                print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
+                print("loginWithAPI - requestError: [\(resultCode)] \(message)")
             case .pathError:
-                print("socialSignUpWithAPI - pathError")
+                print("loginWithAPI - pathError")
             case .serverError:
-                print("socialSignUpWithAPI - serverError")
+                print("loginWithAPI - serverError")
             case .networkFail:
-                print("socialSignUpWithAPI - networkFail")
+                print("loginWithAPI - networkFail")
             }
         }
     }
