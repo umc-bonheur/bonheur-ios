@@ -9,6 +9,6 @@ import Foundation
 
 extension Const {
     struct Header {
-        
+        static var authorizationHeader = ["Content-Type": "application/json", "Authorization": Const.sessionId]
     }
 }
