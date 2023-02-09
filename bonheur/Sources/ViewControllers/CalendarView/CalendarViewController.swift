@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import Moya
 
 class CalendarViewController: UIViewController {
     
@@ -46,6 +47,12 @@ class CalendarViewController: UIViewController {
         formatter.timeZone = TimeZone(identifier: "KST")
         return formatter
     }()
+    
+    // MARK: - API
+    let provider = MoyaProvider<BonheurCalendarAPIService>()
+    var year: String = "2023"
+    var month: String = "2"
+    var day: Int = 2
     
     // MARK: - UI
     
@@ -106,6 +113,7 @@ class CalendarViewController: UIViewController {
         configureCalendar()
         configureUI()
         configureNavBar()
+        getAPI()
     }
     
     func configureUI() {
@@ -207,6 +215,38 @@ class CalendarViewController: UIViewController {
         calendar.headerHeight = 35
         calendar.placeholderType = .none
         calendar.adjustsBoundingRectWhenChangingMonths = true
+    }
+    
+    func getAPI() {
+        provider.request(.getData(year, month)) { result in
+            switch result {
+            case .success(let response):
+                let result = try? response.map(CalendarViewDataResponse.self)
+                
+                guard let receivedData = result?.data else { return }
+                print(receivedData)
+                
+                let responseData = receivedData.map({ data in
+                    let responseDay = data.day
+                    let responseIsWrite = data.isWrite
+                    return ["day": responseDay, "isWrite": responseIsWrite]
+                })
+                
+                let dicData = responseData[self.day]
+                print(dicData)
+                
+//                let days = dicData["day"]!
+//                let writen = dicData["isWrite"]!
+//                print("day = \(days)")
+//                print("isWrite = \(writen)")
+                
+                                
+            case .failure(let error):
+                print(error.localizedDescription)
+            
+            }
+        }
+        
     }
     
     func getNextMonth(date: Date) -> Date {

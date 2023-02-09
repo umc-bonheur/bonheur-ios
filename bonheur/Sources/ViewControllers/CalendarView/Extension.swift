@@ -23,7 +23,15 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         headerLabel.text = headerDateFormatter.string(from: currentPage)
     }
     
+    
+    // TODO: - 서버에서 행복기록 날짜별로 작성여부 데이터 값 받아서 isWrite가 true일 경우 clover 이미지 변경하기
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//        let paramDateFormatter = DateFormatter()
+//        paramDateFormatter.dateFormat = "dd"
+//        let dateppr = paramDateFormatter.string(from: date)
+//        print(dateppr)
+   
+        
         let imageDateFormatter = DateFormatter()
         let datesWithCat = ["20230103","20230105","20230107","20230109","20230111","20230114","20230117","20230122","20230123","20230124","20230125","20230126", "20230201"]
         imageDateFormatter.dateFormat = "yyyyMMdd"
