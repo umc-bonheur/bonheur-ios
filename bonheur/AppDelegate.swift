@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sessionId != nil {
             // TODO: 로그인 타입에 따라 연동 상태 확인
             // TODO: 유효한 세션인지 확인
+            print("session id: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId))")
+            print("member id: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId))")
+            print("socialType: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType))")
+            print("자동 로그인 성공")
             self.isLogin = true
             
         } else { // 세션 아이디가 존재하지 않다면
