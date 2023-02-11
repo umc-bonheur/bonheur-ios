@@ -119,9 +119,10 @@ extension LoginViewController {
             case .success(let socialSignUpData):
                 // SocialSignUpResponse(sessionId: "28bbe5ef-1dc9-462f-9a60-a0f3b813b2fc", memberId: 7)
                 if let data = socialSignUpData as? SocialSignUpResponse {
+                    UserDefaults.standard.set(socialSignUpRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
                     UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
                     UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
-                    UserDefaults.standard.set(socialSignUpRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                 }
             case .requestError(let resultCode, let message):
                 print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
@@ -140,9 +141,10 @@ extension LoginViewController {
             switch response {
             case .success(let loginData):
                 if let data = loginData as? LoginResponse {
+                    UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
                     UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
                     UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
-                    UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                 }
             case .requestError(let resultCode, let message):
                 print("loginWithAPI - requestError: [\(resultCode)] \(message)")
