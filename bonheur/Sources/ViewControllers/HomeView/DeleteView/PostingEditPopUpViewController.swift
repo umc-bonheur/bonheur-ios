@@ -8,7 +8,7 @@
 import UIKit
 
 class PostingEditPopUpViewController: UIViewController {
-    private let postingEditPopUpView = PostingEditPopUpView()
+//    private let postingEditPopUpView = PostingEditPopUpView()
     private let postingDeletePopUpView = PostingDeletePopUpView()
 
     override func viewDidLoad() {
@@ -16,8 +16,8 @@ class PostingEditPopUpViewController: UIViewController {
         view.backgroundColor = .clear
         view.layer.backgroundColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 0.4).cgColor
 
-        postingEditPopUpView.postingDeleteButton.addTarget(self, action: #selector(self.postingDeleteButtonTapped), for: .touchUpInside)
-        
+//        postingEditPopUpView.postingDeleteButton.addTarget(self, action: #selector(self.postingDeleteButtonTapped), for: .touchUpInside)
+//
         [postingDeletePopUpView].forEach {
             view.addSubview($0)
         }
@@ -26,7 +26,7 @@ class PostingEditPopUpViewController: UIViewController {
     }
     
     private func setConstraints() {
-        postingEditPopUpView.translatesAutoresizingMaskIntoConstraints = false
+//        postingEditPopUpView.translatesAutoresizingMaskIntoConstraints = false
         postingDeletePopUpView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
