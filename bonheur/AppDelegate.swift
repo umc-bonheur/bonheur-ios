@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KakaoSDK.initSDK(appKey: "bc1f4e7f41b49fe6407ffb396e82c82f")
         
+        // TODO: UserDefaults 초기화 코드 - commit할 때 지우기
+//        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+//            UserDefaults.standard.removeObject(forKey: key.description)
+//        }
+//        print("UserDefaults 초기화 완료")
+        
         let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
         
         // 세션 아이디가 존재한다면
