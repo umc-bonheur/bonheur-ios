@@ -32,7 +32,7 @@ class CalendarViewController: UIViewController {
     var changeWeekMonthButtonAnchor: NSLayoutConstraint!
     let bonheurTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
 
-    let dateFormatter: DateFormatter = {
+    let krDate: DateFormatter = {
         let df = DateFormatter()
         df.locale = Locale(identifier: "ko_KR")
         df.timeZone = TimeZone(abbreviation: "KST")
@@ -47,12 +47,6 @@ class CalendarViewController: UIViewController {
         formatter.timeZone = TimeZone(identifier: "KST")
         return formatter
     }()
-    
-    // MARK: - API
-    let provider = MoyaProvider<BonheurCalendarAPIService>()
-    var year: String = "2023"
-    var month: String = "2"
-    var day: Int = 2
     
     // MARK: - UI
     
@@ -113,7 +107,23 @@ class CalendarViewController: UIViewController {
         configureCalendar()
         configureUI()
         configureNavBar()
-        getAPI()
+        
+//        CalendarAPI.shared.getCalendarAPI(year: "2023", month: "2") { param in
+//            let data = param
+//            let one: Int = 1
+//            let temp = data[2 - one]
+//            print(temp)
+//            print(temp["day"]!)
+//            print(temp["isWrite"]!)
+//
+//            if temp["isWrite"]! as! Bool == true {
+//                print("클로버 이미지를 채우세요!")
+//            } else {
+//                print("클로버 이미지가 비어있습니다!")
+//            }
+//
+//        }
+        
     }
     
     func configureUI() {
@@ -217,37 +227,6 @@ class CalendarViewController: UIViewController {
         calendar.adjustsBoundingRectWhenChangingMonths = true
     }
     
-    func getAPI() {
-        provider.request(.getData(year, month)) { result in
-            switch result {
-            case .success(let response):
-                let result = try? response.map(CalendarViewDataResponse.self)
-                
-                guard let receivedData = result?.data else { return }
-                print(receivedData)
-                
-                let responseData = receivedData.map({ data in
-                    let responseDay = data.day
-                    let responseIsWrite = data.isWrite
-                    return ["day": responseDay, "isWrite": responseIsWrite]
-                })
-                
-                let dicData = responseData[self.day]
-                print(dicData)
-                
-//                let days = dicData["day"]!
-//                let writen = dicData["isWrite"]!
-//                print("day = \(days)")
-//                print("isWrite = \(writen)")
-                
-                                
-            case .failure(let error):
-                print(error.localizedDescription)
-            
-            }
-        }
-        
-    }
     
     func getNextMonth(date: Date) -> Date {
         return Calendar.current.date(byAdding: .month, value: 1, to: date)!

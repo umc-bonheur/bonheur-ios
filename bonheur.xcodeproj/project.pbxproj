@@ -65,8 +65,9 @@
 		5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9E9298D47E600B8BB2A /* SnapKit */; };
 		5C20C9ED298D482000B8BB2A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9EC298D482000B8BB2A /* Then */; };
 		5C351340299174FC00CA8C9B /* CalendarViewDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35133F299174FC00CA8C9B /* CalendarViewDataResponse.swift */; };
-		5C3513422991759500CA8C9B /* BonheurCalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3513412991759500CA8C9B /* BonheurCalendarAPI.swift */; };
+		5C3513422991759500CA8C9B /* BonheurCalendarApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3513412991759500CA8C9B /* BonheurCalendarApiService.swift */; };
 		5C525E2D298AC8050056CFF8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5C525E2C298AC8050056CFF8 /* FSCalendar */; };
+		5CE8DAC92997A13900D70FC2 /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8DAC82997A13900D70FC2 /* CalendarAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,13 +126,9 @@
 		5C20C9AC298D477300B8BB2A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C20C9AD298D477300B8BB2A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C20C9AE298D477300B8BB2A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A126C60299143E900F096AB /* FloatingPanelController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPanelController+Extension.swift"; sourceTree = "<group>"; };
-		8A126C642991443B00F096AB /* SingleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailViewController.swift; sourceTree = "<group>"; };
-		8A126C66299144C500F096AB /* SingleDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
-		8A126C68299144DF00F096AB /* DetailImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewController.swift; sourceTree = "<group>"; };
-		8A126C6A2991452400F096AB /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5C35133F299174FC00CA8C9B /* CalendarViewDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDataResponse.swift; sourceTree = "<group>"; };
-		5C3513412991759500CA8C9B /* BonheurCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonheurCalendarAPI.swift; sourceTree = "<group>"; };
+		5C3513412991759500CA8C9B /* BonheurCalendarApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonheurCalendarApiService.swift; sourceTree = "<group>"; };
+		5CE8DAC82997A13900D70FC2 /* CalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +172,8 @@
 				5C20C96D298D477300B8BB2A /* LaunchScreen.storyboard */,
 				5C20C96F298D477300B8BB2A /* Sources */,
 				5C20C9AC298D477300B8BB2A /* AppDelegate.swift */,
-				5C20C9AD298D477300B8BB2A /* Info.plist */,
 				5C20C9AE298D477300B8BB2A /* SceneDelegate.swift */,
+				5C20C9AD298D477300B8BB2A /* Info.plist */,
 			);
 			path = bonheur;
 			sourceTree = "<group>";
@@ -272,7 +269,8 @@
 				5C20C97F298D477300B8BB2A /* Extension.swift */,
 				5C20C980298D477300B8BB2A /* CalendarViewController.swift */,
 				5C35133F299174FC00CA8C9B /* CalendarViewDataResponse.swift */,
-				5C3513412991759500CA8C9B /* BonheurCalendarAPI.swift */,
+				5C3513412991759500CA8C9B /* BonheurCalendarApiService.swift */,
+				5CE8DAC82997A13900D70FC2 /* CalendarAPI.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -548,6 +546,7 @@
 				5C20C9C9298D477300B8BB2A /* TagSelectModalViewController.swift in Sources */,
 				5C20C9BD298D477300B8BB2A /* WritingImageCollectionViewCell.swift in Sources */,
 				5C20C9D6298D477300B8BB2A /* StatsByHourView.swift in Sources */,
+				5CE8DAC92997A13900D70FC2 /* CalendarAPI.swift in Sources */,
 				5C20C9CA298D477300B8BB2A /* SelectedTagStackView.swift in Sources */,
 				5C20C9C3298D477300B8BB2A /* HomePostingCollectionViewCell.swift in Sources */,
 				5C20C9C5298D477300B8BB2A /* HomeViewController+DataSource.swift in Sources */,
@@ -555,9 +554,7 @@
 				5C20C9D9298D477300B8BB2A /* StatsView.swift in Sources */,
 				5C20C9BC298D477300B8BB2A /* UITextField+Extension.swift in Sources */,
 				5C20C9CB298D477300B8BB2A /* RecentTagStackView.swift in Sources */,
-				58ED4066298E970900B5DC04 /* GenericResponse.swift in Sources */,
-				58ED407A298EA9BD00B5DC04 /* MoyaLoggerPlugin.swift in Sources */,
-				5C3513422991759500CA8C9B /* BonheurCalendarAPI.swift in Sources */,
+				5C3513422991759500CA8C9B /* BonheurCalendarApiService.swift in Sources */,
 				5C20C9D1298D477300B8BB2A /* SettingView.swift in Sources */,
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
