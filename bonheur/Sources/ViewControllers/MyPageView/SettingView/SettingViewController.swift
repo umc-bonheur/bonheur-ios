@@ -90,7 +90,7 @@ class SettingViewController: UIViewController {
         
         let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { (action) in
             self.withdrawalWithAPI()
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소하기", style: .cancel, handler: nil)
         alert.addAction(labelAction)

@@ -11,6 +11,7 @@ import KakaoSDKAuth
 import AuthenticationServices
 
 class LoginViewController: UIViewController {
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     private var logoImageView = UIImageView(image: UIImage(named: "SmileClover"))
     
@@ -28,6 +29,14 @@ class LoginViewController: UIViewController {
         
         setup()
         makeAutoLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.appDelegate!.isLogin { // 로그인된 상태
+            self.navigationController?.pushViewController(TabBarController(), animated: true)
+        }
     }
     
     func setup() {        
