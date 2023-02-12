@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.isLogin = true
             
         } else { // 세션 아이디가 존재하지 않다면
-            self.isLogin = false
+            print("자동 로그인 실패 - 세션이 없습니다.")
+            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
         }
         
         return true
