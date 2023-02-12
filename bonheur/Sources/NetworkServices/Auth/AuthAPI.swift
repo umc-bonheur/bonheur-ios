@@ -49,6 +49,23 @@ public class AuthAPI {
         }
     }
     
+    // MARK: - 로그아웃
+    func logout(completion: @escaping (NetworkResult<Any>) -> Void) {
+        authProvider.request(.logout) { (result) in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                let data = response.data
+                
+                let networkResult = self.judgeLoginStatus(by: statusCode, data)
+                completion(networkResult)
+                
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
     // MARK: - 회원 탈퇴
     func withdrawal(completion: @escaping (NetworkResult<Any>) -> Void) {
         authProvider.request(.withdrawal) { (result) in
@@ -101,6 +118,22 @@ public class AuthAPI {
     private func judgeLoginStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<LoginResponse>.self, from: data) else { return .pathError }
+        
+        switch statusCode {
+        case 200:
+            return .success(decodedData.data ?? "None-data")
+        case 400..<500:
+            return .requestError(decodedData.resultCode, decodedData.message)
+        case 500:
+            return .serverError
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeLogoutStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else { return .pathError }
         
         switch statusCode {
         case 200:

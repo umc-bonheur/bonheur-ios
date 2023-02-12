@@ -95,11 +95,12 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
+                    UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                     if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
-//                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.navigationController?.pushViewController(TabBarController(), animated: true)
                     } else { // sessionId가 존재하지 않음 > 회원가입 API
-                        UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                         self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
                     }
                 }
@@ -109,10 +110,10 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print(oauthToken!)
                     if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
-//                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.navigationController?.pushViewController(TabBarController(), animated: true)
                     } else { // sessionId가 존재하지 않음 > 회원가입 API
                         UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                         self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
@@ -120,10 +121,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    func login() {
-        
     }
     
     func socialSignUp(accessToken: String) {

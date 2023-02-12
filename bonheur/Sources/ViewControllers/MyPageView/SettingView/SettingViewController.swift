@@ -25,6 +25,8 @@ class SettingViewController: UIViewController {
         settingView.instagramBtn.addTarget(self, action: #selector(instagramBtnTapped), for: .touchUpInside)
         settingView.developerIntroductionBtn.addTarget(self, action: #selector(developerIntroductionBtnTapped), for: .touchUpInside)
         
+        // 로그아웃
+        settingView.logOutBtn.addTarget(self, action: #selector(logOutBtnTapped), for: .touchUpInside)
         // 회원탈퇴
         settingView.withdrawalBtn.addTarget(self, action: #selector(withdrawalBtnTapped), for: .touchUpInside)
         
@@ -79,6 +81,12 @@ class SettingViewController: UIViewController {
     }
     
     @objc
+    func logOutBtnTapped() {
+        self.logoutWithAPI()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc
     func withdrawalBtnTapped() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.alert)
         let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "SFPro-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)]
@@ -101,6 +109,23 @@ class SettingViewController: UIViewController {
 }
 
 extension SettingViewController {
+    func logoutWithAPI() {
+        AuthAPI.shared.logout() { (response) in
+            switch response {
+            case .success(let logoutData):
+                print("logoutWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("logoutWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("logoutWithAPI - pathError")
+            case .serverError:
+                print("logoutWithAPI - serverError")
+            case .networkFail:
+                print("logoutWithAPI - networkFail")
+            }
+        }
+        
+    }
     func withdrawalWithAPI() {
         AuthAPI.shared.withdrawal() { (response) in
             switch response {
