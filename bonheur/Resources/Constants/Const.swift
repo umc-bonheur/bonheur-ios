@@ -8,5 +8,4 @@
 import Foundation
 
 struct Const {
-    static let sessionId: String = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId) ?? ""
 }

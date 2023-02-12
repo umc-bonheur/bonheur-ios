@@ -89,7 +89,9 @@ extension AuthService: TargetType {
         case .login:
             return .none
         case .logout, .withdrawal:
-            return Const.Header.authorizationHeader
+            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
+            return authorizationHeader
         }
     }
 }
