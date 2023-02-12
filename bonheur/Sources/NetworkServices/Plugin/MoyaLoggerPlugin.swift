@@ -27,7 +27,7 @@ final class MoyaLoggerPlugin: PluginType {
         if let body = httpRequest.httpBody, let bodyString = String(bytes: body, encoding: String.Encoding.utf8) {
             log.append("\(bodyString)\n")
         }
-        log.append("----------------------END \(method)----------------------")
+        log.append("\n----------------------END \(method)----------------------")
         
         print(log)
     }
