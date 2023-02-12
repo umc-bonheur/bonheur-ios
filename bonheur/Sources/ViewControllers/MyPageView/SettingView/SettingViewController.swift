@@ -105,10 +105,12 @@ extension SettingViewController {
         AuthAPI.shared.withdrawal() { (response) in
             switch response {
             case .success(let withdrawalData):
-                // TODO: 최초 실행 시에는 잘 되지만 회원가입 > 탈퇴 > 회원가입 > 탈퇴 시 탈퇴 실패
-                UserDefaults.standard.removeObject(forKey: "sessionId")
-                UserDefaults.standard.removeObject(forKey: "memberId")
-                UserDefaults.standard.removeObject(forKey: "socialType")
+                // TODO: 최초 실행 시에는 잘 되지만 회원가입 > 탈퇴 > 회원가입 > 탈퇴 시 세션 만료
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.socialType)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.accessToken)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.sessionId)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.updatedAt)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.memberId)
             case .requestError(let resultCode, let message):
                 print("withdrawalWithAPI - requestError: [\(resultCode)] \(message)")
             case .pathError:
