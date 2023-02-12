@@ -85,14 +85,12 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    if sessionId != nil { // UserDefaults에 sessionId가 존재 > 로그인 API
-                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                        print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
+//                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
                     } else { // sessionId가 존재하지 않음 > 회원가입 API
-                        print("socialSignUpWithAPI - success")
-                        
-                        // TODO: 가입했는데 또 가입하려고 하면 resultCode는 CF002, data는 null
-                        // TODO: 닉네임 입력 받기
-                        self.socialSignUpWithAPI(socialSignUpRequest: SocialSignUpRequest(token: oauthToken!.accessToken, nickname: "짱제이는개발중", socialType: "카카오"))
+                        UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
                     }
                 }
             }
@@ -102,9 +100,28 @@ class LoginViewController: UIViewController {
                     print(error)
                 } else {
                     print(oauthToken!)
+                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                        print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
+//                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                    } else { // sessionId가 존재하지 않음 > 회원가입 API
+                        UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                    }
                 }
             }
         }
+    }
+    
+    func login() {
+        
+    }
+    
+    func socialSignUp(accessToken: String) {
+        print("회원가입 진행을 위해 프로필 설정 화면으로 이동합니다.")
+        let profileSettingViewController = ProfileSettingViewController()
+        profileSettingViewController.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
+        self.navigationController?.pushViewController(profileSettingViewController, animated: true)
+    }
         
         // 메인 화면으로 이동
         navigationController?.pushViewController(TabBarController(), animated: true)
@@ -113,29 +130,6 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    func socialSignUpWithAPI(socialSignUpRequest: SocialSignUpRequest) {
-        AuthAPI.shared.socialSignUp(socialSignUpRequest: socialSignUpRequest) { response in
-            switch response {
-            case .success(let socialSignUpData):
-                // SocialSignUpResponse(sessionId: "28bbe5ef-1dc9-462f-9a60-a0f3b813b2fc", memberId: 7)
-                if let data = socialSignUpData as? SocialSignUpResponse {
-                    UserDefaults.standard.set(socialSignUpRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
-                    UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
-                    UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
-                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
-                }
-            case .requestError(let resultCode, let message):
-                print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
-            case .pathError:
-                print("socialSignUpWithAPI - pathError")
-            case .serverError:
-                print("socialSignUpWithAPI - serverError")
-            case .networkFail:
-                print("socialSignUpWithAPI - networkFail")
-            }
-        }
-    }
-    
     func loginWithAPI(loginRequest: LoginRequest) {
         AuthAPI.shared.login(loginRequest: loginRequest) { response in
             switch response {

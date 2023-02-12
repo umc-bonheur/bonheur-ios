@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import Moya
 
 public class AuthAPI {
@@ -15,8 +16,8 @@ public class AuthAPI {
     public init() { }
     
     // MARK: - 소셜 회원가입
-    func socialSignUp(socialSignUpRequest: SocialSignUpRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.socialSignUp(socialSignUpRequest: socialSignUpRequest)) { (result) in
+    func socialSignUp(socialSignUpJSON: SocialSignUpJSON, profileImage: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
+        authProvider.request(.socialSignUp(SocialSignUpJSON: socialSignUpJSON, profileImage: profileImage)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode

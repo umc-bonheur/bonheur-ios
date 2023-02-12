@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 import Moya
 
 enum AuthService {
-    case socialSignUp(socialSignUpRequest: SocialSignUpRequest)
+    case socialSignUp(SocialSignUpJSON: SocialSignUpJSON, profileImage: UIImage)
     case login(loginRequest: LoginRequest) // 로그인
     case logout // 로그아웃
     case withdrawal // 회원 탈퇴
@@ -52,13 +53,27 @@ extension AuthService: TargetType {
     // 참고: https://moya.github.io/Enums/Task.html
     var task: Moya.Task {
         switch self {
-        case .socialSignUp(let socialSignUpRequest):
-            return .requestJSONEncodable(socialSignUpRequest)
+        case .socialSignUp(let socialSignUpJSON, let profileImage):
+            var multipartFormData: [MultipartFormData] = []
+            
+            let params: [String: String] = [
+                "token": "\(socialSignUpJSON.token)",
+                "nickname": "\(socialSignUpJSON.nickname)",
+                "socialType": "\(socialSignUpJSON.socialType)"
+            ]
+            let requestData = try? JSONEncoder().encode(params)
+            multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "socialSignUpRequest", mimeType: "application/json"))
+            let imageData = profileImage.jpegData(compressionQuality: 1.0)
+            multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
+            
+            return .uploadMultipart(multipartFormData)
+            
         case .login(let loginRequest):
             return .requestJSONEncodable(loginRequest)
+            
         case .withdrawal:
             return .requestPlain
-        // TODO: 수정해야 됨
+
         case .logout:
             return .requestPlain
         }
@@ -69,10 +84,11 @@ extension AuthService: TargetType {
     // 같이 보내지 않아도 된다면 .none
     var headers: [String: String]? {
         switch self {
-        // TODO: 수정해야 됨
-        case .socialSignUp, .login, .logout:
+        case .socialSignUp:
+            return Const.Header.multipartHeader
+        case .login:
             return .none
-        case .withdrawal:
+        case .logout, .withdrawal:
             return Const.Header.authorizationHeader
         }
     }
