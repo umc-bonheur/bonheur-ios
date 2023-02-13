@@ -83,7 +83,6 @@ class SettingViewController: UIViewController {
     @objc
     func logOutBtnTapped() {
         self.logoutWithAPI()
-        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc
@@ -98,7 +97,6 @@ class SettingViewController: UIViewController {
         
         let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { (action) in
             self.withdrawalWithAPI()
-            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소하기", style: .cancel, handler: nil)
         alert.addAction(labelAction)
@@ -113,6 +111,8 @@ extension SettingViewController {
         AuthAPI.shared.logout() { (response) in
             switch response {
             case .success(let logoutData):
+                UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                self.navigationController?.popToRootViewController(animated: true)
                 print("logoutWithAPI - success")
             case .requestError(let resultCode, let message):
                 print("logoutWithAPI - requestError: [\(resultCode)] \(message)")
@@ -136,6 +136,9 @@ extension SettingViewController {
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.sessionId)
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.updatedAt)
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.memberId)
+                UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                self.navigationController?.popToRootViewController(animated: true)
+                print("withdrawalWithAPI - success")
             case .requestError(let resultCode, let message):
                 print("withdrawalWithAPI - requestError: [\(resultCode)] \(message)")
             case .pathError:
