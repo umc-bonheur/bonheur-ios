@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		583A8A772999555F0007C1AF /* SocialSignUpJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583A8A762999555F0007C1AF /* SocialSignUpJSON.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
+		588A8E49299414A700F2875A /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A8E48299414A700F2875A /* ProfileSettingViewController.swift */; };
 		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
 		58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4060298E59DE00B5DC04 /* KakaoSDKUser */; };
 		58ED4063298E73A700B5DC04 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4062298E73A700B5DC04 /* KakaoSDKCommon */; };
@@ -22,7 +24,6 @@
 		58ED407C298EAF2000B5DC04 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED407B298EAF2000B5DC04 /* Header.swift */; };
 		58ED4081298EB4A900B5DC04 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED4080298EB4A900B5DC04 /* LoginRequest.swift */; };
 		58ED4083298EB4B200B5DC04 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED4082298EB4B200B5DC04 /* LoginResponse.swift */; };
-		58ED4085298EB4EC00B5DC04 /* SocialSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED4084298EB4EC00B5DC04 /* SocialSignUpRequest.swift */; };
 		58ED4087298EB4FC00B5DC04 /* SocialSignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED4086298EB4FC00B5DC04 /* SocialSignUpResponse.swift */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
@@ -88,6 +89,9 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		583A8A762999555F0007C1AF /* SocialSignUpJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSignUpJSON.swift; sourceTree = "<group>"; };
+		588A8E48299414A700F2875A /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		58933D22299A07000007D8C0 /* bonheur.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bonheur.entitlements; sourceTree = "<group>"; };
 		58ED4065298E970900B5DC04 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		58ED4068298EA03400B5DC04 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		58ED406C298EA4AB00B5DC04 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -99,7 +103,6 @@
 		58ED407B298EAF2000B5DC04 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		58ED4080298EB4A900B5DC04 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		58ED4082298EB4B200B5DC04 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		58ED4084298EB4EC00B5DC04 /* SocialSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpRequest.swift; sourceTree = "<group>"; };
 		58ED4086298EB4FC00B5DC04 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
@@ -196,6 +199,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		588A8E4A2994151400F2875A /* ProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				588A8E48299414A700F2875A /* ProfileSettingViewController.swift */,
+			);
+			path = ProfileSetting;
+			sourceTree = "<group>";
+		};
 		58ED406B298EA48300B5DC04 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +265,7 @@
 		58ED40892992C42300B5DC04 /* SocialSignUp */ = {
 			isa = PBXGroup;
 			children = (
-				58ED4084298EB4EC00B5DC04 /* SocialSignUpRequest.swift */,
+				583A8A762999555F0007C1AF /* SocialSignUpJSON.swift */,
 				58ED4086298EB4FC00B5DC04 /* SocialSignUpResponse.swift */,
 			);
 			path = SocialSignUp;
@@ -263,6 +274,7 @@
 		5C20C962298D477300B8BB2A /* bonheur */ = {
 			isa = PBXGroup;
 			children = (
+				58933D22299A07000007D8C0 /* bonheur.entitlements */,
 				5C20C963298D477300B8BB2A /* .swiftlint.yml */,
 				5C20C964298D477300B8BB2A /* Resources */,
 				5C20C96D298D477300B8BB2A /* LaunchScreen.storyboard */,
@@ -469,6 +481,7 @@
 		5C20C9A3298D477300B8BB2A /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
+				588A8E4A2994151400F2875A /* ProfileSetting */,
 				5C20C9A4298D477300B8BB2A /* EmailStackView.swift */,
 				5C20C9A5298D477300B8BB2A /* OAuthStackView.swift */,
 				5C20C9A6298D477300B8BB2A /* TitleStackView.swift */,
@@ -645,6 +658,7 @@
 				8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */,
 				5C20C9C6298D477300B8BB2A /* HomeCollectionViewHeader.swift in Sources */,
 				5C20C9C7298D477300B8BB2A /* HomeViewController.swift in Sources */,
+				583A8A772999555F0007C1AF /* SocialSignUpJSON.swift in Sources */,
 				8A126C69299144DF00F096AB /* DetailImageViewController.swift in Sources */,
 				5C20C9D2298D477300B8BB2A /* NicknameView.swift in Sources */,
 				5C20C9D5298D477300B8BB2A /* StatsByMonthView.swift in Sources */,
@@ -670,7 +684,6 @@
 				5C20C9C3298D477300B8BB2A /* HomePostingCollectionViewCell.swift in Sources */,
 				5C20C9C5298D477300B8BB2A /* HomeViewController+DataSource.swift in Sources */,
 				5C20C9B9298D477300B8BB2A /* Constant.swift in Sources */,
-				58ED4085298EB4EC00B5DC04 /* SocialSignUpRequest.swift in Sources */,
 				58ED4083298EB4B200B5DC04 /* LoginResponse.swift in Sources */,
 				58ED4070298EA4BD00B5DC04 /* AuthService.swift in Sources */,
 				8A126C67299144C500F096AB /* SingleDetailBottomSheetViewController.swift in Sources */,
@@ -683,6 +696,7 @@
 				5C20C9D1298D477300B8BB2A /* SettingView.swift in Sources */,
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
+				588A8E49299414A700F2875A /* ProfileSettingViewController.swift in Sources */,
 				5C20C9E0298D477300B8BB2A /* TabBarController.swift in Sources */,
 				5C20C9CF298D477300B8BB2A /* NotificationSettingViewController.swift in Sources */,
 				58ED4087298EB4FC00B5DC04 /* SocialSignUpResponse.swift in Sources */,
@@ -824,9 +838,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = bonheur/bonheur.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y3R47LG5HV;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KSR8K3JPUM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bonheur/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -840,8 +858,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = Colli.bonheur;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bonheur.apps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "bonheur-develop";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -856,9 +876,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = bonheur/bonheur.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y3R47LG5HV;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KSR8K3JPUM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bonheur/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -872,8 +896,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = Colli.bonheur;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bonheur.apps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "bonheur-develop";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
