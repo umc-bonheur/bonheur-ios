@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("socialType: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)))")
             print("session id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)))")
             print("member id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId)))")
-            // TODO: updateAt이 nil인 문제 해결하기
             print("updated at: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.updatedAt)))")
             let updatedAt = UserDefaults.standard.object(forKey: Const.UserDefaultsKey.updatedAt) as? Date
             

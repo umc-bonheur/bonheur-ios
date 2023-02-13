@@ -81,7 +81,6 @@ extension ProfileSettingViewController {
         AuthAPI.shared.socialSignUp(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage) { response in
             switch response {
             case .success(let socialSignUpData):
-                // SocialSignUpResponse(sessionId: "28bbe5ef-1dc9-462f-9a60-a0f3b813b2fc", memberId: 7)
                 if let data = socialSignUpData as? SocialSignUpResponse {
                     UserDefaults.standard.set(socialSignUpJSON.socialType, forKey: Const.UserDefaultsKey.socialType)
                     UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)

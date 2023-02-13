@@ -80,8 +80,6 @@ extension AuthService: TargetType {
     }
     
     // MARK: - HTTP Header
-    // 토큰을 같이 보내야 한다면 return Const.Header.tokenHeader
-    // 같이 보내지 않아도 된다면 .none
     var headers: [String: String]? {
         switch self {
         case .socialSignUp:

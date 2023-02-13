@@ -130,7 +130,6 @@ extension SettingViewController {
         AuthAPI.shared.withdrawal() { (response) in
             switch response {
             case .success(let withdrawalData):
-                // TODO: 최초 실행 시에는 잘 되지만 회원가입 > 탈퇴 > 회원가입 > 탈퇴 시 세션 만료
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.socialType)
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.accessToken)
                 UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.sessionId)
