@@ -146,6 +146,7 @@ extension LoginViewController {
                     UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
                     UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
                 }
             case .requestError(let resultCode, let message):
                 print("loginWithAPI - requestError: [\(resultCode)] \(message)")
