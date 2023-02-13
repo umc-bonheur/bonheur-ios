@@ -28,12 +28,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 세션 아이디가 존재한다면
         if sessionId != nil {
             // TODO: 로그인 타입에 따라 연동 상태 확인
-            // TODO: 유효한 세션인지 확인
-            print("session id: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId))")
-            print("member id: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId))")
-            print("socialType: \(UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType))")
-            print("자동 로그인 성공")
-            self.isLogin = true
+            print("socialType: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)))")
+            print("session id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)))")
+            print("member id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId)))")
+            // TODO: updateAt이 nil인 문제 해결하기
+            print("updated at: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.updatedAt)))")
+            let updatedAt = UserDefaults.standard.object(forKey: Const.UserDefaultsKey.updatedAt) as? Date
+            
+            let afterUpdatedAt = Calendar.current.dateComponents([.day], from: updatedAt!, to: Date()).day
+            print("해당 세션을 생성한지 \(String(describing: afterUpdatedAt))일이 지났습니다. 30일이 넘으면 세션이 만료됩니다.")
+
+            if afterUpdatedAt! >= 30 { // 세션 만료일이 경과되어 다시 로그인 필요
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.socialType)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.accessToken)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.sessionId)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.updatedAt)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.memberId)
+                
+                print("자동 로그인 실패 - 세션이 만료되었습니다.")
+                UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+            } else { // 세션 만료일이 경과되지 않음
+                print("자동 로그인 성공")
+                UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+            }
             
         } else { // 세션 아이디가 존재하지 않다면
             print("자동 로그인 실패 - 세션이 없습니다.")
