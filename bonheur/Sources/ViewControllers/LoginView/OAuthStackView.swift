@@ -9,7 +9,7 @@ import UIKit
 
 class OAuthStackView: UIStackView {
     // 카카오 로그인 버튼
-    private var kakaoLoginButton: UIButton = {
+    var kakaoLoginButton: UIButton = {
         var config = UIButton.Configuration.filled()
         var title = "카카오톡으로 시작하기"
         config.title = title

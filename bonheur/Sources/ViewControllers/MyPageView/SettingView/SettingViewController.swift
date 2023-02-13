@@ -25,6 +25,8 @@ class SettingViewController: UIViewController {
         settingView.instagramBtn.addTarget(self, action: #selector(instagramBtnTapped), for: .touchUpInside)
         settingView.developerIntroductionBtn.addTarget(self, action: #selector(developerIntroductionBtnTapped), for: .touchUpInside)
         
+        // 로그아웃
+        settingView.logOutBtn.addTarget(self, action: #selector(logOutBtnTapped), for: .touchUpInside)
         // 회원탈퇴
         settingView.withdrawalBtn.addTarget(self, action: #selector(withdrawalBtnTapped), for: .touchUpInside)
         
@@ -79,6 +81,11 @@ class SettingViewController: UIViewController {
     }
     
     @objc
+    func logOutBtnTapped() {
+        self.logoutWithAPI()
+    }
+    
+    @objc
     func withdrawalBtnTapped() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.alert)
         let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "SFPro-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)]
@@ -88,11 +95,58 @@ class SettingViewController: UIViewController {
         alert.setValue(titleString, forKey: "attributedTitle")
         alert.setValue(messageString, forKey: "attributedMessage")
         
-        let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive, handler: nil)
+        let labelAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { (action) in
+            self.withdrawalWithAPI()
+        }
         let cancelAction = UIAlertAction(title: "취소하기", style: .cancel, handler: nil)
         alert.addAction(labelAction)
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension SettingViewController {
+    func logoutWithAPI() {
+        AuthAPI.shared.logout() { (response) in
+            switch response {
+            case .success(let logoutData):
+                UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                self.navigationController?.popToRootViewController(animated: true)
+                print("logoutWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("logoutWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("logoutWithAPI - pathError")
+            case .serverError:
+                print("logoutWithAPI - serverError")
+            case .networkFail:
+                print("logoutWithAPI - networkFail")
+            }
+        }
+        
+    }
+    func withdrawalWithAPI() {
+        AuthAPI.shared.withdrawal() { (response) in
+            switch response {
+            case .success(let withdrawalData):
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.socialType)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.accessToken)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.sessionId)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.updatedAt)
+                UserDefaults.standard.removeObject(forKey: Const.UserDefaultsKey.memberId)
+                UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                self.navigationController?.popToRootViewController(animated: true)
+                print("withdrawalWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("withdrawalWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("withdrawalWithAPI - pathError")
+            case .serverError:
+                print("withdrawalWithAPI - serverError")
+            case .networkFail:
+                print("withdrawalWithAPI - networkFail")
+            }
+        }
     }
 }
