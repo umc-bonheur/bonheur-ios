@@ -148,7 +148,10 @@ class HomeViewController: UIViewController {
     }
     
     @objc func moreButtonTapped() {
-        // TODO: HomeView 위에 삭제 뷰를 띄우는 기능
+        let postingEditPopUpViewController = PostingEditPopUpViewController()
+        postingEditPopUpViewController.modalPresentationStyle = .overFullScreen
+        present(postingEditPopUpViewController, animated: false)
+        // TODO: Cell Data 넘기기 -> delete 과정에서 활용
         
     }
 }

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		583A8A772999555F0007C1AF /* SocialSignUpJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583A8A762999555F0007C1AF /* SocialSignUpJSON.swift */; };
+		55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */; };
+		55035E88299241C9008E221C /* PostingEditPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E87299241C9008E221C /* PostingEditPopUpView.swift */; };
+		55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E89299241E1008E221C /* PostingDeletePopUpView.swift */; };
+		55035E8D29925A62008E221C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E8C29925A62008E221C /* Tag.swift */; };
+		55035E9129925C55008E221C /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E9029925C55008E221C /* TagLabel.swift */; };
+		55035E972993A9A0008E221C /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E962993A9A0008E221C /* CreateTagRequest.swift */; };
+		55035E992993A9B4008E221C /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E982993A9B4008E221C /* CreateTagResponse.swift */; };
+		55BE12992999FC590060E09D /* DeleteCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BE12982999FC590060E09D /* DeleteCompletionView.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		588A8E49299414A700F2875A /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A8E48299414A700F2875A /* ProfileSettingViewController.swift */; };
 		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
@@ -88,6 +96,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpViewController.swift; sourceTree = "<group>"; };
+		55035E87299241C9008E221C /* PostingEditPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEditPopUpView.swift; sourceTree = "<group>"; };
+		55035E89299241E1008E221C /* PostingDeletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDeletePopUpView.swift; sourceTree = "<group>"; };
+		55035E8C29925A62008E221C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		55035E9029925C55008E221C /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
+		55035E962993A9A0008E221C /* CreateTagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
+		55035E982993A9B4008E221C /* CreateTagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		583A8A762999555F0007C1AF /* SocialSignUpJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSignUpJSON.swift; sourceTree = "<group>"; };
 		588A8E48299414A700F2875A /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +119,7 @@
 		58ED4080298EB4A900B5DC04 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		58ED4082298EB4B200B5DC04 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		58ED4086298EB4FC00B5DC04 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
+		55BE12982999FC590060E09D /* DeleteCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCompletionView.swift; sourceTree = "<group>"; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		5C20C967298D477300B8BB2A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
@@ -182,6 +198,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55035E842992418E008E221C /* DeleteView */ = {
+			isa = PBXGroup;
+			children = (
+				55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */,
+				55035E87299241C9008E221C /* PostingEditPopUpView.swift */,
+				55035E89299241E1008E221C /* PostingDeletePopUpView.swift */,
+				55BE12982999FC590060E09D /* DeleteCompletionView.swift */,
+			);
+			path = DeleteView;
+			sourceTree = "<group>";
+		};
+		55035E942993A90D008E221C /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				55035E8C29925A62008E221C /* Tag.swift */,
+				55035E952993A98B008E221C /* CreateTag */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		55035E952993A98B008E221C /* CreateTag */ = {
+			isa = PBXGroup;
+			children = (
+				55035E962993A9A0008E221C /* CreateTagRequest.swift */,
+				55035E982993A9B4008E221C /* CreateTagResponse.swift */,
+			);
+			path = CreateTag;
+			sourceTree = "<group>";
+		};
 		553ECDC52966B5E5003D8EEA = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +379,9 @@
 				58ED407F298EB49900B5DC04 /* Auth */,
 				58ED4065298E970900B5DC04 /* GenericResponse.swift */,
 				58ED4068298EA03400B5DC04 /* NetworkResult.swift */,
+				5C20C971298D477300B8BB2A /* NetworkResult.swift */,
+				5C20C972298D477300B8BB2A /* GenericResponse.swift */,
+				55035E942993A90D008E221C /* Tag */,
 			);
 			path = NetworkModels;
 			sourceTree = "<group>";
@@ -387,6 +435,7 @@
 		5C20C981298D477300B8BB2A /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				55035E842992418E008E221C /* DeleteView */,
 				5C20C982298D477300B8BB2A /* CollectionView */,
 				5C20C988298D477300B8BB2A /* HomeViewController.swift */,
 				5C20C989298D477300B8BB2A /* HomeSortStackView.swift */,
@@ -502,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				5C20C9AB298D477300B8BB2A /* DividerUIView.swift */,
+				55035E9029925C55008E221C /* TagLabel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -645,6 +695,7 @@
 				5C20C9C2298D477300B8BB2A /* CalendarViewController.swift in Sources */,
 				5C20C9DB298D477300B8BB2A /* CountCloverView.swift in Sources */,
 				5C20C9DF298D477300B8BB2A /* LoginViewController.swift in Sources */,
+				55035E88299241C9008E221C /* PostingEditPopUpView.swift in Sources */,
 				5C20C9DE298D477300B8BB2A /* TitleStackView.swift in Sources */,
 				8A126C61299143E900F096AB /* FloatingPanelController+Extension.swift in Sources */,
 				5C20C9DC298D477300B8BB2A /* EmailStackView.swift in Sources */,
@@ -654,6 +705,8 @@
 				5C20C9CE298D477300B8BB2A /* IntroduceDeveloperViewController.swift in Sources */,
 				58ED406D298EA4AB00B5DC04 /* AuthAPI.swift in Sources */,
 				8A126C6B2991452400F096AB /* BottomSheetView.swift in Sources */,
+				55035E86299241A9008E221C /* PostingEditPopUpViewController.swift in Sources */,
+				55035E8D29925A62008E221C /* Tag.swift in Sources */,
 				5C20C9D7298D477300B8BB2A /* StatsByTagView.swift in Sources */,
 				8A126C652991443B00F096AB /* SingleDetailViewController.swift in Sources */,
 				5C20C9C6298D477300B8BB2A /* HomeCollectionViewHeader.swift in Sources */,
@@ -668,6 +721,7 @@
 				5C20C9C8298D477300B8BB2A /* HomeSortStackView.swift in Sources */,
 				58ED4075298EA5B800B5DC04 /* Const.swift in Sources */,
 				5C20C9E4298D477300B8BB2A /* SceneDelegate.swift in Sources */,
+				55BE12992999FC590060E09D /* DeleteCompletionView.swift in Sources */,
 				5C20C9DD298D477300B8BB2A /* OAuthStackView.swift in Sources */,
 				58ED4069298EA03400B5DC04 /* NetworkResult.swift in Sources */,
 				58ED4073298EA55000B5DC04 /* URL.swift in Sources */,
@@ -675,8 +729,10 @@
 				5C20C9D0298D477300B8BB2A /* IntroduceDeveloperView.swift in Sources */,
 				5C20C9C1298D477300B8BB2A /* Extension.swift in Sources */,
 				5C20C9D3298D477300B8BB2A /* EditProfileView.swift in Sources */,
+				55035E8A299241E1008E221C /* PostingDeletePopUpView.swift in Sources */,
 				5C20C9DA298D477300B8BB2A /* MyPageViewController.swift in Sources */,
 				5C20C9C9298D477300B8BB2A /* TagSelectModalViewController.swift in Sources */,
+				55035E972993A9A0008E221C /* CreateTagRequest.swift in Sources */,
 				5C20C9BD298D477300B8BB2A /* WritingImageCollectionViewCell.swift in Sources */,
 				5C20C9D6298D477300B8BB2A /* StatsByHourView.swift in Sources */,
 				5C20C9CA298D477300B8BB2A /* SelectedTagStackView.swift in Sources */,
@@ -694,10 +750,12 @@
 				58ED4066298E970900B5DC04 /* GenericResponse.swift in Sources */,
 				58ED407A298EA9BD00B5DC04 /* MoyaLoggerPlugin.swift in Sources */,
 				5C20C9D1298D477300B8BB2A /* SettingView.swift in Sources */,
+				55035E992993A9B4008E221C /* CreateTagResponse.swift in Sources */,
 				5C20C9BB298D477300B8BB2A /* UIViewController+Extension.swift in Sources */,
 				5C20C9C4298D477300B8BB2A /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				588A8E49299414A700F2875A /* ProfileSettingViewController.swift in Sources */,
 				5C20C9E0298D477300B8BB2A /* TabBarController.swift in Sources */,
+				55035E9129925C55008E221C /* TagLabel.swift in Sources */,
 				5C20C9CF298D477300B8BB2A /* NotificationSettingViewController.swift in Sources */,
 				58ED4087298EB4FC00B5DC04 /* SocialSignUpResponse.swift in Sources */,
 				5C20C9BF298D477300B8BB2A /* WritingViewController+TextViewDelegate.swift in Sources */,
