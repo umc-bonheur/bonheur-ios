@@ -61,7 +61,6 @@ class ProfileSettingViewController: EditProfileViewController {
             print("프로필 사진을 선택하지 않아 기본 프사로 진행합니다.")
         } else { // 사용자가 선택한 이미지로 프사 설정
             socialSignUpWithAPI(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage!)
-            self.navigationController?.pushViewController(TabBarController(), animated: true)
         }
     }
     
@@ -77,25 +76,30 @@ class ProfileSettingViewController: EditProfileViewController {
     }
 }
 
-func socialSignUpWithAPI(socialSignUpJSON: SocialSignUpJSON, profileImage: UIImage) {
-    AuthAPI.shared.socialSignUp(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage) { response in
-        switch response {
-        case .success(let socialSignUpData):
-            // SocialSignUpResponse(sessionId: "28bbe5ef-1dc9-462f-9a60-a0f3b813b2fc", memberId: 7)
-            if let data = socialSignUpData as? SocialSignUpResponse {
-                UserDefaults.standard.set(socialSignUpJSON.socialType, forKey: Const.UserDefaultsKey.socialType)
-                UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
-                UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
-                UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+extension ProfileSettingViewController {
+    func socialSignUpWithAPI(socialSignUpJSON: SocialSignUpJSON, profileImage: UIImage) {
+        AuthAPI.shared.socialSignUp(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage) { response in
+            switch response {
+            case .success(let socialSignUpData):
+                // SocialSignUpResponse(sessionId: "28bbe5ef-1dc9-462f-9a60-a0f3b813b2fc", memberId: 7)
+                if let data = socialSignUpData as? SocialSignUpResponse {
+                    UserDefaults.standard.set(socialSignUpJSON.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
+                    UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
+                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
+                }
+                print("socialSignUpWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("socialSignUpWithAPI - pathError")
+            case .serverError:
+                print("socialSignUpWithAPI - serverError")
+            case .networkFail:
+                print("socialSignUpWithAPI - networkFail")
             }
-        case .requestError(let resultCode, let message):
-            print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
-        case .pathError:
-            print("socialSignUpWithAPI - pathError")
-        case .serverError:
-            print("socialSignUpWithAPI - serverError")
-        case .networkFail:
-            print("socialSignUpWithAPI - networkFail")
         }
     }
 }

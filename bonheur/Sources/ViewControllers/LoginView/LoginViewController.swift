@@ -129,11 +129,6 @@ class LoginViewController: UIViewController {
         profileSettingViewController.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
         self.navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
-        
-        // 메인 화면으로 이동
-        navigationController?.pushViewController(TabBarController(), animated: true)
-    }
-
 }
 
 extension LoginViewController {
