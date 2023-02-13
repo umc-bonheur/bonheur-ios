@@ -151,5 +151,7 @@ class HomeViewController: UIViewController {
         let postingEditPopUpViewController = PostingEditPopUpViewController()
         postingEditPopUpViewController.modalPresentationStyle = .overFullScreen
         present(postingEditPopUpViewController, animated: false)
+        // TODO: Cell Data 넘기기 -> delete 과정에서 활용
+        
     }
 }
