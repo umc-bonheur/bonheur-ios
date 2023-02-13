@@ -32,10 +32,10 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        var isLogin = UserDefaults.standard.bool(forKey: Const.UserDefaultsKey.isLogin)
+        let isLogin = UserDefaults.standard.bool(forKey: Const.UserDefaultsKey.isLogin)
         let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
         
-        if isLogin && sessionId != nil { // 로그인된 상태
+        if isLogin && sessionId != nil { // 로그인된 상태 - isLogin이 true이며 sessionId가 UserDefaults에 존재한다
             self.navigationController?.pushViewController(TabBarController(), animated: true)
         }
     }
