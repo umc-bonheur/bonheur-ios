@@ -58,7 +58,7 @@ class ProfileSettingViewController: EditProfileViewController {
         let profileImage = editProfileView.profileImageView.image
         
         if profileImage == nil { // 기본 프사로 설정
-            print("프로필 사진을 선택하지 않아 기본 프사로 진행합니다.")
+            socialSignUpWithAPI(socialSignUpJSON: socialSignUpJSON, profileImage: nil)
         } else { // 사용자가 선택한 이미지로 프사 설정
             socialSignUpWithAPI(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage!)
         }
@@ -77,7 +77,7 @@ class ProfileSettingViewController: EditProfileViewController {
 }
 
 extension ProfileSettingViewController {
-    func socialSignUpWithAPI(socialSignUpJSON: SocialSignUpJSON, profileImage: UIImage) {
+    func socialSignUpWithAPI(socialSignUpJSON: SocialSignUpJSON, profileImage: UIImage?) {
         AuthAPI.shared.socialSignUp(socialSignUpJSON: socialSignUpJSON, profileImage: profileImage) { response in
             switch response {
             case .success(let socialSignUpData):

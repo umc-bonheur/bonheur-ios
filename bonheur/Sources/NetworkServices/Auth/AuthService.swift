@@ -10,7 +10,7 @@ import UIKit
 import Moya
 
 enum AuthService {
-    case socialSignUp(SocialSignUpJSON: SocialSignUpJSON, profileImage: UIImage)
+    case socialSignUp(SocialSignUpJSON: SocialSignUpJSON, profileImage: UIImage?)
     case login(loginRequest: LoginRequest) // 로그인
     case logout // 로그아웃
     case withdrawal // 회원 탈퇴
@@ -63,8 +63,10 @@ extension AuthService: TargetType {
             ]
             let requestData = try? JSONEncoder().encode(params)
             multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "socialSignUpRequest", mimeType: "application/json"))
-            let imageData = profileImage.jpegData(compressionQuality: 1.0)
-            multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
+            if profileImage != nil {
+                let imageData = profileImage!.jpegData(compressionQuality: 1.0)
+                multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
+            }
             
             return .uploadMultipart(multipartFormData)
             
