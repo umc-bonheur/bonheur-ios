@@ -14,6 +14,7 @@
 		55035E9129925C55008E221C /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E9029925C55008E221C /* TagLabel.swift */; };
 		55035E972993A9A0008E221C /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E962993A9A0008E221C /* CreateTagRequest.swift */; };
 		55035E992993A9B4008E221C /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55035E982993A9B4008E221C /* CreateTagResponse.swift */; };
+		55BE12992999FC590060E09D /* DeleteCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BE12982999FC590060E09D /* DeleteCompletionView.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		5C20C9AF298D477300B8BB2A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C963298D477300B8BB2A /* .swiftlint.yml */; };
 		5C20C9B0298D477300B8BB2A /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C20C966298D477300B8BB2A /* SF-Pro.ttf */; };
@@ -88,6 +89,7 @@
 		55035E962993A9A0008E221C /* CreateTagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
 		55035E982993A9B4008E221C /* CreateTagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BE12982999FC590060E09D /* DeleteCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCompletionView.swift; sourceTree = "<group>"; };
 		5C20C963298D477300B8BB2A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5C20C966298D477300B8BB2A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		5C20C967298D477300B8BB2A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				55035E85299241A9008E221C /* PostingEditPopUpViewController.swift */,
 				55035E87299241C9008E221C /* PostingEditPopUpView.swift */,
 				55035E89299241E1008E221C /* PostingDeletePopUpView.swift */,
+				55BE12982999FC590060E09D /* DeleteCompletionView.swift */,
 			);
 			path = DeleteView;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				5C20C9BE298D477300B8BB2A /* WritingViewController.swift in Sources */,
 				5C20C9C8298D477300B8BB2A /* HomeSortStackView.swift in Sources */,
 				5C20C9E4298D477300B8BB2A /* SceneDelegate.swift in Sources */,
+				55BE12992999FC590060E09D /* DeleteCompletionView.swift in Sources */,
 				5C20C9DD298D477300B8BB2A /* OAuthStackView.swift in Sources */,
 				5C20C9E1298D477300B8BB2A /* DividerUIView.swift in Sources */,
 				5C20C9B7298D477300B8BB2A /* NetworkResult.swift in Sources */,
