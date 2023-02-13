@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KakaoSDK.initSDK(appKey: "bc1f4e7f41b49fe6407ffb396e82c82f")
         
-        // TODO: UserDefaults 초기화 코드 - commit할 때 지우기
+        // MARK: UserDefaults 초기화 코드
 //        for key in UserDefaults.standard.dictionaryRepresentation().keys {
 //            UserDefaults.standard.removeObject(forKey: key.description)
+//            print("\(key.description) 삭제 완료")
 //        }
 //        print("UserDefaults 초기화 완료")
         
