@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 struct SocialSignUpJSON: Codable {
-    let token, nickname, socialType: String
+    let token: String
+    let nickname: String
+    let socialType: String
 }
