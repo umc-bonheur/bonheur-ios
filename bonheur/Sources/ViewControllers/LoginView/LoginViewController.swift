@@ -192,6 +192,9 @@ extension LoginViewController: ASAuthorizationControllerPresentationContextProvi
             print("identityToken: \(tokenString!)")
             
             UserDefaults.standard.set(tokenString!, forKey: Const.UserDefaultsKey.accessToken)
+            if userIdentifier != "" {
+                UserDefaults.standard.set(userIdentifier, forKey: Const.UserDefaultsKey.appleUserId)
+            }
             
             let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
             let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)

@@ -48,8 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else { // 세션 만료일이 경과되지 않음
                 if socialType == "애플" {
                     let appleIDProvider = ASAuthorizationAppleIDProvider()
-                    // TODO: userID 채워야 함
-                    appleIDProvider.getCredentialState(forUserID: "???") { (credentialState, error) in
+                    appleIDProvider.getCredentialState(forUserID: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.appleUserId) ?? "") { (credentialState, error) in
                         switch credentialState {
                         case .authorized: // 이미 증명이 된 경우
                             print("해당 Apple ID는 연동되어 있습니다.")
