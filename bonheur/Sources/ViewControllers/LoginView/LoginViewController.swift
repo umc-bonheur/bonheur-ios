@@ -192,7 +192,16 @@ extension LoginViewController: ASAuthorizationControllerPresentationContextProvi
             print("identityToken: \(tokenString!)")
             
             UserDefaults.standard.set(tokenString!, forKey: Const.UserDefaultsKey.accessToken)
-            self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "애플")
+            
+            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+            let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
+            if sessionId != nil && socialType == "애플" {
+                print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
+                self.loginWithAPI(loginRequest: LoginRequest(token: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)!, socialType: "애플"))
+                self.navigationController?.pushViewController(TabBarController(), animated: true)
+            } else {
+                self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "애플")
+            }
             
         // iCloud KeyChain credential을 사용하여 sign in
         case let passwordCredential as ASPasswordCredential:
