@@ -86,7 +86,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func kakaoLoginButtonTapped() {
-        // UserDefaluts에 sessionId 있는지 확인
         let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
         let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
         
@@ -96,11 +95,11 @@ class LoginViewController: UIViewController {
                     print(error)
                 } else {
                     UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                    if sessionId != nil && socialType == "카카오" {
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
                         self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
                         self.navigationController?.pushViewController(TabBarController(), animated: true)
-                    } else { // sessionId가 존재하지 않음 > 회원가입 API
+                    } else {
                         self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "카카오")
                     }
                 }
@@ -110,11 +109,11 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                    if sessionId != nil && socialType == "카카오" {
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
                         self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
                         self.navigationController?.pushViewController(TabBarController(), animated: true)
-                    } else { // sessionId가 존재하지 않음 > 회원가입 API
+                    } else {
                         UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                         self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "카카오")
                     }
