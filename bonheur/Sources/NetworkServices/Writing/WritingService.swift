@@ -14,12 +14,10 @@ enum WritingService {
 }
 
 extension WritingService: TargetType {
-    // MARK: - baseURL (서버의 endpoint 도메인)
     var baseURL: URL {
         return URL(string: Const.URL.baseURL)!
     }
     
-    // MARK: - path (도메인 뒤에 추가될 path)
     var path: String {
         switch self {
         case .writing:
@@ -27,7 +25,6 @@ extension WritingService: TargetType {
         }
     }
     
-    // MARK: - HTTP method (get, post, patch, delete)
     var method: Moya.Method {
         switch self {
         case .writing:
@@ -35,11 +32,6 @@ extension WritingService: TargetType {
         }
     }
     
-    // MARK: - task (request에 사용될 파라미터)
-    // 서버에 보낼 데이터가 없다면 .requestPlain
-    // 파라미터로 보낼 데이터가 있다면 .requestParameters (ex. http://dev.umc-bonheur.shop/api/boards?memberId=1&page=0&size=1&sort=string)
-    // 서버에 보낼 데이터(body)가 있다면 .requestJSONEncodable
-    // 참고: https://moya.github.io/Enums/Task.html
     var task: Moya.Task {
         switch self {
         case .writing(let writingJSON, let images):
@@ -56,13 +48,13 @@ extension WritingService: TargetType {
             return .uploadMultipart(multipartFormData)
         }
     }
-        // MARK: - HTTP Header
-        var headers: [String: String]? {
-            switch self {
-            case .writing:
-                let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
-                let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
-                return authorizationHeader
-            }
+
+    var headers: [String: String]? {
+        switch self {
+        case .writing:
+            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
+            return authorizationHeader
         }
+    }
 }
