@@ -81,7 +81,7 @@ class WritingViewController: UIViewController {
         view.backgroundColor = .white
         imageCollectionView.frame = view.bounds
         }
-        
+    
     func makeAutoLayout() {
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -122,7 +122,16 @@ class WritingViewController: UIViewController {
     }
     
     @objc func submitButtonDidTapped() {
-        navigationController?.popViewController(animated: true)
+        images.removeLast()
+        print("images: \(images)")
+        print("내용: \(textView.text ?? "")")
+        
+        // TODO: 해시태그 연동하기
+        // TODO: 화면 이동 - navigationController pop? push?
+        let writingJSON = WritingJSON(contents: textView.text ?? "", tagIds: [])
+        createRecordWithAPI(writingJSON: writingJSON, images: images)
+        
+//        navigationController?.popViewController(animated: true)
     }
     
     @objc func addButtonDidTapped() {
@@ -180,6 +189,28 @@ extension WritingViewController: PHPickerViewControllerDelegate {
                 }
             }
             self.imageCollectionView.reloadData()
+        }
+    }
+}
+
+extension WritingViewController {
+    func createRecordWithAPI(writingJSON: WritingJSON, images: [UIImage]) {
+        WritingAPI.shared.createRecord(writingJSON: writingJSON, images: images) { response in
+            switch response {
+            case .success(let writingData):
+                if let data = writingData as? WritingResponse {
+                    print("게시물 생성이 완료되었습니다. boardId: \(data.boardId)")
+                    print("createRecordWithAPI - success")
+                }
+            case .requestError(let resultCode, let message):
+                print("lcreateRecordWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("createRecordWithAPI - pathError")
+            case .serverError:
+                print("createRecordWithAPI - serverError")
+            case .networkFail:
+                print("createRecordWithAPI - networkFail")
+            }
         }
     }
 }
