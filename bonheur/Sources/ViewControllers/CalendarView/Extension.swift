@@ -58,8 +58,6 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     //    }
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        
-        
         let imageDateFormatter = krDate.string(from: date)
         let dateString = imageDateFormatter
 
@@ -69,24 +67,29 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         let year = String(imageDateFormatter.prefix(4))
         let month = String(imageDateFormatter[sisthCharIndex...seventhCharIndex])
         
-        // 서버에서 데이터를 가져오는 함수를 실행
-        CalendarAPI.shared.getCalendarAPI(year: year, month: month) { (data) in
-            self.serverData = data
+        // 이미지 캐싱
+        if let cachedImage = imageCache[dateString] {
+            return cachedImage
         }
         
-        guard let data = serverData?.first(where: { $0["day"] as? String == dateString }) else {
-            print("에러")
-            return nil
+        // 서버에서 데이터를 백그라운드 스레드에서 가져오기
+        DispatchQueue.global(qos: .background).async {
+            CalendarAPI.shared.getCalendarAPI(year: year, month: month) { (data) in
+                // UI 업데이트는 메인 스레드에서 실행
+                DispatchQueue.main.async {
+                    self.serverData = data
+                    if let data = self.serverData?.first(where: { $0["day"] as? String == dateString }) {
+                        let isWrite = data["isWrite"] as? Bool ?? false
+                        let image = isWrite ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
+                        self.imageCache[dateString] = image
+                        calendar.reloadData()
+                    }
+                }
+            }
         }
-                
-        let isWrite = data["isWrite"] as? Bool ?? false
-        if isWrite {
-            return UIImage(named: "DarkClover")
-        }
         
-        return UIImage(named: "EmptyClover")
-        
-        
+        return nil
+
     }
     
     // TODO: 날짜 선택시 해당 날짜의 행복 기록 띄우기

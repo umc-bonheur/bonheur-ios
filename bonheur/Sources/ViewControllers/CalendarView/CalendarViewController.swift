@@ -49,6 +49,7 @@ class CalendarViewController: UIViewController {
     }()
     
     var serverData: [[String: Any]]?
+    var imageCache = [String: UIImage]()
 
     
     // MARK: - UI
