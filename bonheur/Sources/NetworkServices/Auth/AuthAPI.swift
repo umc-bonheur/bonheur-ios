@@ -83,22 +83,6 @@ public class AuthAPI {
         }
     }
     
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
-        let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else { return .pathError }
-        
-        switch statusCode {
-        case 200:
-            return .success(decodedData.message)
-        case 400..<500:
-            return .requestError(decodedData.resultCode, decodedData.message)
-        case 500:
-            return .serverError
-        default:
-            return .networkFail
-        }
-    }
-    
     private func judgeSocialSignUpStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<SocialSignUpResponse>.self, from: data) else { return .pathError }
