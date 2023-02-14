@@ -48,6 +48,9 @@ class CalendarViewController: UIViewController {
         return formatter
     }()
     
+    var serverData: [[String: Any]]?
+
+    
     // MARK: - UI
     
     fileprivate weak var calendar: FSCalendar!
@@ -101,6 +104,8 @@ class CalendarViewController: UIViewController {
         return button
     }()
     
+    var date = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -108,21 +113,7 @@ class CalendarViewController: UIViewController {
         configureUI()
         configureNavBar()
         
-//        CalendarAPI.shared.getCalendarAPI(year: "2023", month: "2") { param in
-//            let data = param
-//            let one: Int = 1
-//            let temp = data[2 - one]
-//            print(temp)
-//            print(temp["day"]!)
-//            print(temp["isWrite"]!)
-//
-//            if temp["isWrite"]! as! Bool == true {
-//                print("클로버 이미지를 채우세요!")
-//            } else {
-//                print("클로버 이미지가 비어있습니다!")
-//            }
-//
-//        }
+       
         
     }
     

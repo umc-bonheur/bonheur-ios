@@ -26,40 +26,67 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
     
     // TODO: - 서버에서 행복기록 날짜별로 작성여부 데이터 값 받아서 isWrite가 true일 경우 clover 이미지 변경하기
     // TODO: - API에서 day랑 isWrite를 받아온다.
+    //    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+    //
+    //        let imageDateFormatter = krDate.string(from: date)
+    //
+    //        let sisthCharIndex = imageDateFormatter.index(imageDateFormatter.startIndex, offsetBy: 5)
+    //        let seventhCharIndex = imageDateFormatter.index(imageDateFormatter.startIndex, offsetBy: 6)
+    //
+    //        let year = String(imageDateFormatter.prefix(4))
+    //        let month = String(imageDateFormatter[sisthCharIndex...seventhCharIndex])
+    //        let day = String(imageDateFormatter.suffix(2))
+    //
+    //
+    //
+    ////        CalendarAPI.shared.getCalendarAPI(year: year, month: month, day: day) { param in
+    ////            comeClosure = param // 데이터를 받아온 순간
+    ////
+    ////            print("(클로저 안에서 출력)\(comeClosure)")
+    ////
+    ////        }
+    //
+    //
+    //
+    //
+    //
+    //
+    //        let datesWithCat = ["2023-02-01", "2023-02-07", "2023-02-12"]
+    //        let dateStr = imageDateFormatter
+    //        return datesWithCat.contains(dateStr) ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
+    //
+    //    }
+    
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-
-        let imageDateFormatter = krDate.string(from: date)
         
+        
+        let imageDateFormatter = krDate.string(from: date)
+        let dateString = imageDateFormatter
+
         let sisthCharIndex = imageDateFormatter.index(imageDateFormatter.startIndex, offsetBy: 5)
         let seventhCharIndex = imageDateFormatter.index(imageDateFormatter.startIndex, offsetBy: 6)
-
+        
         let year = String(imageDateFormatter.prefix(4))
         let month = String(imageDateFormatter[sisthCharIndex...seventhCharIndex])
-        let day = String(imageDateFormatter.suffix(2))
         
-        var comeClosure: [[String: Any]] = [[:]]
-       
-        CalendarAPI.shared.getCalendarAPI(year: year, month: month, day: day) { param in
-//            let data = param
-//            guard let day = Int(day) else { return }
-//            let temp = data[day - 1]
-            
-            comeClosure = param
-            return comeClosure
+        // 서버에서 데이터를 가져오는 함수를 실행
+        CalendarAPI.shared.getCalendarAPI(year: year, month: month) { (data) in
+            self.serverData = data
         }
         
-            print(comeClosure)
+        guard let data = serverData?.first(where: { $0["day"] as? String == dateString }) else {
+            print("에러")
+            return nil
+        }
+                
+        let isWrite = data["isWrite"] as? Bool ?? false
+        if isWrite {
+            return UIImage(named: "DarkClover")
+        }
         
-//        print("\(year)년", terminator: " ")ㄱ
-//        print("\(month)월", terminator: " ")
-//        print("\(day)일")
+        return UIImage(named: "EmptyClover")
         
         
-        
-        
-        let datesWithCat = ["2023-02-01", "2023-02-07"]
-        let dateStr = imageDateFormatter
-        return datesWithCat.contains(dateStr) ? UIImage(named: "DarkClover") : UIImage(named: "EmptyClover")
     }
     
     // TODO: 날짜 선택시 해당 날짜의 행복 기록 띄우기
@@ -74,6 +101,5 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
             calendar.appearance.titleSelectionColor = bonheurTodayColor
         }
     }
-    
     
 }

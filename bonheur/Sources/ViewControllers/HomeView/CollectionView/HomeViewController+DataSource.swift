@@ -29,4 +29,11 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.backgroundView = cell.cellBackgroundView
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let singleDetailViewController = SingleDetailViewController()
+        singleDetailViewController.selectedIndex = indexPath.row
+//        singleDetailViewController.imageArr = data
+        pushView(viewController: singleDetailViewController)
+    }
 }

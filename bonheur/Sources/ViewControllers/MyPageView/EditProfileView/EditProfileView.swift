@@ -34,7 +34,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    lazy var cameraBtn = UIButton().then  {
+    lazy var cameraBtn = UIButton().then {
         $0.backgroundColor = .clear
     }
     
@@ -62,6 +62,8 @@ class EditProfileView: UIView, UITextFieldDelegate {
         $0.textColor = .black
         $0.tintColor = .black
     }
+    
+    var nickname = ""
     
     lazy var textFieldBorderView = UIView().then {
         $0.backgroundColor = UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)
@@ -163,6 +165,7 @@ class EditProfileView: UIView, UITextFieldDelegate {
             string: "닉네임은 한글 7자 이내로 입력해주세요",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.743, green: 0.75, blue: 0.743, alpha: 1)]
         )
+        nickname = textField.text ?? ""
     }
 }
 
