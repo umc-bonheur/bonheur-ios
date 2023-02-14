@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
         
         // 세션 아이디가 존재한다면
+        // TODO: updateAt이 nil인 문제 고치기
         if sessionId != nil {
-            // TODO: 로그인 타입에 따라 연동 상태 확인
             print("socialType: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)))")
             print("session id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)))")
             print("member id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId)))")
