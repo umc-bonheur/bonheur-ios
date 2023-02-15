@@ -202,7 +202,7 @@ extension WritingViewController {
                     print("createRecordWithAPI - success")
                 }
             case .requestError(let resultCode, let message):
-                print("lcreateRecordWithAPI - requestError: [\(resultCode)] \(message)")
+                print("createRecordWithAPI - requestError: [\(resultCode)] \(message)")
             case .pathError:
                 print("createRecordWithAPI - pathError")
             case .serverError:
