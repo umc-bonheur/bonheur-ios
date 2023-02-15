@@ -13,12 +13,13 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     var postingTime: String = "AM 13:59"
     
     // dummy data
-    private var postingTagLabelList: [Tag] = [Tag(tagName: "행복", tagID: 123),
-                                              Tag(tagName: "사랑", tagID: 456),
-                                              Tag(tagName: "기쁨", tagID: 789),
-                                              Tag(tagName: "행복", tagID: 123),
-                                              Tag(tagName: "사랑", tagID: 456),
-                                              Tag(tagName: "기쁨", tagID: 789)]
+    private var postingTagLabelList: [Tag] = [Tag(tagName: "첫 번째", tagID: 123),
+//                                              Tag(tagName: "동적으로 보여지는 태그", tagID: 456),
+                                              Tag(tagName: "두 번째", tagID: 789),
+                                              Tag(tagName: "세 번째", tagID: 123),
+                                              Tag(tagName: "네 번째", tagID: 456),
+                                              Tag(tagName: "다섯 번째", tagID: 789)
+                                              ]
     
     private var tagLabelList: [TagLabel] = []
     
@@ -28,19 +29,16 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         view.layer.cornerRadius = 15
         return view
     }()
-    
-    var cellScrollView: UIScrollView = {
-        let view: UIScrollView = UIScrollView()
-        // cellStackView를 스크롤 가능하도록 하는 역할
-        view.backgroundColor = .green
-        view.showsHorizontalScrollIndicator = false
-        return view
+
+    private let cellScrollView: UIScrollView = {
+        let scrollView: UIScrollView = UIScrollView()
+        return scrollView
     }()
     
-    var cellStackView: UIStackView = {
-        var stackView: UIStackView = UIStackView()
+    private let cellStackView: UIStackView = {
+        let stackView: UIStackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 4
+        stackView.spacing = 50
         stackView.distribution = .equalSpacing
         return stackView
     }()
@@ -84,10 +82,13 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .white
         
+//        getTagWithAPI(tagName: "인천")
+        
         [cellTimeLabel, cellScrollView, postingMoreButton, postingImage, postingText].forEach {
             self.addSubview($0)
         }
 
+        // tagList 구성
         for tag in postingTagLabelList {
             let tagLabel = TagLabel()
             tagLabel.setTagText(tag: tag)
@@ -99,7 +100,6 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         }
         
         cellScrollView.addSubview(cellStackView)
-        
         setConstraints()
     }
     
@@ -115,14 +115,14 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
             cellTimeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             cellTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             
-            cellScrollView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
-            cellScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
-            cellScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
+            cellScrollView.topAnchor.constraint(equalTo: topAnchor, constant: 18),
+            cellScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 70),
+            cellScrollView.widthAnchor.constraint(equalToConstant: 225),
+            cellScrollView.heightAnchor.constraint(equalToConstant: 18),
             
-            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
-            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
-            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
-            cellScrollView.heightAnchor.constraint(equalTo: cellScrollView.heightAnchor),
+            cellStackView.topAnchor.constraint(equalTo: cellScrollView.topAnchor),
+            cellStackView.leadingAnchor.constraint(equalTo: cellScrollView.leadingAnchor),
+            cellStackView.heightAnchor.constraint(equalTo: cellScrollView.heightAnchor),
             
             postingMoreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
             postingMoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13),
@@ -139,3 +139,23 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension HomePostingCollectionViewCell {
+    func getTagWithAPI(tagName: String) {
+        TagAPI.shared.getTag(tagName: tagName) { (response) in
+            switch response {
+            case .success(let tagID):
+                print("logoutWithAPI - success \(tagID)")
+            case .requestError(let resultCode, let message):
+                print("logoutWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("logoutWithAPI - pathError")
+            case .serverError:
+                print("logoutWithAPI - serverError")
+            case .networkFail:
+                print("logoutWithAPI - networkFail")
+            }
+        }
+    }
+}
+

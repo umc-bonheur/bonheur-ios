@@ -23,23 +23,24 @@ class StatsByDayOfTheWeekView: BarChartView {
         $0.layer.cornerRadius = 15
     }
     
-    private let greenLbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "금요일", attributes: [NSAttributedString.Key.kern: 0.04])
+    let greenLbl = UILabel().then {
+        $0.attributedText = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFEB", size: 14)
         $0.textAlignment = .right
     }
     
-    private let grayLbl = UILabel().then {
+    let grayLbl = UILabel().then {
         $0.attributedText = NSMutableAttributedString(string: "에 가장 많이 기록했어요", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
     }
     
-    private let barChartView = BarChartView()
+    let barChartView = BarChartView()
     
-    var daysOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"]
-    let unitsRecorded = [19.0, 21.0, 21.0, 13.0, 17.0, 24.0, 13.0]
+    // 임시
+    let daysOfTheWeek = ["일", "월", "화", "수", "목", "금", "토"]
+    var unitsRecorded = [19.0, 21.0, 21.0, 13.0, 17.0, 24.0, 13.0]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +64,7 @@ class StatsByDayOfTheWeekView: BarChartView {
         [greenLbl, grayLbl, barChartView].forEach {
             mainView.addSubview($0)
         }
-        setChart(dataPoints: daysOfTheWeek, values: unitsRecorded)
+//        setChart(dataPoints: daysOfTheWeek, values: unitsRecorded)
     }
 
     func setUpConstraints() {
@@ -104,27 +105,24 @@ class StatsByDayOfTheWeekView: BarChartView {
         }
         
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
-       
         chartDataSet.drawValuesEnabled = false
- 
         chartDataSet.colors = [UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)]
-        
         chartDataSet.highlightEnabled = false
         
         let chartData = BarChartData(dataSets: [chartDataSet])
         barChartView.data = chartData
+        
         chartData.barWidth = 0.5
         barChartView.backgroundColor = .white
         barChartView.chartDescription.text = ""
         barChartView.xAxis.axisLineColor = UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1)
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: daysOfTheWeek)
         barChartView.xAxis.setLabelCount(daysOfTheWeek.count, force: false)
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: daysOfTheWeek)
         barChartView.xAxis.labelPosition = .bottom
         barChartView.xAxis.labelTextColor = UIColor(red: 0.445, green: 0.45, blue: 0.446, alpha: 1)
         barChartView.xAxis.labelFont = UIFont(name: "SFPro-Regular", size: 10)!
         barChartView.xAxis.drawGridLinesEnabled = false
-        barChartView.xAxis.avoidFirstLastClippingEnabled = true
+        barChartView.xAxis.avoidFirstLastClippingEnabled = false
         barChartView.leftAxis.axisMinimum = 0.001 // 0으로 하면 표시되는 것 방지
         barChartView.leftAxis.gridColor = UIColor(red: 0.842, green: 0.85, blue: 0.842, alpha: 1)
         barChartView.leftAxis.labelCount = 5
