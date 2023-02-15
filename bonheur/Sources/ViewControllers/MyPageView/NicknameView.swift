@@ -17,7 +17,7 @@ class NicknameView: UIView {
         $0.layer.cornerRadius = 116 / 2.0
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
     var profileImageView = UIImageView().then {
         $0.image = UIImage(named: "profile-clover")
         $0.clipsToBounds = true
@@ -73,10 +73,10 @@ class NicknameView: UIView {
             $0.top.equalToSuperview().offset(29)
         }
         profileImageView.snp.makeConstraints {
-            $0.height.equalTo(Constant.height * 79)
-            $0.width.equalTo(Constant.width * 79)
+            $0.height.equalTo(Constant.height * 116)
+            $0.width.equalTo(Constant.width * 116)
             $0.center.equalToSuperview()
-            $0.top.bottom.leading.trailing.equalToSuperview().inset(19)
+            $0.top.bottom.leading.trailing.equalToSuperview()
         }
         nicknameLbl.snp.makeConstraints {
             $0.top.equalTo(profileFrameView.snp.bottom).offset(16)

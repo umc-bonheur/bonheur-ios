@@ -14,6 +14,9 @@ import UniformTypeIdentifiers
 class EditProfileViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     let editProfileView = EditProfileView()
+    
+    var nickname = ""
+    var image: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,9 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
         
         // 네비게이션 바 커스텀
         self.navigationItem.title = "프로필 수정"
-        
+        self.editProfileView.nicknameTextField.text = nickname
+        self.editProfileView.profileImageView.image = image
+
         setUpView()
         setUpConstraints()
         setUpNavBar()
@@ -64,12 +69,15 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
     
     func actionSheet() {
         let alert = UIAlertController(title: "이미지 선택하기", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "사진 찍기", style: .default, handler: {_ in self.openCamera()}))
+//        alert.addAction(UIAlertAction(title: "사진 찍기", style: .default, handler: {_ in self.openCamera()}))
         alert.addAction(UIAlertAction(title: "라이브러리에서 선택", style: .default, handler: {_ in self.openGallery()}))
         alert.addAction(UIAlertAction(title: "현재 사진 삭제", style: .destructive, handler: {_ in
+            self.image = nil
+            self.editProfileView.profileImageView.image = UIImage(named: "profile-clover")
             self.dismiss(animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "취소하기", style: .cancel, handler: {_ in
+            
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -106,7 +114,16 @@ class EditProfileViewController: UIViewController, UNUserNotificationCenterDeleg
     }
 
     func uploadBtnTapped() {
-        print("수정이 완료되었습니다.")
+        var nickname = editProfileView.nickname
+        if nickname == "" {
+            nickname = self.nickname
+        }
+        let updateProfileJSON = UpdateProfileJSON(nickname: nickname)
+        if image == nil {
+            updateProfileWithAPI(updateProfileJSON: updateProfileJSON, image: nil)
+        } else {
+            updateProfileWithAPI(updateProfileJSON: updateProfileJSON, image: image)
+        }
     }
 }
 
@@ -118,6 +135,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         if let editingImage = data[convertInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
             print(editingImage)
             editProfileView.profileImageView.image = editingImage
+            self.image = editProfileView.profileImageView.image
             print("이미지 가져오기 성공")
         }
         picker.dismiss(animated: true, completion: nil)
@@ -133,5 +151,27 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
 
     func convertInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
         return input.rawValue
+    }
+}
+
+extension EditProfileViewController {
+    func updateProfileWithAPI(updateProfileJSON: UpdateProfileJSON, image: UIImage?) {
+        ProfileAPI.shared.updateProfile(updateProfileJSON: updateProfileJSON, image: image) { response in
+            switch response {
+            case .success(let updateProfileData):
+                if let data = updateProfileData as? UpdateProfileResponse {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                print("updateProfileWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("updateProfileWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("updateProfileWithAPI - pathError")
+            case .serverError:
+                print("updateProfileWithAPI - serverError")
+            case .networkFail:
+                print("updateProfileWithAPI - networkFail")
+            }
+        }
     }
 }

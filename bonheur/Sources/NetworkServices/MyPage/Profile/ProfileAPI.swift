@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import Moya
 
 public class ProfileAPI {
@@ -32,8 +33,8 @@ public class ProfileAPI {
         }
     }
     
-    func updateProfile(completion: @escaping(NetworkResult<Any>) -> Void) {
-        profileProvider.request(.updateProfile) { (result) in
+    func updateProfile(updateProfileJSON: UpdateProfileJSON, image: UIImage?, completion: @escaping(NetworkResult<Any>) -> Void) {
+        profileProvider.request(.updateProfile(updateProfileJSON: updateProfileJSON, image: image)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
@@ -79,4 +80,3 @@ public class ProfileAPI {
         }
     }
 }
-

@@ -70,6 +70,7 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
         setUpNavBar()
+        getProfileWithAPI()
         tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -127,6 +128,8 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
     @objc
     func editNicknameBtnTapped() {
         let editProfileViewController = EditProfileViewController()
+        editProfileViewController.nickname = self.nicknameView.nicknameLbl.text ?? ""
+        editProfileViewController.image = self.nicknameView.profileImageView.image
         navigationController?.pushViewController(editProfileViewController, animated: false)
     }
     

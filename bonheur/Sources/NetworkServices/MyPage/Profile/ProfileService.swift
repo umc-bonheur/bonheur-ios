@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 import Moya
 
 enum ProfileService {
     case getProfile
-    case updateProfile
+    case updateProfile(updateProfileJSON: UpdateProfileJSON, image: UIImage?)
 }
 
 extension ProfileService: TargetType {
@@ -39,8 +40,20 @@ extension ProfileService: TargetType {
     
     var task: Task {
         switch self {
-        case .getProfile, .updateProfile:
+        case .getProfile:
             return .requestPlain
+        case .updateProfile(let updateProfileJSON, let image):
+            var multipartFormData: [MultipartFormData] = []
+            
+            let requestData = try? JSONEncoder().encode(updateProfileJSON)
+            multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "updateMemberProfileRequest", mimeType: "application/json"))
+            
+            if image != nil {
+                let imageData = image?.jpegData(compressionQuality: 1.0)
+                multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "image", fileName: "image.jpg", mimeType: "image/gif"))
+            }
+            
+            return .uploadMultipart(multipartFormData)
         }
     }
     
