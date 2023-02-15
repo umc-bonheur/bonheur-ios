@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55719944299CE8EC00459855 /* TaggedBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719938299CE8EC00459855 /* TaggedBoardRequest.swift */; };
+		55719945299CE8EC00459855 /* TaggedBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719939299CE8EC00459855 /* TaggedBoardResponse.swift */; };
+		55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993B299CE8EC00459855 /* CreateBoardResponse.swift */; };
+		55719947299CE8EC00459855 /* CreateBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993C299CE8EC00459855 /* CreateBoardRequest.swift */; };
+		55719948299CE8EC00459855 /* GetTotalBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */; };
+		55719949299CE8EC00459855 /* GetTotalBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */; };
+		5571994A299CE8EC00459855 /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719942299CE8EC00459855 /* CreateTagResponse.swift */; };
+		5571994B299CE8EC00459855 /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719943299CE8EC00459855 /* CreateTagRequest.swift */; };
+		55719953299CE9C500459855 /* BoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571994E299CE9C500459855 /* BoardAPI.swift */; };
+		55719954299CE9C500459855 /* BoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571994F299CE9C500459855 /* BoardService.swift */; };
+		55719955299CE9C500459855 /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719951299CE9C500459855 /* TagService.swift */; };
+		55719956299CE9C500459855 /* TagAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719952299CE9C500459855 /* TagAPI.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
 		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
 		58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4060298E59DE00B5DC04 /* KakaoSDKUser */; };
@@ -30,8 +42,6 @@
 		5CAB490D299B74E800C0FB4F /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48A1299B74E800C0FB4F /* AuthAPI.swift */; };
 		5CAB490E299B74E800C0FB4F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48A2299B74E800C0FB4F /* AuthService.swift */; };
 		5CAB490F299B74E800C0FB4F /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48A4299B74E800C0FB4F /* MoyaLoggerPlugin.swift */; };
-		5CAB4910299B74E800C0FB4F /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48A8299B74E800C0FB4F /* CreateTagResponse.swift */; };
-		5CAB4911299B74E800C0FB4F /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48A9299B74E800C0FB4F /* CreateTagRequest.swift */; };
 		5CAB4912299B74E800C0FB4F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48AA299B74E800C0FB4F /* Tag.swift */; };
 		5CAB4913299B74E800C0FB4F /* SocialSignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48AE299B74E800C0FB4F /* SocialSignUpResponse.swift */; };
 		5CAB4914299B74E800C0FB4F /* SocialSignUpJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB48AF299B74E800C0FB4F /* SocialSignUpJSON.swift */; };
@@ -100,6 +110,18 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55719938299CE8EC00459855 /* TaggedBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardRequest.swift; sourceTree = "<group>"; };
+		55719939299CE8EC00459855 /* TaggedBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardResponse.swift; sourceTree = "<group>"; };
+		5571993B299CE8EC00459855 /* CreateBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardResponse.swift; sourceTree = "<group>"; };
+		5571993C299CE8EC00459855 /* CreateBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardRequest.swift; sourceTree = "<group>"; };
+		5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTotalBoardRequest.swift; sourceTree = "<group>"; };
+		5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTotalBoardResponse.swift; sourceTree = "<group>"; };
+		55719942299CE8EC00459855 /* CreateTagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
+		55719943299CE8EC00459855 /* CreateTagRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
+		5571994E299CE9C500459855 /* BoardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardAPI.swift; sourceTree = "<group>"; };
+		5571994F299CE9C500459855 /* BoardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardService.swift; sourceTree = "<group>"; };
+		55719951299CE9C500459855 /* TagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		55719952299CE9C500459855 /* TagAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagAPI.swift; sourceTree = "<group>"; };
 		5CAB488C299B74E800C0FB4F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5CAB488F299B74E800C0FB4F /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		5CAB4890299B74E800C0FB4F /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -116,8 +138,6 @@
 		5CAB48A1299B74E800C0FB4F /* AuthAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		5CAB48A2299B74E800C0FB4F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5CAB48A4299B74E800C0FB4F /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
-		5CAB48A8299B74E800C0FB4F /* CreateTagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
-		5CAB48A9299B74E800C0FB4F /* CreateTagRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
 		5CAB48AA299B74E800C0FB4F /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5CAB48AE299B74E800C0FB4F /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
 		5CAB48AF299B74E800C0FB4F /* SocialSignUpJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSignUpJSON.swift; sourceTree = "<group>"; };
@@ -221,6 +241,96 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		55719935299CE8EC00459855 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				55719940299CE8EC00459855 /* Tag */,
+				55719936299CE8EC00459855 /* Board */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		55719936299CE8EC00459855 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				55719937299CE8EC00459855 /* TaggedBoard */,
+				5571993A299CE8EC00459855 /* CreateBoard */,
+				5571993D299CE8EC00459855 /* GetTotalBoard */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		55719937299CE8EC00459855 /* TaggedBoard */ = {
+			isa = PBXGroup;
+			children = (
+				55719938299CE8EC00459855 /* TaggedBoardRequest.swift */,
+				55719939299CE8EC00459855 /* TaggedBoardResponse.swift */,
+			);
+			path = TaggedBoard;
+			sourceTree = "<group>";
+		};
+		5571993A299CE8EC00459855 /* CreateBoard */ = {
+			isa = PBXGroup;
+			children = (
+				5571993B299CE8EC00459855 /* CreateBoardResponse.swift */,
+				5571993C299CE8EC00459855 /* CreateBoardRequest.swift */,
+			);
+			path = CreateBoard;
+			sourceTree = "<group>";
+		};
+		5571993D299CE8EC00459855 /* GetTotalBoard */ = {
+			isa = PBXGroup;
+			children = (
+				5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */,
+				5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */,
+			);
+			path = GetTotalBoard;
+			sourceTree = "<group>";
+		};
+		55719940299CE8EC00459855 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				55719941299CE8EC00459855 /* CreateTag */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		55719941299CE8EC00459855 /* CreateTag */ = {
+			isa = PBXGroup;
+			children = (
+				55719942299CE8EC00459855 /* CreateTagResponse.swift */,
+				55719943299CE8EC00459855 /* CreateTagRequest.swift */,
+			);
+			path = CreateTag;
+			sourceTree = "<group>";
+		};
+		5571994C299CE9C500459855 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				5571994D299CE9C500459855 /* Board */,
+				55719950299CE9C500459855 /* Tag */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		5571994D299CE9C500459855 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				5571994E299CE9C500459855 /* BoardAPI.swift */,
+				5571994F299CE9C500459855 /* BoardService.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		55719950299CE9C500459855 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				55719951299CE9C500459855 /* TagService.swift */,
+				55719952299CE9C500459855 /* TagAPI.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		5C20C9E8298D47E600B8BB2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +410,7 @@
 		5CAB489F299B74E800C0FB4F /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				5571994C299CE9C500459855 /* HomeView */,
 				5CAB48A0299B74E800C0FB4F /* Auth */,
 				5CAB48A3299B74E800C0FB4F /* Plugin */,
 			);
@@ -334,24 +445,15 @@
 		5CAB48A6299B74E800C0FB4F /* Tag */ = {
 			isa = PBXGroup;
 			children = (
-				5CAB48A7299B74E800C0FB4F /* CreateTag */,
 				5CAB48AA299B74E800C0FB4F /* Tag.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
 		};
-		5CAB48A7299B74E800C0FB4F /* CreateTag */ = {
-			isa = PBXGroup;
-			children = (
-				5CAB48A8299B74E800C0FB4F /* CreateTagResponse.swift */,
-				5CAB48A9299B74E800C0FB4F /* CreateTagRequest.swift */,
-			);
-			path = CreateTag;
-			sourceTree = "<group>";
-		};
 		5CAB48AB299B74E800C0FB4F /* NetworkModels */ = {
 			isa = PBXGroup;
 			children = (
+				55719935299CE8EC00459855 /* HomeView */,
 				5CAB48AC299B74E800C0FB4F /* Auth */,
 				5CAB48B3299B74E800C0FB4F /* NetworkResult.swift */,
 				5CAB48B4299B74E800C0FB4F /* GenericResponse.swift */,
@@ -719,18 +821,21 @@
 				5CAB4932299B74E900C0FB4F /* HomeViewController.swift in Sources */,
 				5CAB493B299B74E900C0FB4F /* IntroduceDeveloperView.swift in Sources */,
 				5CAB4919299B74E800C0FB4F /* Constant.swift in Sources */,
+				55719944299CE8EC00459855 /* TaggedBoardRequest.swift in Sources */,
 				5CAB4939299B74E900C0FB4F /* IntroduceDeveloperViewController.swift in Sources */,
 				5CAB4915299B74E800C0FB4F /* LoginRequest.swift in Sources */,
+				55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */,
 				5CAB494B299B74E900C0FB4F /* LoginViewController.swift in Sources */,
 				5CAB4940299B74E900C0FB4F /* StatsByMonthView.swift in Sources */,
 				5CAB491C299B74E800C0FB4F /* UITextField+Extension.swift in Sources */,
-				5CAB4910299B74E800C0FB4F /* CreateTagResponse.swift in Sources */,
 				5CAB4927299B74E900C0FB4F /* Extension.swift in Sources */,
 				5CAB4925299B74E900C0FB4F /* CalendarAPI.swift in Sources */,
+				5571994B299CE8EC00459855 /* CreateTagRequest.swift in Sources */,
 				5CAB4912299B74E800C0FB4F /* Tag.swift in Sources */,
 				5CAB4930299B74E900C0FB4F /* PostingEditPopUpViewController.swift in Sources */,
 				5CAB4923299B74E900C0FB4F /* WritingViewController+TextViewDelegate.swift in Sources */,
 				5CAB490D299B74E800C0FB4F /* AuthAPI.swift in Sources */,
+				55719956299CE9C500459855 /* TagAPI.swift in Sources */,
 				5CAB4914299B74E800C0FB4F /* SocialSignUpJSON.swift in Sources */,
 				5CAB493C299B74E900C0FB4F /* SettingView.swift in Sources */,
 				5CAB491E299B74E800C0FB4F /* SingleDetailViewController.swift in Sources */,
@@ -738,6 +843,7 @@
 				5CAB4937299B74E900C0FB4F /* SettingViewController.swift in Sources */,
 				5CAB4926299B74E900C0FB4F /* BonheurCalendarApiService.swift in Sources */,
 				5CAB4928299B74E900C0FB4F /* CalendarViewController.swift in Sources */,
+				55719949299CE8EC00459855 /* GetTotalBoardResponse.swift in Sources */,
 				5CAB4933299B74E900C0FB4F /* HomeSortStackView.swift in Sources */,
 				5CAB4943299B74E900C0FB4F /* StatsByDayOfTheWeekView.swift in Sources */,
 				5CAB4938299B74E900C0FB4F /* NotificationSettingTableViewCell.swift in Sources */,
@@ -746,22 +852,28 @@
 				5CAB4942299B74E900C0FB4F /* StatsByTagView.swift in Sources */,
 				5CAB4941299B74E900C0FB4F /* StatsByHourView.swift in Sources */,
 				5CAB492C299B74E900C0FB4F /* HomeViewController+DataSource.swift in Sources */,
+				55719953299CE9C500459855 /* BoardAPI.swift in Sources */,
 				5CAB491F299B74E800C0FB4F /* BottomSheetView.swift in Sources */,
 				5CAB493F299B74E900C0FB4F /* EditProfileViewController.swift in Sources */,
 				5CAB494F299B74E900C0FB4F /* AppDelegate.swift in Sources */,
 				5CAB494D299B74E900C0FB4F /* TagLabel.swift in Sources */,
+				55719948299CE8EC00459855 /* GetTotalBoardRequest.swift in Sources */,
 				5CAB4905299B74E800C0FB4F /* Const.swift in Sources */,
 				5CAB4948299B74E900C0FB4F /* EmailStackView.swift in Sources */,
 				5CAB4936299B74E900C0FB4F /* RecentTagStackView.swift in Sources */,
+				55719945299CE8EC00459855 /* TaggedBoardResponse.swift in Sources */,
 				5CAB4951299B74E900C0FB4F /* SceneDelegate.swift in Sources */,
+				55719954299CE9C500459855 /* BoardService.swift in Sources */,
 				5CAB4920299B74E800C0FB4F /* SingleDetailBottomSheetViewController.swift in Sources */,
 				5CAB493E299B74E900C0FB4F /* EditProfileView.swift in Sources */,
 				5CAB4931299B74E900C0FB4F /* PostingEditPopUpView.swift in Sources */,
 				5CAB4924299B74E900C0FB4F /* WritingViewController+DataSource.swift in Sources */,
+				5571994A299CE8EC00459855 /* CreateTagResponse.swift in Sources */,
 				5CAB490E299B74E800C0FB4F /* AuthService.swift in Sources */,
 				5CAB4913299B74E800C0FB4F /* SocialSignUpResponse.swift in Sources */,
 				5CAB492F299B74E900C0FB4F /* DeleteCompletionView.swift in Sources */,
 				5CAB4902299B74E800C0FB4F /* UserDefaultsKey.swift in Sources */,
+				55719947299CE8EC00459855 /* CreateBoardRequest.swift in Sources */,
 				5CAB4918299B74E800C0FB4F /* GenericResponse.swift in Sources */,
 				5CAB4929299B74E900C0FB4F /* CalendarViewDataResponse.swift in Sources */,
 				5CAB4904299B74E800C0FB4F /* URL.swift in Sources */,
@@ -769,7 +881,6 @@
 				5CAB494E299B74E900C0FB4F /* DividerUIView.swift in Sources */,
 				5CAB494C299B74E900C0FB4F /* TabBarController.swift in Sources */,
 				5CAB4946299B74E900C0FB4F /* CountCloverView.swift in Sources */,
-				5CAB4911299B74E800C0FB4F /* CreateTagRequest.swift in Sources */,
 				5CAB490F299B74E800C0FB4F /* MoyaLoggerPlugin.swift in Sources */,
 				5CAB492B299B74E900C0FB4F /* HomeViewController+DelegateFlowLayout .swift in Sources */,
 				5CAB4921299B74E800C0FB4F /* WritingImageCollectionViewCell.swift in Sources */,
@@ -778,6 +889,7 @@
 				5CAB493A299B74E900C0FB4F /* NotificationSettingViewController.swift in Sources */,
 				5CAB4922299B74E900C0FB4F /* WritingViewController.swift in Sources */,
 				5CAB4947299B74E900C0FB4F /* ProfileSettingViewController.swift in Sources */,
+				55719955299CE9C500459855 /* TagService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
