@@ -14,18 +14,18 @@ class StatsByTagView: PieChartView {
     
     var paragraphStyle = NSMutableParagraphStyle()
 
-    let titleLbl = UILabel().then {
+    private let titleLbl = UILabel().then {
         $0.attributedText = NSMutableAttributedString(string: "태그별 통계", attributes: [NSAttributedString.Key.kern: 0.02])
         $0.textColor = UIColor(red: 0.37, green: 0.613, blue: 0.013, alpha: 1)
         $0.font = UIFont(name: "SFPro-Medium", size: 16)
     }
     
-    let mainView = UIView().then {
+    private let mainView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 15
     }
     
-    var stackView = UIStackView().then {
+    private var stackView = UIStackView().then {
         $0.axis = .horizontal
         $0.alignment = .fill
         $0.distribution = .fillProportionally
@@ -33,11 +33,11 @@ class StatsByTagView: PieChartView {
         $0.backgroundColor = .clear
     }
     
-    let rankingView = UIView().then {
+    private let rankingView = UIView().then {
         $0.backgroundColor = .clear
     }
     
-    var rankingStackView = UIStackView().then {
+    private var rankingStackView = UIStackView().then {
         $0.axis = .vertical
         $0.alignment = .fill
         $0.distribution = .fill
@@ -100,7 +100,7 @@ class StatsByTagView: PieChartView {
     }
     
     let top3Lbl = UILabel().then {
-        $0.textColor = UIColor(red: 0.37, green: 0.613, blue: 0.013, alpha: 1)
+        $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
     }
     
@@ -164,8 +164,9 @@ class StatsByTagView: PieChartView {
     
     let pieChartView = PieChartView()
     
-    var daysOfTheWeek = ["태그1", "태그2", "태그3", "태그4", "태그5"]
-    let unitsRecorded = [130.0, 24.0, 11.0, 7.0, 5.0]
+    // 임시
+    let tags = ["태그1", "태그2", "태그3", "태그4"]
+    var unitsRecorded = [130.0, 24.0, 11.0, 7.0, 5.0]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -210,7 +211,7 @@ class StatsByTagView: PieChartView {
         [top5Lbl, tag5Lbl, countTag5Lbl].forEach {
             top5View.addSubview($0)
         }
-        setChart(dataPoints: daysOfTheWeek, values: unitsRecorded)
+//        setChart(dataPoints: tags, values: unitsRecorded)
     }
 
     func setUpConstraints() {
@@ -387,30 +388,25 @@ class StatsByTagView: PieChartView {
         }
 
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
-       
         chartDataSet.drawValuesEnabled = false
         chartDataSet.colors = [
-            UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1),
             UIColor(red: 0.37, green: 0.613, blue: 0.013, alpha: 1),
+            UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1),
             UIColor(red: 0.828, green: 0.946, blue: 0.627, alpha: 1),
-            UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)]
+            UIColor(red: 0.928, green: 1, blue: 0.821, alpha: 1),
+            UIColor(red: 0.956, green: 1, blue: 0.892, alpha: 1)]
         chartDataSet.highlightEnabled = false
         
         let chartData = PieChartData(dataSets: [chartDataSet])
         pieChartView.data = chartData
-        
+
         pieChartView.backgroundColor = .white
-        
         pieChartView.chartDescription.text = ""
-        
         pieChartView.legend.enabled = false
-        
-        pieChartView.holeRadiusPercent = 0.6 // 0.7
+        pieChartView.holeRadiusPercent = 0.6
         pieChartView.transparentCircleRadiusPercent = 0
         pieChartView.chartDescription.enabled = false
-        
-        // margin 없애기
-        pieChartView.minOffset = 0
+        pieChartView.minOffset = 0 // margin 없애기
         pieChartView.setExtraOffsets(left: -18, top: -18, right: -18, bottom: -18)
     }
 }

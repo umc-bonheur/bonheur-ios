@@ -51,7 +51,6 @@ class SettingView: UIView {
     
     // 앱스토어 리뷰 작성
     let reviewBtn = UIButton().then {
-        
         $0.backgroundColor = .clear
     }
     

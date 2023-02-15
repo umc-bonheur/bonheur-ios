@@ -11,8 +11,8 @@ import Then
 
 class CountCloverView: UIView {
     
-    let countDaysLbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "31", attributes: [NSAttributedString.Key.kern: 0.02])
+    var countDaysLbl = UILabel().then {
+        $0.attributedText = NSMutableAttributedString(string: "0", attributes: [NSAttributedString.Key.kern: 0.02])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
     }
@@ -50,15 +50,18 @@ class CountCloverView: UIView {
     }
     
     let found1Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "12개", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "0", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
     }
     
     let found2Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "의 행복을", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "개의 행복을", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
+        let attributtedString = NSMutableAttributedString(string: $0.text!)
+        attributtedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1), range: ($0.text! as NSString).range(of: "개"))
+        $0.attributedText = attributtedString
     }
     
     let found3Lbl = UILabel().then {
@@ -85,15 +88,18 @@ class CountCloverView: UIView {
     }
     
     let made1Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "5개", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "0", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
     }
     
     let made2Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "의 해시태그를", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "개의 해시태그를", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
+        let attributtedString = NSMutableAttributedString(string: $0.text!)
+        attributtedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1), range: ($0.text! as NSString).range(of: "개"))
+        $0.attributedText = attributtedString
     }
     
     let made3Lbl = UILabel().then {
@@ -120,15 +126,18 @@ class CountCloverView: UIView {
     }
     
     let recorded1Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "9일동안 ", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "0", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
     }
     
     let recorded2Lbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "행복을", attributes: [NSAttributedString.Key.kern: 0.04])
+        $0.attributedText = NSMutableAttributedString(string: "일동안 행복을", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
+        let attributtedString = NSMutableAttributedString(string: $0.text!)
+        attributtedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1), range: ($0.text! as NSString).range(of: "일동안"))
+        $0.attributedText = attributtedString
     }
     
     let recorded3Lbl = UILabel().then {
@@ -152,7 +161,7 @@ class CountCloverView: UIView {
     }
     
     func setUpView() {
-        
+                
         [stackView, countDaysLbl, periodLbl].forEach {
             addSubview($0)
         }
