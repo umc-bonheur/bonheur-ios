@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import SafariServices
 
 class SettingViewController: UIViewController {
     
@@ -24,6 +25,8 @@ class SettingViewController: UIViewController {
         settingView.reviewBtn.addTarget(self, action: #selector(reviewBtnTapped), for: .touchUpInside)
         settingView.instagramBtn.addTarget(self, action: #selector(instagramBtnTapped), for: .touchUpInside)
         settingView.developerIntroductionBtn.addTarget(self, action: #selector(developerIntroductionBtnTapped), for: .touchUpInside)
+        settingView.privacyPolicyBtn.addTarget(self, action: #selector(privacyPolicyBtnTapped), for: .touchUpInside)
+        settingView.termsOfServiceBtn.addTarget(self, action: #selector(termsOfServiceBtnTapped), for: .touchUpInside)
         
         // 로그아웃
         settingView.logOutBtn.addTarget(self, action: #selector(logOutBtnTapped), for: .touchUpInside)
@@ -61,23 +64,43 @@ class SettingViewController: UIViewController {
     
     @objc
     func feedbackBtnTapped() {
-        print("피드백화면으로 이동완료!")
+        guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfFVRiM67jVKXu4hmf7oXpVP0dWWxiaukXR6vqiWyMTLeSDUQ/viewform") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
     func reviewBtnTapped() {
-        print("앱스토어로 이동완료!")
+        guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSepDeicpqyHDMmbVqxeN7nKpauULogase2k6Xqp_h1Q35DGyA/viewform") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
     func instagramBtnTapped() {
-        print("인스타그램으로 이동완료!")
+        guard let url = URL(string: "https://www.instagram.com/bonheur.team/?igshid=MDM4ZDc5MmU%3D") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
     func developerIntroductionBtnTapped() {
         let introduceDeveloperViewController = IntroduceDeveloperViewController()
         navigationController?.pushViewController(introduceDeveloperViewController, animated: false)
+    }
+    
+    @objc
+    func privacyPolicyBtnTapped() {
+        guard let url = URL(string: "https://bonheur-develop.notion.site/bff43db7d5344a4383d65a0733e1a659") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func termsOfServiceBtnTapped() {
+        guard let url = URL(string: "https://bonheur-develop.notion.site/8fb32e70b8d0400da7ca419a07cc177b") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc

@@ -51,7 +51,6 @@ class SettingView: UIView {
     
     // 앱스토어 리뷰 작성
     let reviewBtn = UIButton().then {
-        
         $0.backgroundColor = .clear
     }
     
@@ -121,7 +120,7 @@ class SettingView: UIView {
     }
     
     let privacyPolicyBtn = UIButton().then {
-        $0.setTitle("개인정보 처리방침", for: .normal)
+        $0.setTitle("개인정보처리방침", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)
     }
@@ -131,7 +130,7 @@ class SettingView: UIView {
     }
     
     let termsOfServiceBtn = UIButton().then {
-        $0.setTitle("이용약관", for: .normal)
+        $0.setTitle("서비스이용약관", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)
     }
@@ -147,7 +146,7 @@ class SettingView: UIView {
     }
     
     let versionLbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "v0000", attributes: [NSAttributedString.Key.kern: 0.03])
+        $0.attributedText = NSMutableAttributedString(string: "v1.0.0", attributes: [NSAttributedString.Key.kern: 0.03])
         $0.textColor = UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1)
         $0.font = UIFont(name: "SFPro-Regular", size: 10)
     }
