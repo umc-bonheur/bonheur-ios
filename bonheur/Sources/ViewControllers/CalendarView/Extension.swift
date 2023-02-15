@@ -55,7 +55,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
             }
         }
         
-        return nil
+        return UIImage(named: "EmptyClover")
 
     }
     
