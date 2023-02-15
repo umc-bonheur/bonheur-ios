@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import SafariServices
 
 class SettingViewController: UIViewController {
     
@@ -61,7 +62,9 @@ class SettingViewController: UIViewController {
     
     @objc
     func feedbackBtnTapped() {
-        print("피드백화면으로 이동완료!")
+        guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfFVRiM67jVKXu4hmf7oXpVP0dWWxiaukXR6vqiWyMTLeSDUQ/viewform") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
