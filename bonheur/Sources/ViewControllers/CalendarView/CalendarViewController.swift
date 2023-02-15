@@ -104,10 +104,33 @@ class CalendarViewController: UIViewController {
         return button
     }()
     
-    var date = Date()
+    private lazy var collectionViewHeaderLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16.0, weight: .bold)
+        label.textColor = .label
+        label.text = "2개의 행복을 찾았어요"
+        return label
+    }()
+    
+    public var CalendarCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(HomePostingCollectionViewCell.self,
+                                forCellWithReuseIdentifier: HomePostingCollectionViewCell.identifier)
+        
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: -5, left: 20, bottom: 10, right: 20)
+        return collectionView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CalendarCollectionView.delegate = self
+        CalendarCollectionView.dataSource = self
 
         configureCalendar()
         configureUI()
@@ -122,18 +145,25 @@ class CalendarViewController: UIViewController {
         stack.spacing = 20
         sadImageView.contentMode = .scaleAspectFit
         
+        let trueWriteStack = UIStackView(arrangedSubviews: [collectionViewHeaderLabel, CalendarCollectionView])
+        trueWriteStack.axis = .vertical
+        trueWriteStack.spacing = 20
+        
+        
         let calendarButtonStackView = UIStackView(arrangedSubviews: [leftButton, rightButton, todayButton])
         calendarButtonStackView.axis = .horizontal
         calendarButtonStackView.distribution = .equalSpacing
         calendarButtonStackView.spacing = 31.0
         
-        [stack, calendar ,calendarButtonStackView, headerLabel, changeWeekMonthButton].forEach {
+        [stack, trueWriteStack, calendar ,calendarButtonStackView, headerLabel, changeWeekMonthButton].forEach {
             view.addSubview($0)
         }
         
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stack.topAnchor.constraint(equalTo: changeWeekMonthButton.bottomAnchor, constant: 40).isActive = true
+        trueWriteStack.translatesAutoresizingMaskIntoConstraints = false
+        trueWriteStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        trueWriteStack.topAnchor.constraint(equalTo: changeWeekMonthButton.bottomAnchor, constant: 20).isActive = true
+        trueWriteStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10).isActive = true
+        trueWriteStack.widthAnchor.constraint(equalTo: calendar.widthAnchor).isActive = true
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: calendar.calendarHeaderView.centerYAnchor).isActive = true
@@ -170,6 +200,7 @@ class CalendarViewController: UIViewController {
             changeWeekMonthButtonAnchor,
             changeWeekMonthButton.centerXAnchor.constraint(equalTo: calendar.centerXAnchor)
         ])
+     
         
     }
     

@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         //self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-        self.window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
+        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
+//        self.window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
         
         window?.makeKeyAndVisible()
     }

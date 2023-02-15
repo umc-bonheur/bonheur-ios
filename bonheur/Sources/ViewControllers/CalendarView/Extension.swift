@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 
+// MARK: - FSCalendar extension
 extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -71,4 +72,41 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate, FSCa
         }
     }
     
+}
+
+// MARK: - CollectionView Delegate, DelegateFlowLayout
+
+extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = 350
+        let cellHeight = 149
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+}
+
+// MARK: - 내용입력
+
+extension CalendarViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostingCollectionViewCell.identifier, for: indexPath) as? HomePostingCollectionViewCell
+        else { return UICollectionViewCell() }
+        
+        cell.backgroundView = cell.cellBackgroundView
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let singleDetailViewController = SingleDetailViewController()
+        singleDetailViewController.selectedIndex = indexPath.row
+//        singleDetailViewController.imageArr = data
+        pushView(viewController: singleDetailViewController)
+    }   
 }
