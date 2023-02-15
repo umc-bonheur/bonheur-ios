@@ -5,6 +5,13 @@
 //  Created by 김사랑 on 2023/02/10.
 //
 
+//
+//  ApiService.swift
+//  bonheur
+//
+//  Created by 김사랑 on 2023/02/10.
+//
+
 import Foundation
 import Moya
 
@@ -57,7 +64,6 @@ extension MyPageService: TargetType {
             let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
             let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
             return authorizationHeader
-//            return ["Authorization":""] // 커밋하지 말기
         }
     }
 }

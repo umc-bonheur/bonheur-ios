@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 import Charts
+import Kingfisher
 
 class MyPageViewController: UIViewController, ChartViewDelegate {
     
@@ -54,6 +55,7 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
         settingBtn.addTarget(self, action: #selector(settingBtnTapped), for: .touchUpInside)
         nicknameView.editNicknameBtn.addTarget(self, action: #selector(editNicknameBtnTapped), for: .touchUpInside)
         
+        getProfileWithAPI()
         userRecordsWithAPI()
         monthRecordsWithAPI()
         dayRecordsWithAPI()
@@ -68,6 +70,7 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
         setUpNavBar()
+        getProfileWithAPI()
         tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -125,6 +128,8 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
     @objc
     func editNicknameBtnTapped() {
         let editProfileViewController = EditProfileViewController()
+        editProfileViewController.nickname = self.nicknameView.nicknameLbl.text ?? ""
+        editProfileViewController.image = self.nicknameView.profileImageView.image
         navigationController?.pushViewController(editProfileViewController, animated: false)
     }
     
@@ -137,6 +142,30 @@ class MyPageViewController: UIViewController, ChartViewDelegate {
 
 // MARK: - Network
 extension MyPageViewController {
+    // MARK: - 프로필 조회
+    func getProfileWithAPI() {
+        ProfileAPI.shared.getProfile { [weak self] response in
+            switch response {
+            case .success(let getProfileData):
+                if let data = getProfileData as? GetProfileResponse {
+                    guard let url = URL(string: data.image) else { return }
+                    self!.nicknameView.profileImageView.kf.setImage(with: url)
+                    self!.nicknameView.nicknameLbl.text = data.nickname
+                    
+                }
+                print("getProfileWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("getProfileWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("getProfileWithAPI - pathError")
+            case .serverError:
+                print("getProfileWithAPI - serverError")
+            case .networkFail:
+                print("getProfileWithAPI - networkFail")
+            }
+            
+        }
+    }
     
     // MARK: - 활동 종합 조회
     func userRecordsWithAPI() {
