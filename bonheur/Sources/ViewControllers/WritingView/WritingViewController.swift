@@ -127,11 +127,10 @@ class WritingViewController: UIViewController {
         print("내용: \(textView.text ?? "")")
         
         // TODO: 해시태그 연동하기
-        // TODO: 화면 이동 - navigationController pop? push?
         let writingJSON = WritingJSON(contents: textView.text ?? "", tagIds: [])
         createRecordWithAPI(writingJSON: writingJSON, images: images)
         
-//        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func addButtonDidTapped() {
