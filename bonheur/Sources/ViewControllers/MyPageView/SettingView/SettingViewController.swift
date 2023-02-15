@@ -76,7 +76,9 @@ class SettingViewController: UIViewController {
     
     @objc
     func instagramBtnTapped() {
-        print("인스타그램으로 이동완료!")
+        guard let url = URL(string: "https://www.instagram.com/bonheur.team/?igshid=MDM4ZDc5MmU%3D") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
