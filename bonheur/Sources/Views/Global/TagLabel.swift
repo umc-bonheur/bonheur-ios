@@ -8,16 +8,14 @@
 import UIKit
 
 class TagLabel: UIView {
+    
     var tagLabel: UILabel = {
         var label = UILabel()
         label.text = "Default"
-        label.font = UIFont(name: "SFPro-Regular", size: 12)
+        label.font = UIFont(name: "SFPro-Regular", size: 10)
         label.layer.backgroundColor = UIColor(red: 0.828, green: 0.946, blue: 0.627, alpha: 1).cgColor
-        label.layer.cornerRadius = 13
-        label.textAlignment = .center
-        
+        label.layer.cornerRadius = 10
         label.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 41).isActive = true
         return label
     }()
     
@@ -35,18 +33,16 @@ class TagLabel: UIView {
         tagLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tagLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             tagLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
     func setTagText(tag: Tag) {
-        tagLabel.text = tag.tagName
+        tagLabel.text = "   \(tag.tagName)   "
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
