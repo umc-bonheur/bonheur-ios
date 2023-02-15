@@ -23,6 +23,7 @@
 		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
 		58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4060298E59DE00B5DC04 /* KakaoSDKUser */; };
 		58ED4063298E73A700B5DC04 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4062298E73A700B5DC04 /* KakaoSDKCommon */; };
+		5C1B2062299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */; };
 		5C20C9E7298D478A00B8BB2A /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9E6298D478A00B8BB2A /* Charts */; };
 		5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9E9298D47E600B8BB2A /* SnapKit */; };
 		5C20C9ED298D482000B8BB2A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 5C20C9EC298D482000B8BB2A /* Then */; };
@@ -114,6 +115,7 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		55719938299CE8EC00459855 /* TaggedBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardRequest.swift; sourceTree = "<group>"; };
 		55719939299CE8EC00459855 /* TaggedBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardResponse.swift; sourceTree = "<group>"; };
 		5571993B299CE8EC00459855 /* CreateBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardResponse.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				5CAB48C9299B74E800C0FB4F /* CalendarViewController.swift */,
 				5CAB48C7299B74E800C0FB4F /* BonheurCalendarApiService.swift */,
 				5CAB48CA299B74E800C0FB4F /* CalendarViewDataResponse.swift */,
+				5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -850,6 +853,8 @@
 				5CAB4932299B74E900C0FB4F /* HomeViewController.swift in Sources */,
 				8AFF6DBD299CEDF900A17102 /* StatsByHourView.swift in Sources */,
 				5CAB4919299B74E800C0FB4F /* Constant.swift in Sources */,
+				5C1B2062299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift in Sources */,
+				5CAB4939299B74E900C0FB4F /* IntroduceDeveloperViewController.swift in Sources */,
 				55719944299CE8EC00459855 /* TaggedBoardRequest.swift in Sources */,
 				5CAB4915299B74E800C0FB4F /* LoginRequest.swift in Sources */,
 				55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */,

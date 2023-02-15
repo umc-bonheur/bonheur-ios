@@ -31,13 +31,9 @@ public class CalendarAPI {
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                
             }
         }
-        
     }
-    
-    
 }
 
 
