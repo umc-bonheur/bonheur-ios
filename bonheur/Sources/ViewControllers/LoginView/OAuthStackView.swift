@@ -28,7 +28,7 @@ class OAuthStackView: UIStackView {
     }()
 
     // 애플 로그인 버튼
-    private var appleLoginButton: UIButton = {
+    var appleLoginButton: UIButton = {
         var config = UIButton.Configuration.filled()
         var title = "Apple로 시작하기"
         config.title = title

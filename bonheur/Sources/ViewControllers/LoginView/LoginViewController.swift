@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.872, green: 0.971, blue: 0.704, alpha: 1)
         
         oauthStackView.kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
-//        oauthStackView.appleLoginButton.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
+        oauthStackView.appleLoginButton.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)
     }
 
     func makeAutoLayout() {
@@ -86,7 +86,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func kakaoLoginButtonTapped() {
-        // UserDefaluts에 sessionId 있는지 확인
         let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
         let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
         
@@ -96,12 +95,12 @@ class LoginViewController: UIViewController {
                     print(error)
                 } else {
                     UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                    if sessionId != nil && socialType == "카카오" {
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
                         self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
                         self.navigationController?.pushViewController(TabBarController(), animated: true)
-                    } else { // sessionId가 존재하지 않음 > 회원가입 API
-                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                    } else {
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "카카오")
                     }
                 }
             }
@@ -110,23 +109,35 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    if sessionId != nil && socialType == "카카오" { // UserDefaults에 sessionId가 존재 > 로그인 API
+                    if sessionId != nil && socialType == "카카오" {
                         print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
                         self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
                         self.navigationController?.pushViewController(TabBarController(), animated: true)
-                    } else { // sessionId가 존재하지 않음 > 회원가입 API
+                    } else {
                         UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "카카오")
                     }
                 }
             }
         }
     }
     
-    func socialSignUp(accessToken: String) {
+    @objc func appleLoginButtonTapped() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func socialSignUp(accessToken: String, socialType: String) {
         print("회원가입 진행을 위해 프로필 설정 화면으로 이동합니다.")
         let profileSettingViewController = ProfileSettingViewController()
         profileSettingViewController.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
+        profileSettingViewController.socialType = socialType
         self.navigationController?.pushViewController(profileSettingViewController, animated: true)
     }
 }
@@ -153,5 +164,59 @@ extension LoginViewController {
                 print("loginWithAPI - networkFail")
             }
         }
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
+    // Apple 로그인을 모달 시트로 표시
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    // Apple ID 연동 성공
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName // 최초 1회만 보임
+            let nickname = (fullName?.familyName ?? "") + (fullName?.givenName ?? "")
+            
+            let authorizationCode = appleIDCredential.authorizationCode
+            let identityToken = appleIDCredential.identityToken
+            let authString = String(data: authorizationCode ?? Data(), encoding: .ascii)
+            let tokenString = String(data: identityToken ?? Data(), encoding: .ascii)
+            
+            print("Apple userIdentifier: \(userIdentifier)")
+            print("Apple user name: \(nickname)")
+            print("authorizationCode: \(authString!)")
+            print("identityToken: \(tokenString!)")
+            
+            UserDefaults.standard.set(tokenString!, forKey: Const.UserDefaultsKey.accessToken)
+            if userIdentifier != "" {
+                UserDefaults.standard.set(userIdentifier, forKey: Const.UserDefaultsKey.appleUserId)
+            }
+            
+            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+            let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
+            if sessionId != nil && socialType == "애플" {
+                print("UserDefaults에 sessionId가 존재합니다. 해당 sessionId로 로그인을 시도합니다")
+                self.loginWithAPI(loginRequest: LoginRequest(token: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)!, socialType: "애플"))
+                self.navigationController?.pushViewController(TabBarController(), animated: true)
+            } else {
+                self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "", socialType: "애플")
+            }
+            
+        // iCloud KeyChain credential을 사용하여 sign in
+        case let passwordCredential as ASPasswordCredential:
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+        default:
+            break
+        }
+    }
+    
+    // Apple ID 연동 실패
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Apple ID 연동 error: \(error)")
     }
 }

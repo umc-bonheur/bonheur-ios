@@ -7,6 +7,7 @@
 
 import UIKit
 import KakaoSDKCommon
+import AuthenticationServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {    
@@ -21,10 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print("UserDefaults 초기화 완료")
         
         let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+        let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
         
         // 세션 아이디가 존재한다면
+        // TODO: updateAt이 nil인 문제 고치기
         if sessionId != nil {
-            // TODO: 로그인 타입에 따라 연동 상태 확인
             print("socialType: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)))")
             print("session id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)))")
             print("member id: \(String(describing: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.memberId)))")
@@ -44,6 +46,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("자동 로그인 실패 - 세션이 만료되었습니다.")
                 UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
             } else { // 세션 만료일이 경과되지 않음
+                if socialType == "애플" {
+                    let appleIDProvider = ASAuthorizationAppleIDProvider()
+                    appleIDProvider.getCredentialState(forUserID: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.appleUserId) ?? "") { (credentialState, error) in
+                        switch credentialState {
+                        case .authorized: // 이미 증명이 된 경우
+                            print("해당 Apple ID는 연동되어 있습니다.")
+                            UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                        case .revoked: // 증명을 취소했을 때
+                            print("해당 Apple ID는 연동되어 있지 않습니다.")
+                            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                        case .notFound: // 증명이 존재하지 않을 경우
+                            print("해당 ID를 찾을 수 없습니다.")
+                            UserDefaults.standard.set(false, forKey: Const.UserDefaultsKey.isLogin)
+                        default:
+                            break
+                            
+                        }
+                    }
+                }
                 print("자동 로그인 성공")
                 UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
             }
