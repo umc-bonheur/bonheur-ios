@@ -14,8 +14,8 @@ public class BoardAPI {
     
     public init() { }
 
-    func getTotalBoard(getTotalBoardRequest: GetTotalBoardRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        boardProvider.request(.getTotalBoard(getTotalBoardRequest: getTotalBoardRequest)) { (result) in
+    func getTotalBoard(orderType: String, lastBoardId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        boardProvider.request(.getTotalBoard(orderType: orderType, lastBoardId: lastBoardId)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
@@ -32,7 +32,7 @@ public class BoardAPI {
     
     private func judgeGetTotalBoardStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<CreateTagResponse>.self, from: data) else { return .pathError }
+        guard let decodedData = try? decoder.decode(GenericResponse<GetTotalBoardsResponse>.self, from: data) else { return .pathError }
         
         switch statusCode {
         case 200:

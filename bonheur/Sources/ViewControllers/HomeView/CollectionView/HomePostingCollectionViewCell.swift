@@ -68,7 +68,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         return postingImage
     }()
     
-    let postingText: UITextView = {
+    var postingText: UITextView = {
         let postingText = UITextView()
         postingText.text = "오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다.오늘은 밥을 먹었다. 밥이 맛있었다."
         // TODO: 더보기 기능 구현
@@ -81,9 +81,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        
-//        getTagWithAPI(tagName: "인천")
-        
+                
         [cellTimeLabel, cellScrollView, postingMoreButton, postingImage, postingText].forEach {
             self.addSubview($0)
         }
@@ -158,4 +156,3 @@ extension HomePostingCollectionViewCell {
         }
     }
 }
-

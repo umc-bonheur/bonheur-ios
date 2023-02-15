@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
     var postingList: [String] = ["Default"]
     
+//    public var getTotalBoardsResponse = GetTotalBoardsResponse(group: oneDayGroup, orderType: "", last: true)
+
+
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = self.topLabelText
@@ -67,9 +70,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.getTotalBoardWithAPI(orderType: "newest", lastBoardId: 4)
+
         homePostingCollectionView.delegate = self
         homePostingCollectionView.dataSource = self
-        
+            
         var layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         layoutConfig.headerMode = .supplementary
 
@@ -86,7 +91,6 @@ class HomeViewController: UIViewController {
                 view.addSubview($0)
             }
         }
-        
         setConstraints()
     }
 
@@ -152,6 +156,32 @@ class HomeViewController: UIViewController {
         postingEditPopUpViewController.modalPresentationStyle = .overFullScreen
         present(postingEditPopUpViewController, animated: false)
         // TODO: Cell Data 넘기기 -> delete 과정에서 활용
-        
+    }
+}
+
+extension HomeViewController {
+    func getTotalBoardWithAPI(orderType: String, lastBoardId: Int) {
+        BoardAPI.shared.getTotalBoard(orderType: orderType, lastBoardId: lastBoardId) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success(let getTotalBoard):
+                if let data = getTotalBoard as? GetTotalBoardsResponse {
+                    print("getTotalBoardWithAPI - success \(data)")
+//                    self.getTotalBoardsResponse = data
+                    self.homePostingCollectionView.reloadData()
+                } else {
+                    print("response failed")
+                }
+                
+            case .requestError(let resultCode, let message):
+                print("getTotalBoardWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("getTotalBoardWithAPI - pathError")
+            case .serverError:
+                print("getTotalBoardWithAPI - serverError")
+            case .networkFail:
+                print("getTotalBoardWithAPI - networkFail")
+            }
+        }
     }
 }

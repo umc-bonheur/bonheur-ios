@@ -13,7 +13,13 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 2
+        } else {
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -25,7 +31,10 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostingCollectionViewCell.identifier, for: indexPath) as? HomePostingCollectionViewCell
         else { return UICollectionViewCell() }
-        
+
+//         cell.postingText.text = self.getTotalBoardsResponse.totalGroup[indexPath.row].oneDayGroup[0].contents
+
+        cell.postingImage = 
         cell.backgroundView = cell.cellBackgroundView
         return cell
     }

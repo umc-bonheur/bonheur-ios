@@ -12,7 +12,7 @@
 		55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993B299CE8EC00459855 /* CreateBoardResponse.swift */; };
 		55719947299CE8EC00459855 /* CreateBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993C299CE8EC00459855 /* CreateBoardRequest.swift */; };
 		55719948299CE8EC00459855 /* GetTotalBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */; };
-		55719949299CE8EC00459855 /* GetTotalBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */; };
+		55719949299CE8EC00459855 /* GetBoardsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571993F299CE8EC00459855 /* GetBoardsResponse.swift */; };
 		5571994A299CE8EC00459855 /* CreateTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719942299CE8EC00459855 /* CreateTagResponse.swift */; };
 		5571994B299CE8EC00459855 /* CreateTagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719943299CE8EC00459855 /* CreateTagRequest.swift */; };
 		55719953299CE9C500459855 /* BoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571994E299CE9C500459855 /* BoardAPI.swift */; };
@@ -115,19 +115,19 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		55719938299CE8EC00459855 /* TaggedBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardRequest.swift; sourceTree = "<group>"; };
 		55719939299CE8EC00459855 /* TaggedBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardResponse.swift; sourceTree = "<group>"; };
 		5571993B299CE8EC00459855 /* CreateBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardResponse.swift; sourceTree = "<group>"; };
 		5571993C299CE8EC00459855 /* CreateBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardRequest.swift; sourceTree = "<group>"; };
 		5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTotalBoardRequest.swift; sourceTree = "<group>"; };
-		5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTotalBoardResponse.swift; sourceTree = "<group>"; };
+		5571993F299CE8EC00459855 /* GetBoardsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBoardsResponse.swift; sourceTree = "<group>"; };
 		55719942299CE8EC00459855 /* CreateTagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagResponse.swift; sourceTree = "<group>"; };
 		55719943299CE8EC00459855 /* CreateTagRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTagRequest.swift; sourceTree = "<group>"; };
 		5571994E299CE9C500459855 /* BoardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardAPI.swift; sourceTree = "<group>"; };
 		5571994F299CE9C500459855 /* BoardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardService.swift; sourceTree = "<group>"; };
 		55719951299CE9C500459855 /* TagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		55719952299CE9C500459855 /* TagAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagAPI.swift; sourceTree = "<group>"; };
+		5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CAB488C299B74E800C0FB4F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5CAB488F299B74E800C0FB4F /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		5CAB4890299B74E800C0FB4F /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				5571993E299CE8EC00459855 /* GetTotalBoardRequest.swift */,
-				5571993F299CE8EC00459855 /* GetTotalBoardResponse.swift */,
+				5571993F299CE8EC00459855 /* GetBoardsResponse.swift */,
 			);
 			path = GetTotalBoard;
 			sourceTree = "<group>";
@@ -854,7 +854,6 @@
 				8AFF6DBD299CEDF900A17102 /* StatsByHourView.swift in Sources */,
 				5CAB4919299B74E800C0FB4F /* Constant.swift in Sources */,
 				5C1B2062299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift in Sources */,
-				5CAB4939299B74E900C0FB4F /* IntroduceDeveloperViewController.swift in Sources */,
 				55719944299CE8EC00459855 /* TaggedBoardRequest.swift in Sources */,
 				5CAB4915299B74E800C0FB4F /* LoginRequest.swift in Sources */,
 				55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */,
@@ -877,7 +876,7 @@
 				8AFF6DB8299CEDF900A17102 /* SettingView.swift in Sources */,
 				5CAB4926299B74E900C0FB4F /* BonheurCalendarApiService.swift in Sources */,
 				5CAB4928299B74E900C0FB4F /* CalendarViewController.swift in Sources */,
-				55719949299CE8EC00459855 /* GetTotalBoardResponse.swift in Sources */,
+				55719949299CE8EC00459855 /* GetBoardsResponse.swift in Sources */,
 				5CAB4933299B74E900C0FB4F /* HomeSortStackView.swift in Sources */,
 				5CAB4916299B74E800C0FB4F /* LoginResponse.swift in Sources */,
 				5CAB491D299B74E800C0FB4F /* DetailImageViewController.swift in Sources */,

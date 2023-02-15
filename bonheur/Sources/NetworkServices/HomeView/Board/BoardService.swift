@@ -9,7 +9,8 @@ import UIKit
 import Moya
 
 enum BoardService {
-    case getTotalBoard(getTotalBoardRequest: GetTotalBoardRequest)
+    case getTotalBoard(orderType: String, lastBoardId: Int)
+
     /*
     case createBoard(createBoardRequest: CreateBoardRequest)
     case taggedBoard(taggedBoardRequest: TaggedBoardRequest)
@@ -26,7 +27,7 @@ extension BoardService: TargetType {
     
     var path: String {
         switch self {
-        case .getTotalBoard:
+        case .getTotalBoard(let orderType, let lastBoardId):
             return "/boards"
         }
     }
@@ -40,16 +41,16 @@ extension BoardService: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .getTotalBoard(let getTotalBoardRequest):
-            return .requestJSONEncodable(getTotalBoardRequest)
+        case .getTotalBoard(let orderType, let lastBoardId):
+            return .requestParameters(parameters: ["orderType": orderType, "lastBoardId": lastBoardId], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String: String]? {
         switch self {
         case .getTotalBoard:
-            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
-            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
+            let sessionId = "5a8c61d5-c401-4686-9d01-5a77afdbe509"
+            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId]
             return authorizationHeader
         }
     }
