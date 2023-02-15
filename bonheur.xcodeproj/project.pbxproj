@@ -20,6 +20,12 @@
 		55719955299CE9C500459855 /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719951299CE9C500459855 /* TagService.swift */; };
 		55719956299CE9C500459855 /* TagAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55719952299CE9C500459855 /* TagAPI.swift */; };
 		584B4A332988C9160052D5A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 584B4A322988C9160052D5A9 /* Moya */; };
+		584E1300299D22EE001894B3 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E12FF299D22EE001894B3 /* ProfileService.swift */; };
+		584E1302299D22F6001894B3 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E1301299D22F6001894B3 /* ProfileAPI.swift */; };
+		584E1306299D247B001894B3 /* GetProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E1305299D247B001894B3 /* GetProfileResponse.swift */; };
+		584E1308299D248D001894B3 /* UpdateProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E1307299D248D001894B3 /* UpdateProfileResponse.swift */; };
+		589A3C98299D357700138DD9 /* UpdateProfileJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589A3C97299D357700138DD9 /* UpdateProfileJSON.swift */; };
+		58D7243F299D2572001B0C0D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 58D7243E299D2572001B0C0D /* Kingfisher */; };
 		58ED405F298E59DE00B5DC04 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */; };
 		58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4060298E59DE00B5DC04 /* KakaoSDKUser */; };
 		58ED4063298E73A700B5DC04 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 58ED4062298E73A700B5DC04 /* KakaoSDKCommon */; };
@@ -115,7 +121,6 @@
 
 /* Begin PBXFileReference section */
 		553ECDCE2966B5E5003D8EEA /* bonheur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bonheur.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		55719938299CE8EC00459855 /* TaggedBoardRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardRequest.swift; sourceTree = "<group>"; };
 		55719939299CE8EC00459855 /* TaggedBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedBoardResponse.swift; sourceTree = "<group>"; };
 		5571993B299CE8EC00459855 /* CreateBoardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBoardResponse.swift; sourceTree = "<group>"; };
@@ -128,6 +133,12 @@
 		5571994F299CE9C500459855 /* BoardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardService.swift; sourceTree = "<group>"; };
 		55719951299CE9C500459855 /* TagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		55719952299CE9C500459855 /* TagAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagAPI.swift; sourceTree = "<group>"; };
+		584E12FF299D22EE001894B3 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		584E1301299D22F6001894B3 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		584E1305299D247B001894B3 /* GetProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileResponse.swift; sourceTree = "<group>"; };
+		584E1307299D248D001894B3 /* UpdateProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileResponse.swift; sourceTree = "<group>"; };
+		589A3C97299D357700138DD9 /* UpdateProfileJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileJSON.swift; sourceTree = "<group>"; };
+		5C1B2061299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPostingCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CAB488C299B74E800C0FB4F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5CAB488F299B74E800C0FB4F /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		5CAB4890299B74E800C0FB4F /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -223,6 +234,7 @@
 				5C20C9ED298D482000B8BB2A /* Then in Frameworks */,
 				584B4A332988C9160052D5A9 /* Moya in Frameworks */,
 				5C20C9EA298D47E600B8BB2A /* SnapKit in Frameworks */,
+				58D7243F299D2572001B0C0D /* Kingfisher in Frameworks */,
 				58ED4061298E59DE00B5DC04 /* KakaoSDKUser in Frameworks */,
 				8A126C5F29912DDE00F096AB /* FloatingPanel in Frameworks */,
 				5C20C9E7298D478A00B8BB2A /* Charts in Frameworks */,
@@ -339,6 +351,25 @@
 				55719952299CE9C500459855 /* TagAPI.swift */,
 			);
 			path = Tag;
+			sourceTree = "<group>";
+		};
+		584E12FE299D22DF001894B3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				584E12FF299D22EE001894B3 /* ProfileService.swift */,
+				584E1301299D22F6001894B3 /* ProfileAPI.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		584E1303299D245A001894B3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				584E1305299D247B001894B3 /* GetProfileResponse.swift */,
+				584E1307299D248D001894B3 /* UpdateProfileResponse.swift */,
+				589A3C97299D357700138DD9 /* UpdateProfileJSON.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		5C20C9E8298D47E600B8BB2A /* Frameworks */ = {
@@ -652,6 +683,7 @@
 		8AFF6D94299CED9E00A17102 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				584E1303299D245A001894B3 /* Profile */,
 				8AFF6D95299CED9E00A17102 /* MyPageResponse.swift */,
 				8AFF6D96299CED9E00A17102 /* MyPageRequest.swift */,
 			);
@@ -661,6 +693,7 @@
 		8AFF6D99299CEDA900A17102 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				584E12FE299D22DF001894B3 /* Profile */,
 				8AFF6D9A299CEDA900A17102 /* MyPageService.swift */,
 				8AFF6D9B299CEDA900A17102 /* MyPageApi.swift */,
 			);
@@ -749,6 +782,7 @@
 				58ED4060298E59DE00B5DC04 /* KakaoSDKUser */,
 				58ED4062298E73A700B5DC04 /* KakaoSDKCommon */,
 				8A126C5E29912DDE00F096AB /* FloatingPanel */,
+				58D7243E299D2572001B0C0D /* Kingfisher */,
 			);
 			productName = bonheur;
 			productReference = 553ECDCE2966B5E5003D8EEA /* bonheur.app */;
@@ -786,6 +820,7 @@
 				5C20C9EB298D482000B8BB2A /* XCRemoteSwiftPackageReference "Then" */,
 				58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				8A126C5D29912DDE00F096AB /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				58D7243D299D2572001B0C0D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 553ECDCF2966B5E5003D8EEA /* Products */;
 			projectDirPath = "";
@@ -854,7 +889,6 @@
 				8AFF6DBD299CEDF900A17102 /* StatsByHourView.swift in Sources */,
 				5CAB4919299B74E800C0FB4F /* Constant.swift in Sources */,
 				5C1B2062299CDA72007BCA2A /* CalendarPostingCollectionViewCell.swift in Sources */,
-				5CAB4939299B74E900C0FB4F /* IntroduceDeveloperViewController.swift in Sources */,
 				55719944299CE8EC00459855 /* TaggedBoardRequest.swift in Sources */,
 				5CAB4915299B74E800C0FB4F /* LoginRequest.swift in Sources */,
 				55719946299CE8EC00459855 /* CreateBoardResponse.swift in Sources */,
@@ -864,6 +898,7 @@
 				5CAB4927299B74E900C0FB4F /* Extension.swift in Sources */,
 				5CAB4925299B74E900C0FB4F /* CalendarAPI.swift in Sources */,
 				5571994B299CE8EC00459855 /* CreateTagRequest.swift in Sources */,
+				589A3C98299D357700138DD9 /* UpdateProfileJSON.swift in Sources */,
 				5CAB4912299B74E800C0FB4F /* Tag.swift in Sources */,
 				5CAB4930299B74E900C0FB4F /* PostingEditPopUpViewController.swift in Sources */,
 				5CAB4923299B74E900C0FB4F /* WritingViewController+TextViewDelegate.swift in Sources */,
@@ -885,6 +920,7 @@
 				8AFF6DBF299CEDF900A17102 /* StatsByDayOfTheWeekView.swift in Sources */,
 				5CAB492C299B74E900C0FB4F /* HomeViewController+DataSource.swift in Sources */,
 				55719953299CE9C500459855 /* BoardAPI.swift in Sources */,
+				584E1302299D22F6001894B3 /* ProfileAPI.swift in Sources */,
 				5CAB491F299B74E800C0FB4F /* BottomSheetView.swift in Sources */,
 				5CAB494F299B74E900C0FB4F /* AppDelegate.swift in Sources */,
 				8AFF6DB9299CEDF900A17102 /* NicknameView.swift in Sources */,
@@ -892,6 +928,7 @@
 				8AFF6DBE299CEDF900A17102 /* StatsByTagView.swift in Sources */,
 				5CAB494D299B74E900C0FB4F /* TagLabel.swift in Sources */,
 				55719948299CE8EC00459855 /* GetTotalBoardRequest.swift in Sources */,
+				584E1306299D247B001894B3 /* GetProfileResponse.swift in Sources */,
 				5CAB4905299B74E800C0FB4F /* Const.swift in Sources */,
 				5CAB4948299B74E900C0FB4F /* EmailStackView.swift in Sources */,
 				5CAB4936299B74E900C0FB4F /* RecentTagStackView.swift in Sources */,
@@ -903,8 +940,10 @@
 				5CAB4920299B74E800C0FB4F /* SingleDetailBottomSheetViewController.swift in Sources */,
 				8AFF6DB4299CEDF900A17102 /* NotificationSettingTableViewCell.swift in Sources */,
 				5CAB4931299B74E900C0FB4F /* PostingEditPopUpView.swift in Sources */,
+				584E1308299D248D001894B3 /* UpdateProfileResponse.swift in Sources */,
 				5CAB4924299B74E900C0FB4F /* WritingViewController+DataSource.swift in Sources */,
 				8AFF6DC2299CEDF900A17102 /* CountCloverView.swift in Sources */,
+				584E1300299D22EE001894B3 /* ProfileService.swift in Sources */,
 				5571994A299CE8EC00459855 /* CreateTagResponse.swift in Sources */,
 				8AFF6DB3299CEDF900A17102 /* SettingViewController.swift in Sources */,
 				5CAB490E299B74E800C0FB4F /* AuthService.swift in Sources */,
@@ -1174,6 +1213,14 @@
 				kind = branch;
 			};
 		};
+		58D7243D299D2572001B0C0D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		58ED405D298E59DE00B5DC04 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -1221,6 +1268,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 584B4A312988C9160052D5A9 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		58D7243E299D2572001B0C0D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58D7243D299D2572001B0C0D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		58ED405E298E59DE00B5DC04 /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
