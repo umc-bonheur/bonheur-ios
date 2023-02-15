@@ -121,7 +121,7 @@ class SettingView: UIView {
     }
     
     let privacyPolicyBtn = UIButton().then {
-        $0.setTitle("개인정보 처리방침", for: .normal)
+        $0.setTitle("개인정보처리방침", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)
     }
@@ -131,7 +131,7 @@ class SettingView: UIView {
     }
     
     let termsOfServiceBtn = UIButton().then {
-        $0.setTitle("이용약관", for: .normal)
+        $0.setTitle("서비스이용약관", for: .normal)
         $0.titleLabel?.font = UIFont(name: "SFPro-Regular", size: 10)
         $0.setTitleColor(UIColor(red: 0.544, green: 0.55, blue: 0.545, alpha: 1), for: .normal)
     }
