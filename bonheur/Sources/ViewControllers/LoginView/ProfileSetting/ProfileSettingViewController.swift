@@ -13,7 +13,6 @@ import UniformTypeIdentifiers
 
 class ProfileSettingViewController: EditProfileViewController {
     var accessToken = ""
-    var socialType = ""
     
     lazy var startButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -54,7 +53,7 @@ class ProfileSettingViewController: EditProfileViewController {
     
     @objc func startButtonTapped() {
         let nickname = editProfileView.nickname
-        let socialSignUpJSON = SocialSignUpJSON(token: self.accessToken, nickname: nickname, socialType: self.socialType)
+        let socialSignUpJSON = SocialSignUpJSON(token: self.accessToken, nickname: nickname, socialType: "카카오")
         
         let profileImage = editProfileView.profileImageView.image
         

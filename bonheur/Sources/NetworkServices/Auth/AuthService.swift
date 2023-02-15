@@ -56,7 +56,12 @@ extension AuthService: TargetType {
         case .socialSignUp(let socialSignUpJSON, let profileImage):
             var multipartFormData: [MultipartFormData] = []
             
-            let requestData = try? JSONEncoder().encode(socialSignUpJSON)
+            let params: [String: String] = [
+                "token": "\(socialSignUpJSON.token)",
+                "nickname": "\(socialSignUpJSON.nickname)",
+                "socialType": "\(socialSignUpJSON.socialType)"
+            ]
+            let requestData = try? JSONEncoder().encode(params)
             multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "socialSignUpRequest", mimeType: "application/json"))
             if profileImage != nil {
                 let imageData = profileImage!.jpegData(compressionQuality: 1.0)

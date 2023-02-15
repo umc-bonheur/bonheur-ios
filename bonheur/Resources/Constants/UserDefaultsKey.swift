@@ -15,6 +15,5 @@ extension Const {
         static let memberId = "memberId"
         static let updatedAt = "updatedAt"
         static let isLogin = "isLogin"
-        static let appleUserId = "appleUserId"
     }
 }
