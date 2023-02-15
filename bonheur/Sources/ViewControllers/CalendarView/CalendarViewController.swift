@@ -50,7 +50,6 @@ class CalendarViewController: UIViewController {
     
     var serverData: [[String: Any]]?
     var imageCache = [String: UIImage]()
-
     
     // MARK: - UI
     
@@ -113,9 +112,6 @@ class CalendarViewController: UIViewController {
         configureCalendar()
         configureUI()
         configureNavBar()
-        
-       
-        
     }
     
     func configureUI() {
