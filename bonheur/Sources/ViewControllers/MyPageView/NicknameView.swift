@@ -18,13 +18,13 @@ class NicknameView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private let profileImageView = UIImageView().then {
+    var profileImageView = UIImageView().then {
         $0.image = UIImage(named: "profile-clover")
         $0.clipsToBounds = true
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    let nicknameLbl = UILabel().then {
+    var nicknameLbl = UILabel().then {
         $0.attributedText = NSMutableAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.kern: 0.02])
         $0.font = UIFont(name: "SFPro-Medium", size: 16)
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
