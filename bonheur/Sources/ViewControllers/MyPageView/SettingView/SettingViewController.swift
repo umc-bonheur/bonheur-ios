@@ -69,7 +69,9 @@ class SettingViewController: UIViewController {
     
     @objc
     func reviewBtnTapped() {
-        print("앱스토어로 이동완료!")
+        guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSepDeicpqyHDMmbVqxeN7nKpauULogase2k6Xqp_h1Q35DGyA/viewform") else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     @objc
