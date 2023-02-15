@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct SocialSignUpJSON: Codable {
     let token: String
