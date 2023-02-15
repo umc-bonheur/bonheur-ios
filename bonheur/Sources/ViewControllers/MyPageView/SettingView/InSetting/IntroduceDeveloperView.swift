@@ -26,7 +26,7 @@ class IntroduceDeveloperView: UIView {
     }
     
     let iosTitleLbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "ios", attributes: [NSAttributedString.Key.kern: 0.02])
+        $0.attributedText = NSMutableAttributedString(string: "iOS", attributes: [NSAttributedString.Key.kern: 0.02])
         $0.textColor = .black
         $0.font = UIFont(name: "NanumSquareRoundOTFEB", size: 16)
         $0.textAlignment = .center
