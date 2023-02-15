@@ -56,27 +56,22 @@ class StatsView: UIView {
             $0.top.equalToSuperview().offset(65)
             $0.leading.equalToSuperview().offset(16)
         }
-        
         mainView.snp.makeConstraints {
             $0.top.equalTo(statsTitleLbl.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(105)
         }
-        
         statsByMonthView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
-        
         statsByDayOfTheWeekView.snp.makeConstraints {
             $0.top.equalTo(statsByMonthView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
-        
         statsByHourView.snp.makeConstraints {
             $0.top.equalTo(statsByDayOfTheWeekView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
-        
         statsByTagView.snp.makeConstraints {
             $0.top.equalTo(statsByHourView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()

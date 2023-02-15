@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 import Charts
+import Moya
 
 class StatsByMonthView: LineChartView {
 
@@ -23,23 +24,24 @@ class StatsByMonthView: LineChartView {
         $0.layer.cornerRadius = 15
     }
     
-    private let greenLbl = UILabel().then {
-        $0.attributedText = NSMutableAttributedString(string: "7월", attributes: [NSAttributedString.Key.kern: 0.04])
+    let greenLbl = UILabel().then {
+        $0.attributedText = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.533, green: 0.846, blue: 0.07, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFEB", size: 14)
         $0.textAlignment = .right
     }
     
-    private let grayLbl = UILabel().then {
+    let grayLbl = UILabel().then {
         $0.attributedText = NSMutableAttributedString(string: "에 가장 많이 기록했어요", attributes: [NSAttributedString.Key.kern: 0.04])
         $0.textColor = UIColor(red: 0.149, green: 0.15, blue: 0.149, alpha: 1)
         $0.font = UIFont(name: "NanumSquareRoundOTFB", size: 14)
     }
     
-    private let lineChartView = LineChartView()
+    let lineChartView = LineChartView()
     
-    var months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-    let unitsRecorded = [20.0, 25.0, 20.0, 30.0, 20.0, 20.0, 35.0, 25.0, 25.0, 30.0, 20.0, 20.0]
+    // 임시
+    let months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    var unitsRecorded = [1.0, 25.0, 20.0, 30.0, 20.0, 20.0, 35.0, 25.0, 25.0, 30.0, 20.0, 20.0]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +65,6 @@ class StatsByMonthView: LineChartView {
         [greenLbl, grayLbl, lineChartView].forEach {
             mainView.addSubview($0)
         }
-        setChart(dataPoints: months, values: unitsRecorded)
     }
 
     func setUpConstraints() {
@@ -99,7 +100,7 @@ class StatsByMonthView: LineChartView {
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: dataPoints[i] as AnyObject)
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(values[i]), data: dataPoints[i] as AnyObject) // y: values[i]
             dataEntries.append(dataEntry)
         }
 
@@ -119,18 +120,16 @@ class StatsByMonthView: LineChartView {
         lineChartView.backgroundColor = .white
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.setLabelCount(months.count, force: true)
-        
         lineChartView.chartDescription.text = ""
         lineChartView.rightAxis.gridLineCap = .round
         lineChartView.rightAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.labelTextColor = UIColor(red: 0.445, green: 0.45, blue: 0.446, alpha: 1)
         lineChartView.xAxis.labelFont = UIFont(name: "SFPro-Regular", size: 10)!
         lineChartView.leftAxis.labelTextColor = UIColor(red: 0.445, green: 0.45, blue: 0.446, alpha: 1)
         lineChartView.leftAxis.labelFont = UIFont(name: "SFPro-Regular", size: 10)!
         lineChartView.xAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.avoidFirstLastClippingEnabled = true
+        lineChartView.xAxis.avoidFirstLastClippingEnabled = false
         lineChartView.rightAxis.drawAxisLineEnabled = false
         lineChartView.rightAxis.drawLabelsEnabled = false
         lineChartView.leftAxis.drawAxisLineEnabled = false
