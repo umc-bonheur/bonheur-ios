@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import Moya
 
 class CalendarViewController: UIViewController {
     
@@ -31,7 +32,7 @@ class CalendarViewController: UIViewController {
     var changeWeekMonthButtonAnchor: NSLayoutConstraint!
     let bonheurTodayColor = UIColor(red: 94/255, green: 156/255, blue: 3/255, alpha: 1)
 
-    let dateFormatter: DateFormatter = {
+    let krDate: DateFormatter = {
         let df = DateFormatter()
         df.locale = Locale(identifier: "ko_KR")
         df.timeZone = TimeZone(abbreviation: "KST")
@@ -46,6 +47,9 @@ class CalendarViewController: UIViewController {
         formatter.timeZone = TimeZone(identifier: "KST")
         return formatter
     }()
+    
+    var serverData: [[String: Any]]?
+    var imageCache = [String: UIImage]()
     
     // MARK: - UI
     
@@ -99,6 +103,8 @@ class CalendarViewController: UIViewController {
         button.addTarget(self, action: #selector(tapChangeMonth), for: .touchUpInside)
         return button
     }()
+    
+    var date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -208,6 +214,7 @@ class CalendarViewController: UIViewController {
         calendar.placeholderType = .none
         calendar.adjustsBoundingRectWhenChangingMonths = true
     }
+    
     
     func getNextMonth(date: Date) -> Date {
         return Calendar.current.date(byAdding: .month, value: 1, to: date)!
