@@ -32,9 +32,9 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostingCollectionViewCell.identifier, for: indexPath) as? HomePostingCollectionViewCell
         else { return UICollectionViewCell() }
 
-//         cell.postingText.text = self.getTotalBoardsResponse.totalGroup[indexPath.row].oneDayGroup[0].contents
-
-        cell.postingImage = 
+        // 특정 일의 data를 넣어야 표시됨
+        cell.postingText.text = self.getTotalBoardsResponse.group["2023년 01월 22일 일요일"]?[indexPath.row].contents
+        // cell.postingImage = self.getTotalBoardsResponse.group[""]?[indexPath.row].image
         cell.backgroundView = cell.cellBackgroundView
         return cell
     }

@@ -60,7 +60,7 @@ class HomePostingCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    let postingImage: UIImageView = {
+    var postingImage: UIImageView = {
         let postingImage = UIImageView()
         postingImage.image = UIImage(named: "PostingImageExample")
         postingImage.widthAnchor.constraint(equalToConstant: 82).isActive = true

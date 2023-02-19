@@ -13,8 +13,7 @@ class HomeViewController: UIViewController {
     lazy var topLabelText: String? = "\(self.userName)님의 행복 기록"
     var postingList: [String] = ["Default"]
     
-//    public var getTotalBoardsResponse = GetTotalBoardsResponse(group: oneDayGroup, orderType: "", last: true)
-
+    public var getTotalBoardsResponse = GetTotalBoardsResponse()
 
     lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -167,8 +166,8 @@ extension HomeViewController {
             case .success(let getTotalBoard):
                 if let data = getTotalBoard as? GetTotalBoardsResponse {
                     print("getTotalBoardWithAPI - success \(data)")
-//                    self.getTotalBoardsResponse = data
-                    self.homePostingCollectionView.reloadData()
+                    self.getTotalBoardsResponse = data
+                    print("\(self.getTotalBoardsResponse)")
                 } else {
                     print("response failed")
                 }
